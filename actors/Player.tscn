@@ -1,0 +1,216 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://state_machine/state_machine.gd" type="Script" id=1]
+[ext_resource path="res://actors/player/Player.gd" type="Script" id=2]
+[ext_resource path="res://actors/player/state/movement/Moving.gd" type="Script" id=3]
+[ext_resource path="res://actors/player/state/movement/Idle.gd" type="Script" id=4]
+[ext_resource path="res://actors/player/state/movement/Air.gd" type="Script" id=5]
+[ext_resource path="res://assets/models/Weapon/machine_gun/machinegun.obj" type="ArrayMesh" id=6]
+[ext_resource path="res://actors/player/state/equipment/IDLE.gd" type="Script" id=7]
+[ext_resource path="res://actors/player/state/equipment/AIM_DOWN_SIGN.gd" type="Script" id=8]
+[ext_resource path="res://actors/player/state/equipment/SHOOT.gd" type="Script" id=9]
+[ext_resource path="res://assets/ui/Crosshair.png" type="Texture" id=10]
+
+[sub_resource type="CapsuleMesh" id=1]
+mid_height = 1.5
+
+[sub_resource type="CapsuleShape" id=2]
+height = 1.5
+
+[sub_resource type="Animation" id=3]
+resource_name = "MachineGunFire"
+length = 0.08
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head/Hand/Gun:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.02, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0.15 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head/Hand/Gun:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0.101 ) ]
+}
+
+[node name="Player" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0 )
+script = ExtResource( 2 )
+default_gun_position = Vector3( 0.75, 0, -1 )
+ads_gun_position = Vector3( 0, 0.18, -1 )
+camera_sensitivity = 0.15
+gravity = 10.0
+head = NodePath("Head")
+muzzle = NodePath("Head/Hand/Gun/Muzzle")
+raycast = NodePath("Head/RayCast")
+hand = NodePath("Head/Hand")
+camera = NodePath("Head/Camera")
+gunViewPort = NodePath("PlayerUI/ViewportContainer/Viewport")
+gunCamera = NodePath("PlayerUI/ViewportContainer/Viewport/GunCam")
+animationPlayer = NodePath("AnimationPlayer")
+
+[node name="BodyShapeTesting" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.3, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.3, 0 )
+shape = SubResource( 2 )
+
+[node name="Head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.3 )
+
+[node name="Camera" type="Camera" parent="Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.3 )
+cull_mask = 1048573
+current = true
+
+[node name="RayCast" type="RayCast" parent="Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0 )
+enabled = true
+cast_to = Vector3( 0, 0, -1000 )
+
+[node name="Hand" type="Spatial" parent="Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, -1 )
+
+[node name="Gun" type="MeshInstance" parent="Head/Hand"]
+transform = Transform( -20, 0, -1.74846e-06, 0, 20, 0, 1.74846e-06, 0, -20, 0, 0, 0.101 )
+layers = 2
+mesh = ExtResource( 6 )
+skeleton = NodePath("../../..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+material/30 = null
+material/31 = null
+material/32 = null
+material/33 = null
+material/34 = null
+material/35 = null
+material/36 = null
+material/37 = null
+material/38 = null
+material/39 = null
+material/40 = null
+material/41 = null
+material/42 = null
+material/43 = null
+
+[node name="Muzzle" type="Spatial" parent="Head/Hand/Gun"]
+transform = Transform( 1, 0, -1.98952e-13, 0, 1, 0, 1.98952e-13, 0, 1, 1.11759e-08, 0.00599999, 0.0712581 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="MovementStateMachine" type="Node" parent="."]
+script = ExtResource( 1 )
+initial_state = NodePath("IDLE")
+
+[node name="IDLE" type="Node" parent="MovementStateMachine"]
+script = ExtResource( 4 )
+
+[node name="AIR" type="Node" parent="MovementStateMachine"]
+script = ExtResource( 5 )
+
+[node name="MOVE" type="Node" parent="MovementStateMachine"]
+script = ExtResource( 3 )
+
+[node name="EquipmentStateMachine" type="Node" parent="."]
+script = ExtResource( 1 )
+initial_state = NodePath("IDLE")
+
+[node name="IDLE" type="Node" parent="EquipmentStateMachine"]
+script = ExtResource( 7 )
+
+[node name="SHOOT" type="Node" parent="EquipmentStateMachine"]
+script = ExtResource( 9 )
+
+[node name="AIM_DOWN_SIGN" type="Node" parent="EquipmentStateMachine"]
+script = ExtResource( 8 )
+
+[node name="PlayerUI" type="CanvasLayer" parent="."]
+
+[node name="MainNode" type="Control" parent="PlayerUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CrossHair" type="TextureRect" parent="PlayerUI/MainNode"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 48.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="PlayerUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 7.0
+margin_bottom = 7.0
+
+[node name="Viewport" type="Viewport" parent="PlayerUI/ViewportContainer"]
+size = Vector2( 1280, 720 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="GunCam" type="Camera" parent="PlayerUI/ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.85, -0.6 )
+cull_mask = 2
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/MachineGunFire = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[connection signal="resized" from="PlayerUI/ViewportContainer" to="." method="_on_ViewportContainer_resized"]

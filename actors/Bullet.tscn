@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/models/Weapon/machine_gun/ammo_machinegun.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://actors/bullet/Bullet.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.01
+height = 0.01
+
+[node name="Bullet" type="RigidBody"]
+collision_layer = 0
+mode = 2
+gravity_scale = 0.0
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 2 )
+damage = 10
+speed = 2.0
+
+[node name="RigidCollision" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="BulletMesh" type="MeshInstance" parent="."]
+transform = Transform( 1.5, 0, 0, 0, -6.55671e-08, 1.5, 0, -1.5, -6.55671e-08, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+
+[connection signal="body_shape_entered" from="." to="." method="_on_Bullet_body_shape_entered"]
