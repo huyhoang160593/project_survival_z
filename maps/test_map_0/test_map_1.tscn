@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/textures/kenney_prototypetextures/Dark/texture_02.png" type="Texture" id=1]
 [ext_resource path="res://assets/textures/kenney_prototypetextures/Purple/texture_07.png" type="Texture" id=2]
 [ext_resource path="res://assets/textures/kenney_prototypetextures/Orange/texture_01.png" type="Texture" id=3]
+[ext_resource path="res://actors/DummyEnemy.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
@@ -24,32 +25,35 @@ uv1_triplanar = true
 [node name="Ground" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.443436, 0 )
 use_collision = true
-width = 100.0
+width = 200.0
 height = 1.0
-depth = 100.0
+depth = 200.0
 material = SubResource( 1 )
 __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Box" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 1, 16.2, 1.2, 12.7 )
+[node name="DummyEnemy6" parent="Ground" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 9.74344, -13.7013 )
+
+[node name="Box" type="CSGBox" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 1, 16.2, 1.64344, 12.7 )
 use_collision = true
 width = 3.0
 height = 3.0
 depth = 3.0
 material = SubResource( 2 )
 
-[node name="Box2" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.7, 0, 0, 0, 1, 10.5, 1.8, 12.1 )
+[node name="Box2" type="CSGBox" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 0.7, 0, 0, 0, 1, 10.5, 2.24344, 12.1 )
 use_collision = true
 width = 7.932
 height = 4.798
 depth = 17.142
 material = SubResource( 2 )
 
-[node name="Slope" type="CSGPolygon" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8, 0.09, -3.3 )
+[node name="Slope" type="CSGPolygon" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8, 0.533436, -3.3 )
 use_collision = true
 polygon = PoolVector2Array( 0, 0, 0, 2.4, 4.5, 0, 4.5, 0 )
 depth = 3.0

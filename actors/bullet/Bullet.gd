@@ -13,3 +13,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_Bullet_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
 	queue_free()
+
+
+func _on_Timer_timeout() -> void:
+	queue_free()

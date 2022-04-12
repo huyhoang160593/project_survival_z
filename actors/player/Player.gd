@@ -27,6 +27,7 @@ export(NodePath) onready var camera = get_node(camera) as Camera
 export(NodePath) onready var gunViewPort = get_node(gunViewPort) as Viewport
 export(NodePath) onready var gunCamera = get_node(gunCamera) as Camera
 export(NodePath) onready var animationPlayer = get_node(animationPlayer) as AnimationPlayer
+export (NodePath) onready var crossHairNode = get_node(crossHairNode) as TextureRect
 
 #vectors
 var velocity: Vector3 = Vector3.ZERO
@@ -34,6 +35,8 @@ var mouseDelta: Vector2 = Vector2.ZERO
 
 func _ready():
 	_toggle_capture_mouse_mode(isCaptureMouse)
+	if gunViewPort is Viewport:
+		gunViewPort.size = get_viewport().size
 	
 func _input(event) -> void:
 	if event.is_action_pressed('ui_cancel'):
@@ -62,3 +65,7 @@ func _toggle_capture_mouse_mode(captureMouseFlag: bool) -> void:
 func _on_ViewportContainer_resized() -> void:
 	if gunViewPort is Viewport:
 		gunViewPort.size = get_viewport().size
+
+
+func _on_EquipmentStateMachine_transitioned(state_name) -> void:
+	pass # Replace with function body.

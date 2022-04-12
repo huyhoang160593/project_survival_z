@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://actors/dummy_enemy/DummyEnemy.gd" type="Script" id=1]
+[ext_resource path="res://state_machine/state_machine.gd" type="Script" id=2]
+[ext_resource path="res://actors/dummy_enemy/states/IDLE.gd" type="Script" id=3]
+[ext_resource path="res://actors/dummy_enemy/states/ALERT.gd" type="Script" id=4]
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 0.2, 0.397, 0.959 )
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="CapsuleMesh" id=2]
+material = SubResource( 1 )
+mid_height = 1.5
+
+[sub_resource type="CapsuleShape" id=3]
+height = 1.5
+
+[sub_resource type="SphereShape" id=5]
+radius = 10.0
+
+[node name="DummyEnemy" type="RigidBody"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+script = ExtResource( 1 )
+TURN_SPEED = 5
+rayCast = NodePath("RayCast")
+head = NodePath("Head")
+
+[node name="RayCast" type="RayCast" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.96046e-08, 0.96, -3.93403e-08 )
+enabled = true
+cast_to = Vector3( 10, 0, 0 )
+debug_shape_custom_color = Color( 0.423529, 0.423529, 0.423529, 1 )
+debug_shape_thickness = 5
+
+[node name="Head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Glass" type="MeshInstance" parent="Head"]
+transform = Transform( -4.22219e-08, 1.13133e-08, 0.999999, 0.258819, 0.965925, 0, -0.965926, 0.258819, -4.37114e-08, 0, 0.978, -0.93 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="TestBody" type="MeshInstance" parent="."]
+transform = Transform( -1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 3 )
+
+[node name="MovementStateMachine" type="Node" parent="."]
+script = ExtResource( 2 )
+initial_state = NodePath("IDLE")
+
+[node name="IDLE" type="Node" parent="MovementStateMachine"]
+script = ExtResource( 3 )
+
+[node name="ALERT" type="Node" parent="MovementStateMachine"]
+script = ExtResource( 4 )
+
+[node name="SightRange" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="SightRange"]
+shape = SubResource( 5 )
+
+[connection signal="body_entered" from="SightRange" to="MovementStateMachine/IDLE" method="_on_SightRange_body_entered"]
+[connection signal="body_entered" from="SightRange" to="MovementStateMachine/ALERT" method="_on_SightRange_body_entered"]
+[connection signal="body_exited" from="SightRange" to="MovementStateMachine/ALERT" method="_on_SightRange_body_exited"]

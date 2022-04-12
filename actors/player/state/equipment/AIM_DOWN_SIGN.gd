@@ -1,5 +1,6 @@
 extends PlayerState
 
+
 var state_machine_type: StateMachine = null
 var ads_mode: bool = false
 
@@ -10,6 +11,7 @@ func enter(_msg := {}) -> void:
 		state_machine_type = state_machine as StateMachine
 	if _msg.has("adsMode"):
 		ads_mode = _msg["adsMode"]
+	(player.crossHairNode as TextureRect).visible = false
 
 # Virtual function. Receives events from the `_unhandled_input()` callback.
 func handle_input(_event: InputEvent) -> void:

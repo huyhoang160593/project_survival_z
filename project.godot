@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Spatial",
+"class": "DummyEnemy",
+"language": "GDScript",
+"path": "res://actors/dummy_enemy/DummyEnemy.gd"
+}, {
+"base": "State",
+"class": "DummyEnemyState",
+"language": "GDScript",
+"path": "res://actors/dummy_enemy/dummy_enemy_state.gd"
+}, {
 "base": "KinematicBody",
 "class": "Player",
 "language": "GDScript",
@@ -35,6 +45,8 @@ _global_script_classes=[ {
 "path": "res://utilities/helper.gd"
 } ]
 _global_script_class_icons={
+"DummyEnemy": "",
+"DummyEnemyState": "",
 "Player": "",
 "PlayerState": "",
 "State": "",

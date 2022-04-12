@@ -64,6 +64,7 @@ camera = NodePath("Head/Camera")
 gunViewPort = NodePath("PlayerUI/ViewportContainer/Viewport")
 gunCamera = NodePath("PlayerUI/ViewportContainer/Viewport/GunCam")
 animationPlayer = NodePath("AnimationPlayer")
+crossHairNode = NodePath("PlayerUI/MainNode/CrossHair")
 
 [node name="BodyShapeTesting" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.3, 0 )
@@ -78,7 +79,7 @@ shape = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.3 )
 
 [node name="Camera" type="Camera" parent="Head"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0 )
 cull_mask = 1048573
 current = true
 
@@ -86,6 +87,7 @@ current = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0 )
 enabled = true
 cast_to = Vector3( 0, 0, -1000 )
+debug_shape_thickness = 1
 
 [node name="Hand" type="Spatial" parent="Head"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, -1 )
@@ -203,7 +205,7 @@ handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="GunCam" type="Camera" parent="PlayerUI/ViewportContainer/Viewport"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.85, -0.6 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.85, -0.3 )
 cull_mask = 2
 __meta__ = {
 "_editor_description_": ""

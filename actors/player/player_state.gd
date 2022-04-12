@@ -8,6 +8,7 @@ var player: Player
 
 enum { IDLE, AIR, MOVE, SHOOT, AIM_DOWN_SIGN }
 enum { MACHINE_GUN_ANIMATION }
+
 var listPlayerState = {
 	IDLE: "IDLE",
 	AIR: "AIR",

@@ -1,13 +1,18 @@
-extends PlayerState
+extends DummyEnemyState
 
 var state_machine_type: StateMachine = null
+
 
 # Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
 # is a dictionary with arbitrary data the state can use to initialize itself.
 func enter(_msg := {}) -> void:
 	if(state_machine is StateMachine):
 		state_machine_type = state_machine as StateMachine
-	(player.crossHairNode as TextureRect).visible = true
+	
+	
+func _on_SightRange_body_entered(body: Node) -> void:
+	if body is Player:
+		state_machine_type.transition_to(movementStates[ALERT])
 
 # Virtual function. Receives events from the `_unhandled_input()` callback.
 func handle_input(_event: InputEvent) -> void:
@@ -16,12 +21,7 @@ func handle_input(_event: InputEvent) -> void:
 
 # Virtual function. Corresponds to the `_process()` callback.
 func update(_delta: float) -> void:
-#	var playerHand = player.hand as Spatial
-	
-	if Input.is_action_just_pressed('shoot'):
-		state_machine_type.transition_to(listEquipState[SHOOT], {prevState = IDLE})
-	elif Input.is_action_just_pressed('aim_down_sign'):
-		state_machine_type.transition_to(listEquipState[AIM_DOWN_SIGN], {adsMode = true})
+	pass
 
 
 # Virtual function. Corresponds to the `_physics_process()` callback.
@@ -33,3 +33,5 @@ func physics_update(_delta: float) -> void:
 # to clean up the state.
 func exit() -> void:
 	pass
+
+

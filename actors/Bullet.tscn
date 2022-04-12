@@ -28,4 +28,10 @@ material/1 = null
 material/2 = null
 material/3 = null
 
+[node name="TimerForDistance" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
 [connection signal="body_shape_entered" from="." to="." method="_on_Bullet_body_shape_entered"]
+[connection signal="timeout" from="TimerForDistance" to="." method="_on_Timer_timeout"]
