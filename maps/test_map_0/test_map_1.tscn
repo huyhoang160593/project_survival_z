@@ -34,7 +34,8 @@ __meta__ = {
 }
 
 [node name="DummyEnemy6" parent="Ground" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 9.74344, -13.7013 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 2.33344, -13.7013 )
+mode = 2
 
 [node name="Box" type="CSGBox" parent="Ground"]
 transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 1, 16.2, 1.64344, 12.7 )
@@ -58,3 +59,26 @@ use_collision = true
 polygon = PoolVector2Array( 0, 0, 0, 2.4, 4.5, 0, 4.5, 0 )
 depth = 3.0
 material = SubResource( 3 )
+
+[node name="Enemies" type="Spatial" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.443436, 0 )
+
+[node name="DummyEnemy" parent="Ground/Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 9.3, 22.8987 )
+rayCast = NodePath("Head/RayCast")
+
+[node name="DummyEnemy2" parent="Ground/Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 9.3, 26.1987 )
+rayCast = NodePath("Head/RayCast")
+
+[node name="DummyEnemy3" parent="Ground/Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 9.3, 19.2987 )
+rayCast = NodePath("Head/RayCast")
+
+[node name="DummyEnemy4" parent="Ground/Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5099, 9.3, 22.8987 )
+rayCast = NodePath("Head/RayCast")
+
+[node name="DummyEnemy5" parent="Ground/Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9099, 9.3, 22.8987 )
+rayCast = NodePath("Head/RayCast")

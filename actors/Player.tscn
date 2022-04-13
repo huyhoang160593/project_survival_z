@@ -22,7 +22,7 @@ resource_name = "MachineGunFire"
 length = 0.08
 step = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath("Head/Hand/Gun:translation")
+tracks/0/path = NodePath("Head/Hand/MachineGun:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -37,7 +37,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=4]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Head/Hand/Gun:translation")
+tracks/0/path = NodePath("Head/Hand/MachineGun:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -57,7 +57,7 @@ ads_gun_position = Vector3( 0, 0.18, -1 )
 camera_sensitivity = 0.15
 gravity = 10.0
 head = NodePath("Head")
-muzzle = NodePath("Head/Hand/Gun/Muzzle")
+muzzle = NodePath("Head/Hand/MachineGun/Muzzle")
 raycast = NodePath("Head/RayCast")
 hand = NodePath("Head/Hand")
 camera = NodePath("Head/Camera")
@@ -92,7 +92,7 @@ debug_shape_thickness = 1
 [node name="Hand" type="Spatial" parent="Head"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, -1 )
 
-[node name="Gun" type="MeshInstance" parent="Head/Hand"]
+[node name="MachineGun" type="MeshInstance" parent="Head/Hand"]
 transform = Transform( -20, 0, -1.74846e-06, 0, 20, 0, 1.74846e-06, 0, -20, 0, 0, 0.101 )
 layers = 2
 mesh = ExtResource( 6 )
@@ -142,8 +142,8 @@ material/41 = null
 material/42 = null
 material/43 = null
 
-[node name="Muzzle" type="Spatial" parent="Head/Hand/Gun"]
-transform = Transform( 1, 0, -1.98952e-13, 0, 1, 0, 1.98952e-13, 0, 1, 1.11759e-08, 0.00599999, 0.0712581 )
+[node name="Muzzle" type="Spatial" parent="Head/Hand/MachineGun"]
+transform = Transform( 1, 0, -2.41585e-13, 0, 1, 0, 2.41585e-13, 0, 1, 3.72529e-09, 0.00599999, 0.0697581 )
 __meta__ = {
 "_editor_description_": ""
 }

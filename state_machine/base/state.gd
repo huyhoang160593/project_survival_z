@@ -5,7 +5,7 @@ extends Node
 # Reference to the state machine, to call its `transition_to()` method directly.
 # That's one unorthodox detail of our state implementation, as it adds a dependency between the
 # state and the state machine objects, but we found it to be most efficient for our needs.
-# The state machine node will set it.
+# The state machine node will set it, but their don't have type autocomplete in code so we will infer the type later in child class of this.
 var state_machine = null
 
 # Virtual function. Receives events from the `_unhandled_input()` callback.
@@ -22,8 +22,12 @@ func update(_delta: float) -> void:
 func physics_update(_delta: float) -> void:
 	pass
 
-
 # Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
+# is a dictionary with arbitrary data the state can use to initialize itself. We will use this function to append type for the actice_state_machine in child classes.
+func before_enter(_msg := {}) -> void:
+	pass
+
+# Virtual function. It call inside before_enter() function and take _msg from state machine . The `msg` parameter
 # is a dictionary with arbitrary data the state can use to initialize itself.
 func enter(_msg := {}) -> void:
 	pass

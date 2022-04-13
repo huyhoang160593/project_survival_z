@@ -9,6 +9,8 @@ var movementStates = {
 
 # Typed reference to the DummyEnemy node.
 var enemy: DummyEnemy
+# Typed reference to the state machine node.
+var active_state_machine: StateMachine
 
 func _ready() -> void:
 	# The states are children of the `Player` node so their `_ready()` callback will execute first.
@@ -21,3 +23,8 @@ func _ready() -> void:
 	# in a scene other than `Player.tscn`, which would be unintended. This can
 	# help prevent some bugs that are difficult to understand.
 	assert(enemy != null)
+	
+# Override this function to pass state_machine to active_state_machine for autocomplete, and we will use that in the child classes and call enter so the child node don't need to override this
+func before_enter(_msg := {}) -> void:
+	active_state_machine = state_machine
+	enter(_msg)

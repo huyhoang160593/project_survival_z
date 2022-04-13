@@ -5,6 +5,8 @@ extends State
 
 # Typed reference to the player node.
 var player: Player
+# Typed reference to the state machine node.
+var active_state_machine: StateMachine
 
 enum { IDLE, AIR, MOVE, SHOOT, AIM_DOWN_SIGN }
 enum { MACHINE_GUN_ANIMATION }
@@ -32,7 +34,14 @@ func _ready() -> void:
 	# The `as` keyword casts the `owner` variable to the `Player` type.
 	# If the `owner` is not a `Player`, we'll get `null`.
 	player = owner as Player
+	
 	# This check will tell us if we inadvertently assign a derived state script
 	# in a scene other than `Player.tscn`, which would be unintended. This can
 	# help prevent some bugs that are difficult to understand.
 	assert(player != null)
+	
+# Override this function to pass state_machine to active_state_machine for autocomplete, and we will use that in the child classes and call enter so the child node don't need to override this
+func before_enter(_msg := {}) -> void:
+	active_state_machine = state_machine
+	enter(_msg)
+
