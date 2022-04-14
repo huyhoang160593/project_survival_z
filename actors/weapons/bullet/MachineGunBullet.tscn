@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://actors/bullet/Bullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://actors/weapons/bullet/Bullet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/models/Weapon/machine_gun/ammo_machinegun.obj" type="ArrayMesh" id=2]
 
 [node name="MachineGunBullet" instance=ExtResource( 1 )]

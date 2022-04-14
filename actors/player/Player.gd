@@ -20,7 +20,6 @@ export(float, 0, 20, 0.1) var acceleration := 6.0
 export(float, 0, 50, 0.5) var jump_impulse := 5.0
 
 export(NodePath) onready var head = get_node(head) as Spatial
-export(NodePath) onready var muzzle = get_node(muzzle) as Spatial
 export(NodePath) onready var raycast = get_node(raycast) as RayCast
 export(NodePath) onready var hand = get_node(hand) as Spatial
 export(NodePath) onready var camera = get_node(camera) as Camera

@@ -3,12 +3,7 @@
 [ext_resource path="res://assets/textures/kenney_prototypetextures/Dark/texture_02.png" type="Texture" id=1]
 [ext_resource path="res://assets/textures/kenney_prototypetextures/Purple/texture_07.png" type="Texture" id=2]
 [ext_resource path="res://assets/textures/kenney_prototypetextures/Orange/texture_01.png" type="Texture" id=3]
-[ext_resource path="res://actors/DummyEnemy.tscn" type="PackedScene" id=4]
-
-[sub_resource type="SpatialMaterial" id=1]
-albedo_texture = ExtResource( 2 )
-uv1_scale = Vector3( 0.5, 0.5, 0.5 )
-uv1_triplanar = true
+[ext_resource path="res://actors/dummy_enemy/DummyEnemy.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_texture = ExtResource( 3 )
@@ -20,7 +15,60 @@ albedo_texture = ExtResource( 1 )
 uv1_scale = Vector3( 0.5, 0.5, 0.5 )
 uv1_triplanar = true
 
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+
 [node name="Map" type="Spatial"]
+
+[node name="DummyEnemy6" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 1.89, -13.7013 )
+
+[node name="Enemies" type="Spatial" parent="."]
+
+[node name="DummyEnemy" parent="Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 9.3, 22.8987 )
+rayCast = NodePath("Head/RayCast")
+
+[node name="DummyEnemy2" parent="Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 9.3, 26.1987 )
+rayCast = NodePath("Head/RayCast")
+
+[node name="DummyEnemy3" parent="Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 9.3, 19.2987 )
+rayCast = NodePath("Head/RayCast")
+
+[node name="DummyEnemy4" parent="Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5099, 9.3, 22.8987 )
+rayCast = NodePath("Head/RayCast")
+
+[node name="DummyEnemy5" parent="Enemies" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9099, 9.3, 22.8987 )
+rayCast = NodePath("Head/RayCast")
+
+[node name="Box" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 1, 16.2, 1.2, 12.7 )
+use_collision = true
+width = 3.0
+height = 3.0
+depth = 3.0
+material = SubResource( 2 )
+
+[node name="Box2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.7, 0, 0, 0, 1, 10.5, 1.8, 12.1 )
+use_collision = true
+width = 7.932
+height = 4.798
+depth = 17.142
+material = SubResource( 2 )
+
+[node name="Slope" type="CSGPolygon" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8, 0.09, -3.3 )
+use_collision = true
+polygon = PoolVector2Array( 0, 0, 0, 2.4, 4.5, 0, 4.5, 0 )
+depth = 3.0
+material = SubResource( 3 )
 
 [node name="Ground" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.443436, 0 )
@@ -33,52 +81,9 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="DummyEnemy6" parent="Ground" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 2.33344, -13.7013 )
-mode = 2
-
-[node name="Box" type="CSGBox" parent="Ground"]
-transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 1, 16.2, 1.64344, 12.7 )
+[node name="Floor" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3, 7.2, 0 )
 use_collision = true
-width = 3.0
-height = 3.0
-depth = 3.0
-material = SubResource( 2 )
-
-[node name="Box2" type="CSGBox" parent="Ground"]
-transform = Transform( 1, 0, 0, 0, 0.7, 0, 0, 0, 1, 10.5, 2.24344, 12.1 )
-use_collision = true
-width = 7.932
-height = 4.798
-depth = 17.142
-material = SubResource( 2 )
-
-[node name="Slope" type="CSGPolygon" parent="Ground"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8, 0.533436, -3.3 )
-use_collision = true
-polygon = PoolVector2Array( 0, 0, 0, 2.4, 4.5, 0, 4.5, 0 )
-depth = 3.0
-material = SubResource( 3 )
-
-[node name="Enemies" type="Spatial" parent="Ground"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.443436, 0 )
-
-[node name="DummyEnemy" parent="Ground/Enemies" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 9.3, 22.8987 )
-rayCast = NodePath("Head/RayCast")
-
-[node name="DummyEnemy2" parent="Ground/Enemies" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 9.3, 26.1987 )
-rayCast = NodePath("Head/RayCast")
-
-[node name="DummyEnemy3" parent="Ground/Enemies" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 9.3, 19.2987 )
-rayCast = NodePath("Head/RayCast")
-
-[node name="DummyEnemy4" parent="Ground/Enemies" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5099, 9.3, 22.8987 )
-rayCast = NodePath("Head/RayCast")
-
-[node name="DummyEnemy5" parent="Ground/Enemies" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9099, 9.3, 22.8987 )
-rayCast = NodePath("Head/RayCast")
+width = 30.0
+height = 0.5
+depth = 30.0

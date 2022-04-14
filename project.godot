@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://actors/player/player_state.gd"
 }, {
+"base": "MeshInstance",
+"class": "ProjectileGun",
+"language": "GDScript",
+"path": "res://actors/weapons/projectile/ProjectileGun.gd"
+}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
@@ -49,6 +54,7 @@ _global_script_class_icons={
 "DummyEnemyState": "",
 "Player": "",
 "PlayerState": "",
+"ProjectileGun": "",
 "State": "",
 "StateMachine": "",
 "StaticHelper": ""
@@ -59,6 +65,10 @@ _global_script_class_icons={
 config/name="Project Survival F"
 run/main_scene="res://game_world.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GameEvents="*res://game_events.gd"
 
 [display]
 
