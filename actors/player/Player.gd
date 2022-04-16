@@ -44,7 +44,7 @@ func _input(event) -> void:
 	if isCaptureMouse:
 		_aim(event)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	gunCamera.global_transform = camera.global_transform
 	
 func _aim(event: InputEvent) -> void:
@@ -64,7 +64,3 @@ func _toggle_capture_mouse_mode(captureMouseFlag: bool) -> void:
 func _on_ViewportContainer_resized() -> void:
 	if gunViewPort is Viewport:
 		gunViewPort.size = get_viewport().size
-
-
-func _on_EquipmentStateMachine_transitioned(state_name) -> void:
-	pass # Replace with function body.

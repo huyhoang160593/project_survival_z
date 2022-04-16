@@ -1,7 +1,5 @@
 extends PlayerState
 
-#onready var bulletScene = preload('res://actors/bullet/MachineGunBullet.tscn')
-
 var playerRaycast: RayCast = null
 
 var _prev_state: int = IDLE
@@ -15,7 +13,7 @@ func enter(_msg := {}) -> void:
 	playerRaycast = player.raycast as RayCast
 	if _msg.has("prevState"):
 		_prev_state = _msg["prevState"]
-	GameEvents.emit_signal('gun_shot_event')
+	GameEvents.emit_signal('gun_shot_event', playerRaycast.get_collision_point(), playerRaycast.get_collision_normal())
 
 # Virtual function. Corresponds to the `_physics_process()` callback.
 #func physics_update(_delta: float) -> void:

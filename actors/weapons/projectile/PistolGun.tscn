@@ -1,9 +1,40 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://actors/weapons/projectile/ProjectileGun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/models/Weapon/pistol_gun/pistol.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://actors/weapons/bullet/PistolBullet.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "gun_shot"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0.101 ), Vector3( 0, 0, 0.25 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ), Vector3( -20, -180, 0 ), Vector3( 0, -180, 0 ) ]
+}
 
 [node name="PistolGun" instance=ExtResource( 1 )]
+transform = Transform( -20, 0, 1.74846e-06, 0, 20, 0, -1.74846e-06, 0, -20, 0, 0, 0 )
 mesh = ExtResource( 2 )
 material/0 = null
 material/1 = null
@@ -19,6 +50,11 @@ material/10 = null
 material/11 = null
 material/12 = null
 material/13 = null
+animationPlayer = NodePath("AnimationPlayer")
+bulletScene = ExtResource( 3 )
 
 [node name="Muzzle" parent="." index="0"]
 transform = Transform( 1, 0, -3.55271e-13, 0, 1, 0, 3.55271e-13, 0, 1, 6.87252e-09, 0.0135, 0.0337581 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+anims/gun_shot = SubResource( 1 )

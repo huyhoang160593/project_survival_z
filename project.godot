@@ -19,6 +19,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://actors/dummy_enemy/dummy_enemy_state.gd"
 }, {
+"base": "Area",
+"class": "ItemPickup",
+"language": "GDScript",
+"path": "res://actors/pickup/Pickup.gd"
+}, {
 "base": "KinematicBody",
 "class": "Player",
 "language": "GDScript",
@@ -28,6 +33,11 @@ _global_script_classes=[ {
 "class": "PlayerState",
 "language": "GDScript",
 "path": "res://actors/player/player_state.gd"
+}, {
+"base": "RigidBody",
+"class": "ProjectileBullet",
+"language": "GDScript",
+"path": "res://actors/weapons/bullet/Bullet.gd"
 }, {
 "base": "MeshInstance",
 "class": "ProjectileGun",
@@ -52,8 +62,10 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "DummyEnemy": "",
 "DummyEnemyState": "",
+"ItemPickup": "",
 "Player": "",
 "PlayerState": "",
+"ProjectileBullet": "",
 "ProjectileGun": "",
 "State": "",
 "StateMachine": "",

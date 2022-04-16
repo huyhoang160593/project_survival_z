@@ -3,7 +3,7 @@
 [ext_resource path="res://actors/weapons/projectile/ProjectileGun.gd" type="Script" id=1]
 
 [node name="ProjectileGun" type="MeshInstance"]
-transform = Transform( -20, 0, -1.74846e-06, 0, 20, 0, 1.74846e-06, 0, -20, 0, 0, 0.101 )
+transform = Transform( -20, 0, 1.74846e-06, 0, 20, 0, -1.74846e-06, 0, -20, 0, 0, 0.101 )
 layers = 2
 skeleton = NodePath("../../..")
 script = ExtResource( 1 )

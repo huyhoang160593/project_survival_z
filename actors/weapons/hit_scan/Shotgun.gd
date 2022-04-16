@@ -14,7 +14,7 @@ func _ready() -> void:
 		(ray as RayCast).cast_to.y = rand_range(spread, -spread)
 	GameEvents.connect('gun_shot_event', self,"_on_gun_shot_handle")
 	
-func _on_gun_shot_handle() -> void:
+func _on_gun_shot_handle(_collision_point: Vector3) -> void:
 	fire_shotgun()
 	
 func fire_shotgun() -> void:
@@ -31,10 +31,11 @@ func fire_shotgun() -> void:
 
 		# Check ray collision_normal vector to make sure the bullet look at right "up" vector at look_at() function
 		# The "up" vector should be LEFT or RIGHT when the decal is in the ground or in the ceiling
+		var lookAtPosition: Vector3 = rayTyped.get_collision_point() + rayTyped.get_collision_normal()
 		if rayTyped.get_collision_normal() == Vector3.UP or rayTyped.get_collision_normal() == Vector3.DOWN:
-			decalInstance.look_at(rayTyped.get_collision_point() + rayTyped.get_collision_normal(), Vector3.RIGHT)
+			decalInstance.look_at(lookAtPosition, Vector3.RIGHT)
 		else:
-			decalInstance.look_at(rayTyped.get_collision_point() + rayTyped.get_collision_normal(), Vector3.UP)
+			decalInstance.look_at(lookAtPosition, Vector3.UP)
 
 	yield($AnimationPlayer,'animation_finished')
 	GameEvents.emit_signal('gun_shot_finished')
