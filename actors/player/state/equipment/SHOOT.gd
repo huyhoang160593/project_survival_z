@@ -1,7 +1,5 @@
 extends PlayerState
 
-var playerRaycast: RayCast = null
-
 var _prev_state: int = IDLE
 
 func _ready() -> void:
@@ -10,16 +8,15 @@ func _ready() -> void:
 # Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
 # is a dictionary with arbitrary data the state can use to initialize itself.
 func enter(_msg := {}) -> void:
-	playerRaycast = player.raycast as RayCast
 	if _msg.has("prevState"):
 		_prev_state = _msg["prevState"]
-	GameEvents.emit_signal('gun_shot_event', playerRaycast.get_collision_point(), playerRaycast.get_collision_normal())
 
 # Virtual function. Corresponds to the `_physics_process()` callback.
-#func physics_update(_delta: float) -> void:
-#	var bulletInstance = bulletScene.instance()
-#	playerMuzzle.add_child(bulletInstance)
-#	bulletInstance.look_at(playerRaycast.get_collision_point(), Vector3.UP)
+func physics_update(_delta: float) -> void:
+	if Input.is_action_pressed('shoot'):
+		GameEvents.emit_signal('gun_shot_event', player.raycast)
+	else: 
+		GameEvents.emit_signal('gun_shot_finished')
 	
 	
 func on_gun_shot_finished_handle() -> void:

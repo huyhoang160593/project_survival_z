@@ -6,8 +6,8 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "gun_shot"
-length = 0.2
-step = 0.05
+length = 0.08
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
 tracks/0/interp = 1
@@ -15,10 +15,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.08 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0.101 ), Vector3( 0, 0, 0.25 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0.101 ), Vector3( 0, 0, 0.25 ) ]
 }
 
 [node name="MachineGun" instance=ExtResource( 2 )]
@@ -70,6 +70,7 @@ material/43 = null
 animationPlayer = NodePath("AnimationPlayer")
 shootingType = 1
 bulletScene = ExtResource( 3 )
+recoilArrays = PoolVector2Array( 0, 0, -0.121, 0.22, 0.1, -0.31, -0.05, -0.132, -0.192, 0.07, 0.31, 0.23 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 anims/gun_shot = SubResource( 1 )
