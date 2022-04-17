@@ -19,3 +19,16 @@ static func get_movement_direction(playerTranformBasis: Basis) -> Vector3:
 	# Get the direction	
 	movement_vector = forward_movement + sideways_movement
 	return movement_vector.normalized()
+
+static func add_spray_variation(variation_vector2: Vector2, normal_vector: Vector3) -> Vector3:
+	match normal_vector:
+		Vector3.LEFT,Vector3.RIGHT:
+			return Vector3(0, variation_vector2.x, variation_vector2.y)
+		Vector3.UP,Vector3.DOWN:
+			return Vector3(variation_vector2.x, 0, variation_vector2.y)
+	return Vector3(variation_vector2.x, variation_vector2.y, 0)
+
+static func is_in_right_position(playerHandTransformOrigin: Vector3, playerHandPositionFixed: Vector3) -> bool:
+	if is_equal_approx((playerHandTransformOrigin - playerHandPositionFixed).length(), 0.0):
+		return true
+	return false

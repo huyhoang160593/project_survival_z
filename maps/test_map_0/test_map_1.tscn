@@ -22,31 +22,6 @@ uv1_triplanar = true
 
 [node name="Map" type="Spatial"]
 
-[node name="DummyEnemy6" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 1.89, -13.7013 )
-
-[node name="Enemies" type="Spatial" parent="."]
-
-[node name="DummyEnemy" parent="Enemies" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 9.3, 22.8987 )
-rayCast = NodePath("Head/RayCast")
-
-[node name="DummyEnemy2" parent="Enemies" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 9.3, 26.1987 )
-rayCast = NodePath("Head/RayCast")
-
-[node name="DummyEnemy3" parent="Enemies" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2099, 9.3, 19.2987 )
-rayCast = NodePath("Head/RayCast")
-
-[node name="DummyEnemy4" parent="Enemies" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5099, 9.3, 22.8987 )
-rayCast = NodePath("Head/RayCast")
-
-[node name="DummyEnemy5" parent="Enemies" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9099, 9.3, 22.8987 )
-rayCast = NodePath("Head/RayCast")
-
 [node name="Box" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.6, 0, 0, 0, 1, 16.2, 1.2, 12.7 )
 use_collision = true
@@ -87,3 +62,6 @@ use_collision = true
 width = 30.0
 height = 0.5
 depth = 30.0
+
+[node name="DummyEnemy" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.97, 2.1, 0 )

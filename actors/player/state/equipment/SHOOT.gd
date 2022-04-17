@@ -3,7 +3,9 @@ extends PlayerState
 var _prev_state: int = IDLE
 
 func _ready() -> void:
-	GameEvents.connect('gun_shot_finished',self, "on_gun_shot_finished_handle")
+	var error_code = GameEvents.connect('gun_shot_finished',self, "on_gun_shot_finished_handle")
+	if error_code != 0:
+		print_debug("ERROR: ", error_code)
 
 # Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
 # is a dictionary with arbitrary data the state can use to initialize itself.

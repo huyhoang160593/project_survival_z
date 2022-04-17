@@ -5,27 +5,9 @@ extends PlayerState
 func enter(_msg := {}) -> void:
 	(player.crossHairNode as TextureRect).visible = true
 
-# Virtual function. Receives events from the `_unhandled_input()` callback.
-func handle_input(_event: InputEvent) -> void:
-	pass
-
-
 # Virtual function. Corresponds to the `_process()` callback.
 func update(_delta: float) -> void:
-#	var playerHand = player.hand as Spatial
-	
-	if Input.is_action_just_pressed('shoot'):
+	if Input.is_action_just_pressed('shoot') and StaticHelper.is_in_right_position(player.hand.transform.origin, player.default_gun_position):
 		active_state_machine.transition_to(listEquipState[SHOOT], {prevState = IDLE})
 	elif Input.is_action_just_pressed('aim_down_sign'):
 		active_state_machine.transition_to(listEquipState[AIM_DOWN_SIGN], {adsMode = true})
-
-
-# Virtual function. Corresponds to the `_physics_process()` callback.
-func physics_update(_delta: float) -> void:
-	pass
-
-
-# Virtual function. Called by the state machine before changing the active state. Use this function
-# to clean up the state.
-func exit() -> void:
-	pass

@@ -1,33 +1,41 @@
 extends PlayerState
 
 var ads_mode: bool = false
+var playerHand: Spatial = null
+var playerCamera: Camera = null
 
 # Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
 # is a dictionary with arbitrary data the state can use to initialize itself.
 func enter(_msg := {}) -> void:
+	playerHand = player.hand as Spatial
+	playerCamera = player.camera as Camera
+	(player.crossHairNode as TextureRect).visible = false
+	
 	if _msg.has("adsMode"):
 		ads_mode = _msg["adsMode"]
-	(player.crossHairNode as TextureRect).visible = false
+	
+
 
 # Virtual function. Corresponds to the `_process()` callback.
 func update(_delta: float) -> void:
 	if Input.is_action_just_pressed('aim_down_sign'):
 		ads_mode = not ads_mode
-	if Input.is_action_just_pressed('shoot'):
+	if Input.is_action_just_pressed('shoot') and StaticHelper.is_in_right_position(playerHand.transform.origin, player.ads_gun_position):
 		active_state_machine.transition_to(listEquipState[SHOOT], {prevState = AIM_DOWN_SIGN})
-		
-	var playerHand = player.hand as Spatial
-	var playerCamera = player.camera as Camera
 	
-	transform_gun_position(ads_mode,playerHand,playerCamera, _delta)
+	_transform_gun_position(ads_mode,playerHand,playerCamera, _delta)
 
-	if is_equal_approx((playerHand.transform.origin - player.default_gun_position).length(), 0.0):
+	if StaticHelper.is_in_right_position(playerHand.transform.origin, player.default_gun_position):
 		active_state_machine.transition_to(listEquipState[IDLE])
 	
-func transform_gun_position(isInAdsMode: bool, playerHand: Spatial, playerCamera: Camera, delta: float) -> void:
+func _transform_gun_position(isInAdsMode: bool, player_hand: Spatial, player_camera: Camera, delta: float) -> void:
 	if isInAdsMode:
-		playerHand.transform.origin = playerHand.transform.origin.linear_interpolate(player.ads_gun_position, player.ADS_LERP * delta)
-		playerCamera.fov = lerp(playerCamera.fov, player.FOV_ADS, player.ADS_LERP * delta)
+		player_hand.transform.origin = player_hand.transform.origin.linear_interpolate(player.ads_gun_position, player.ADS_LERP * delta)
+		player_camera.fov = lerp(player_camera.fov, player.FOV_ADS, player.ADS_LERP * delta)
 	else: 
-		playerHand.transform.origin = playerHand.transform.origin.linear_interpolate(player.default_gun_position, player.ADS_LERP * delta)
-		playerCamera.fov = lerp(playerCamera.fov, player.FOV_DEFAULT, player.ADS_LERP * delta)
+		player_hand.transform.origin = player_hand.transform.origin.linear_interpolate(player.default_gun_position, player.ADS_LERP * delta)
+		player_camera.fov = lerp(player_camera.fov, player.FOV_DEFAULT, player.ADS_LERP * delta)
+
+
+func _on_Player_gun_index_change() -> void:
+	ads_mode = not ads_mode

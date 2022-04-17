@@ -52,9 +52,13 @@ material/12 = null
 material/13 = null
 animationPlayer = NodePath("AnimationPlayer")
 bulletScene = ExtResource( 3 )
+recoilArrays = PoolVector2Array( 0, 0, -0.2, -0.4, 0.6, 0.1, -0.3, 0.7, -0.8, 0.2 )
 
 [node name="Muzzle" parent="." index="0"]
 transform = Transform( 1, 0, -3.55271e-13, 0, 1, 0, 3.55271e-13, 0, 1, 6.87252e-09, 0.0135, 0.0337581 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 anims/gun_shot = SubResource( 1 )
+
+[node name="HeatTimer" parent="." index="2"]
+wait_time = 0.375

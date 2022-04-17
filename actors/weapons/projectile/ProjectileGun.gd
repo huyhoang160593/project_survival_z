@@ -18,15 +18,17 @@ var heatValue = recoilArrays.size()
 
 func _ready() -> void:
 	randomize()
-	GameEvents.connect('gun_shot_event', self, "_on_gun_shot_event_handle")
+	var error_code = GameEvents.connect('gun_shot_event', self, "_on_gun_shot_event_handle")
+	if error_code != 0:
+		print_debug("ERROR: ", error_code)
 	
 func _on_gun_shot_event_handle(playerRaycast: RayCast):
-	if shootingType == ShootingType.BURST:
+	if shootingType == ShootingType.BURST and self.visible:
 		if not animationPlayer.is_playing():
 			_create_bullet(playerRaycast)
 			_add_heat_value()
 		animationPlayer.play(GUN_SHOT_ANIMATION)
-	elif shootingType == ShootingType.SINGLE:
+	elif shootingType == ShootingType.SINGLE and self.visible:
 		if not animationPlayer.is_playing():
 			_create_bullet(playerRaycast)
 			_add_heat_value()
@@ -35,11 +37,8 @@ func _on_gun_shot_event_handle(playerRaycast: RayCast):
 		
 func _create_bullet(playerRaycast: RayCast) -> void:
 	var newCollisionPoint = playerRaycast.get_collision_point() \
-		+ add_spray_variation(
-			recoilArrays[heatValue] \
-			+ Vector2(
-				rand_range(MAX_VARIATION,-MAX_VARIATION), rand_range(MAX_VARIATION,-MAX_VARIATION)
-			),
+		+ StaticHelper.add_spray_variation(
+			_generated_new_spray_point(),
 			playerRaycast.get_collision_normal()
 		)
 	var bulletInstance: ProjectileBullet = bulletScene.instance()
@@ -48,16 +47,20 @@ func _create_bullet(playerRaycast: RayCast) -> void:
 	
 	bulletInstance.look_at(newCollisionPoint, Vector3.UP)
 	
-func add_spray_variation(variation_vector2: Vector2, normal_vector: Vector3) -> Vector3:
-	match normal_vector:
-		Vector3.LEFT,Vector3.RIGHT:
-			return Vector3(0, variation_vector2.x, variation_vector2.y)
-		Vector3.UP,Vector3.DOWN:
-			return Vector3(variation_vector2.x, 0, variation_vector2.y)
-	return Vector3(variation_vector2.x, variation_vector2.y, 0)
+func _generated_new_spray_point() -> Vector2:
+	if heatValue == 0:
+		return recoilArrays[heatValue]
+	elif heatValue < recoilArrays.size() - 1:
+		return recoilArrays[heatValue] \
+			+ Vector2(
+				rand_range(MAX_VARIATION,-MAX_VARIATION), rand_range(MAX_VARIATION,-MAX_VARIATION)
+			)
+	return Vector2(
+				rand_range(MAX_VARIATION,-MAX_VARIATION), rand_range(MAX_VARIATION,-MAX_VARIATION)
+			)
 
 func _add_heat_value() -> void:
-	if heatValue < recoilArrays.size() - 1:
+	if heatValue < 100:
 		heatValue += 1
 	heatTimer.start()
 
