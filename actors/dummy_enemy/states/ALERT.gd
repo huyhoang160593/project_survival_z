@@ -16,21 +16,11 @@ func _on_SightRange_body_exited(body: Node) -> void:
 	if(body is Player):
 		active_state_machine.transition_to(movementStates[IDLE])
 
-# Virtual function. Receives events from the `_unhandled_input()` callback.
-func handle_input(_event: InputEvent) -> void:
-	pass
-
 
 # Virtual function. Corresponds to the `_process()` callback.
 func update(_delta: float) -> void:
 	enemyHead.look_at(player.global_transform.origin, Vector3.UP)
 	enemy.rotate_y(deg2rad(enemyHead.rotation.y * enemy.TURN_SPEED))
-	pass
-
-
-# Virtual function. Corresponds to the `_physics_process()` callback.
-func physics_update(_delta: float) -> void:
-	pass
 
 
 # Virtual function. Called by the state machine before changing the active state. Use this function

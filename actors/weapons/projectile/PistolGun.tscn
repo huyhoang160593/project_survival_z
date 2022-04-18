@@ -34,7 +34,6 @@ tracks/1/keys = {
 }
 
 [node name="PistolGun" instance=ExtResource( 1 )]
-transform = Transform( -20, 0, 1.74846e-06, 0, 20, 0, -1.74846e-06, 0, -20, 0, 0, 0.101 )
 mesh = ExtResource( 2 )
 material/0 = null
 material/1 = null
@@ -53,6 +52,10 @@ material/13 = null
 animationPlayer = NodePath("AnimationPlayer")
 bulletScene = ExtResource( 3 )
 recoilArrays = PoolVector2Array( 0, 0, -0.2, -0.4, 0.6, 0.1, -0.3, 0.7, -0.8, 0.2 )
+damage = 30
+ammoSize = 7
+capacity = 40
+reloadTime = 2.2
 
 [node name="Muzzle" parent="." index="0"]
 transform = Transform( 1, 0, -3.55271e-13, 0, 1, 0, 3.55271e-13, 0, 1, 6.87252e-09, 0.0135, 0.0337581 )

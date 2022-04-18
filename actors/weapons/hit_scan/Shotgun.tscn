@@ -63,10 +63,14 @@ tracks/1/keys = {
 [node name="Shotgun" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6 )
 script = ExtResource( 1 )
+damage = 15
 spread = 2
+ammoSize = 4
+capacity = 45
+reloadTime = 2.0
 bulletDecal = ExtResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="ShotgunMesh" type="MeshInstance" parent="."]
 transform = Transform( -20, 0, -3.01992e-06, 0, 20, 0, 3.01992e-06, 0, -20, 0, 0, 0.101 )
 layers = 2
 mesh = ExtResource( 2 )

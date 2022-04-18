@@ -1,11 +1,7 @@
 class_name Player
 extends KinematicBody
 
-signal gun_index_change
-
-enum WeaponIndex {
-	MAIN, SECOND, MELEE
-}
+enum Weapon { NONE, MAIN, SECOND, MELEE }
 
 const MIN_CAMERA_ANGLE = -60
 const MAX_CAMERA_ANGLE = 85
@@ -15,8 +11,8 @@ const ADS_LERP = 30
 
 var isCaptureMouse = true
 
-export(WeaponIndex) var currentWeapon
-var previousWeapon = currentWeapon
+export(Weapon) var currentWeapon
+var previousWeapon = Weapon.NONE
 
 export(Vector3) var default_gun_position
 export(Vector3) var ads_gun_position
@@ -56,36 +52,11 @@ func _input(event) -> void:
 	
 func _process(_delta: float) -> void:
 	gunCamera.global_transform = camera.global_transform
-	if Input.is_action_just_pressed('main_weapon'):
-		if currentWeapon != WeaponIndex.MAIN:
-			previousWeapon = currentWeapon
-			currentWeapon = WeaponIndex.MAIN
-			emit_signal('gun_index_change')
-	elif Input.is_action_just_pressed('second_weapon'):
-		if currentWeapon != WeaponIndex.SECOND:
-			previousWeapon = currentWeapon
-			currentWeapon = WeaponIndex.SECOND
-			emit_signal('gun_index_change')
-	elif Input.is_action_just_pressed('melee_weapon'):
-		if currentWeapon != WeaponIndex.MELEE:
-			previousWeapon = currentWeapon
-			currentWeapon = WeaponIndex.MELEE
-			emit_signal('gun_index_change')
 
 func _on_ViewportContainer_resized() -> void:
 	if gunViewPort is Viewport:
 		gunViewPort.size = get_viewport().size
-		
-func _on_Player_gun_index_change() -> void:
-	animationPlayer.play('Hide-Show_Gun')
-	yield(animationPlayer,'animation_finished')
-	if _get_weapon_node(previousWeapon) != null:
-		_get_weapon_node(previousWeapon).visible = false
-	animationPlayer.play_backwards('Hide-Show_Gun')
-	if _get_weapon_node(currentWeapon) != null:
-		_get_weapon_node(currentWeapon).visible = true
-	
-	
+
 func _aim(event: InputEvent) -> void:
 	var mouse_motion = event as InputEventMouseMotion
 	if mouse_motion:
@@ -101,25 +72,18 @@ func _toggle_capture_mouse_mode(captureMouseFlag: bool) -> void:
 
 func _get_gun_visible() -> void:
 	match currentWeapon:
-		WeaponIndex.MAIN:
+		Weapon.MAIN:
 			if hand.get_child(0).get_child_count() > 0:
-				(hand.get_child(0).get_child(0) as Spatial).visible = true
-		WeaponIndex.SECOND:
+				var currentWeaponNode:Spatial = hand.get_child(0).get_child(0) as Spatial
+				currentWeaponNode.visible = true
+				GameEvents.emit_signal('weapon_change_success', currentWeaponNode)
+		Weapon.SECOND:
 			if hand.get_child(1).get_child_count() > 0:
-				(hand.get_child(1).get_child(0) as Spatial).visible = true
-		WeaponIndex.MELEE:
-			if hand.get_child(3).get_child_count() > 0:
-				(hand.get_child(2).get_child(0) as Spatial).visible = true
-
-func _get_weapon_node(index: int) -> Spatial:
-	match index:
-		WeaponIndex.MAIN:
-			if hand.get_child(0).get_child_count() > 0:
-				return (hand.get_child(0).get_child(0) as Spatial)
-		WeaponIndex.SECOND:
-			if hand.get_child(1).get_child_count() > 0:
-				return (hand.get_child(1).get_child(0) as Spatial)
-		WeaponIndex.MELEE:
+				var currentWeaponNode:Spatial = hand.get_child(1).get_child(0) as Spatial
+				currentWeaponNode.visible = true
+				GameEvents.emit_signal('weapon_change_success', currentWeaponNode)
+		Weapon.MELEE:
 			if hand.get_child(2).get_child_count() > 0:
-				return (hand.get_child(2).get_child(0) as Spatial)
-	return null
+				var currentWeaponNode:Spatial = hand.get_child(2).get_child(0) as Spatial
+				currentWeaponNode.visible = true
+				GameEvents.emit_signal('weapon_change_success', currentWeaponNode)

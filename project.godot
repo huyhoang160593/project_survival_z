@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://actors/weapons/projectile/ProjectileGun.gd"
 }, {
+"base": "Spatial",
+"class": "Shotgun",
+"language": "GDScript",
+"path": "res://actors/weapons/hit_scan/Shotgun.gd"
+}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
@@ -67,6 +72,7 @@ _global_script_class_icons={
 "PlayerState": "",
 "ProjectileBullet": "",
 "ProjectileGun": "",
+"Shotgun": "",
 "State": "",
 "StateMachine": "",
 "StaticHelper": ""
@@ -118,7 +124,7 @@ jump={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
-shoot={
+attack={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
@@ -141,6 +147,11 @@ second_weapon={
 melee_weapon={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":51,"unicode":0,"echo":false,"script":null)
+ ]
+}
+reload_ammo={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":82,"unicode":0,"echo":false,"script":null)
  ]
 }
 

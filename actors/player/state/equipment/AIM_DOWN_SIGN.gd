@@ -1,6 +1,9 @@
 extends PlayerState
 
 var ads_mode: bool = false
+var reload_weapon: bool = false
+var weapon_index: int
+
 var playerHand: Spatial = null
 var playerCamera: Camera = null
 
@@ -20,13 +23,31 @@ func enter(_msg := {}) -> void:
 func update(_delta: float) -> void:
 	if Input.is_action_just_pressed('aim_down_sign'):
 		ads_mode = not ads_mode
-	if Input.is_action_just_pressed('shoot') and StaticHelper.is_in_right_position(playerHand.transform.origin, player.ads_gun_position):
+	elif Input.is_action_just_pressed('main_weapon'):
+		ads_mode = not ads_mode
+		weapon_index = Weapon.MAIN
+	elif Input.is_action_just_pressed('second_weapon'):
+		ads_mode = not ads_mode
+		weapon_index = Weapon.SECOND
+	elif Input.is_action_just_pressed('melee_weapon'):
+		ads_mode = not ads_mode
+		weapon_index = Weapon.MELEE
+	elif Input.is_action_just_pressed('reload_ammo'):
+		ads_mode = not ads_mode
+		reload_weapon = true
+	if Input.is_action_just_pressed('attack') and StaticHelper.is_in_right_position(playerHand.transform.origin, player.ads_gun_position):
 		active_state_machine.transition_to(listEquipState[SHOOT], {prevState = AIM_DOWN_SIGN})
 	
 	_transform_gun_position(ads_mode,playerHand,playerCamera, _delta)
 
 	if StaticHelper.is_in_right_position(playerHand.transform.origin, player.default_gun_position):
-		active_state_machine.transition_to(listEquipState[IDLE])
+		if reload_weapon:
+			reload_weapon = false
+			active_state_machine.transition_to(listEquipState[RELOAD_AMMO])
+		elif weapon_index == Weapon.NONE:
+			active_state_machine.transition_to(listEquipState[IDLE])
+		else:
+			active_state_machine.transition_to(listEquipState[CHANGE_WEAPON], {weaponIndex = weapon_index})
 	
 func _transform_gun_position(isInAdsMode: bool, player_hand: Spatial, player_camera: Camera, delta: float) -> void:
 	if isInAdsMode:

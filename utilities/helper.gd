@@ -32,3 +32,9 @@ static func is_in_right_position(playerHandTransformOrigin: Vector3, playerHandP
 	if is_equal_approx((playerHandTransformOrigin - playerHandPositionFixed).length(), 0.0):
 		return true
 	return false
+	
+static func log_error_code(errorCode: int, nodeName: String) -> void:
+	if errorCode == 0:
+		return
+	print_debug("ERROR connect in ", nodeName ," with code: ", errorCode)
+	pass

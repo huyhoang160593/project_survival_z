@@ -1,8 +1,10 @@
 extends Node
 
-
-# warning-ignore:unused_signal
+signal update_ammo_value(ammo, remainAmmo)
 signal gun_shot_event(playerRaycast)
-# warning-ignore:unused_signal
-signal gun_shot_finished
+signal melee_attack_event
+signal attack_finished
+signal gun_out_ammo(reloadTime)
+signal reload_finished(gunNode)
+signal weapon_change_success(gunNode)
 
