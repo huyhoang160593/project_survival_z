@@ -1,0 +1,92 @@
+// Game: Do_you_feel_this_level_similar
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures/prototype_quake_1_3_PNG"
+// brush 0
+{
+( -464 -48 -16 ) ( -464 -47 -16 ) ( -464 -48 -15 ) prototype_quake_1_3_PNG/64_brown_2 0 0 0 1 1
+( -32 -464 -16 ) ( -32 -464 -15 ) ( -31 -464 -16 ) prototype_quake_1_3_PNG/64_brown_2 0 0 0 1 1
+( -32 -48 -16 ) ( -31 -48 -16 ) ( -32 -47 -16 ) prototype_quake_1_3_PNG/64_brown_2 0 0 0 1 1
+( 16 64 16 ) ( 16 65 16 ) ( 17 64 16 ) prototype_quake_1_3_PNG/64_brown_2 0 0 0 1 1
+( 16 48 0 ) ( 17 48 0 ) ( 16 48 1 ) prototype_quake_1_3_PNG/64_brown_2 0 0 0 1 1
+( 48 64 0 ) ( 48 64 1 ) ( 48 65 0 ) prototype_quake_1_3_PNG/64_brown_2 0 0 0 1 1
+}
+// brush 1
+{
+( -464 -560 16 ) ( -464 -559 16 ) ( -464 -560 17 ) prototype_quake_1_3_PNG/64_green_3 0 32 0 1 1
+( -32 -496 16 ) ( -32 -496 17 ) ( -31 -496 16 ) prototype_quake_1_3_PNG/64_green_3 0 32 0 1 1
+( -32 -560 16 ) ( -31 -560 16 ) ( -32 -559 16 ) prototype_quake_1_3_PNG/64_green_3 0 0 0 1 1
+( 16 -448 528 ) ( 16 -447 528 ) ( 17 -448 528 ) prototype_quake_1_3_PNG/64_green_3 0 0 0 1 1
+( 16 -464 32 ) ( 17 -464 32 ) ( 16 -464 33 ) prototype_quake_1_3_PNG/64_green_3 0 32 0 1 1
+( 48 -448 32 ) ( 48 -448 33 ) ( 48 -447 32 ) prototype_quake_1_3_PNG/64_green_3 0 32 0 1 1
+}
+// brush 2
+{
+( 48 16 32 ) ( 48 17 32 ) ( 48 16 33 ) prototype_quake_1_3_PNG/64_green_3 0 32 0 1 1
+( 144 -464 16 ) ( 143 -464 16 ) ( 144 -464 17 ) prototype_quake_1_3_PNG/64_green_3 32 32 180 1 -1
+( 144 -32 16 ) ( 144 -31 16 ) ( 143 -32 16 ) prototype_quake_1_3_PNG/64_green_3 0 -32 90 1 1
+( 32 16 528 ) ( 31 16 528 ) ( 32 17 528 ) prototype_quake_1_3_PNG/64_green_3 0 -32 90 1 1
+( 32 48 32 ) ( 32 48 33 ) ( 31 48 32 ) prototype_quake_1_3_PNG/64_green_3 32 32 180 1 -1
+( 80 -32 16 ) ( 80 -32 17 ) ( 80 -31 16 ) prototype_quake_1_3_PNG/64_green_3 0 32 0 1 1
+}
+// brush 3
+{
+( -464 32 480 ) ( -464 31 480 ) ( -464 32 479 ) prototype_quake_1_3_PNG/64_green_3 0 32 0 1 1
+( -432 48 480 ) ( -432 48 479 ) ( -433 48 480 ) prototype_quake_1_3_PNG/64_green_3 0 32 0 1 1
+( -432 32 -16 ) ( -433 32 -16 ) ( -432 31 -16 ) prototype_quake_1_3_PNG/64_green_3 0 0 0 1 1
+( -384 144 496 ) ( -384 143 496 ) ( -385 144 496 ) prototype_quake_1_3_PNG/64_green_3 0 0 0 1 1
+( -384 80 496 ) ( -385 80 496 ) ( -384 80 495 ) prototype_quake_1_3_PNG/64_green_3 0 32 0 1 1
+( 48 144 496 ) ( 48 144 495 ) ( 48 143 496 ) prototype_quake_1_3_PNG/64_green_3 0 32 0 1 1
+}
+// brush 4
+{
+( -464 -480 512 ) ( -464 -481 512 ) ( -464 -480 511 ) prototype_quake_1_3_PNG/sky_cyan_2 0 0 0 1 1
+( -432 -464 512 ) ( -432 -464 511 ) ( -433 -464 512 ) prototype_quake_1_3_PNG/sky_cyan_2 0 0 0 1 1
+( -432 -480 496 ) ( -433 -480 496 ) ( -432 -481 496 ) prototype_quake_1_3_PNG/sky_cyan_2 0 0 0 1 1
+( -384 -368 528 ) ( -384 -369 528 ) ( -385 -368 528 ) prototype_quake_1_3_PNG/sky_cyan_2 0 0 0 1 1
+( -384 48 528 ) ( -385 48 528 ) ( -384 48 527 ) prototype_quake_1_3_PNG/sky_cyan_2 0 0 0 1 1
+( 48 -368 528 ) ( 48 -368 527 ) ( 48 -369 528 ) prototype_quake_1_3_PNG/sky_cyan_2 0 0 0 1 1
+}
+// brush 5
+{
+( -496 -384 496 ) ( -496 -385 496 ) ( -496 -384 495 ) prototype_quake_1_3_PNG/64_green_3 0 32 0 1 1
+( -448 -464 480 ) ( -447 -464 480 ) ( -448 -464 479 ) prototype_quake_1_3_PNG/64_green_3 32 32 180 1 -1
+( -448 -432 -16 ) ( -448 -433 -16 ) ( -447 -432 -16 ) prototype_quake_1_3_PNG/64_green_3 0 -32 90 1 1
+( -560 -384 496 ) ( -559 -384 496 ) ( -560 -385 496 ) prototype_quake_1_3_PNG/64_green_3 0 -32 90 1 1
+( -560 48 496 ) ( -560 48 495 ) ( -559 48 496 ) prototype_quake_1_3_PNG/64_green_3 32 32 180 1 -1
+( -464 -432 480 ) ( -464 -432 479 ) ( -464 -433 480 ) prototype_quake_1_3_PNG/64_green_3 0 32 0 1 1
+}
+// brush 6
+{
+( -64 -384 0 ) ( -64 -383 0 ) ( -64 -384 1 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( -64 -384 0 ) ( -64 -384 1 ) ( -63 -384 0 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( -64 -384 0 ) ( -63 -384 0 ) ( -64 -383 0 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( 0 -320 512 ) ( 0 -319 512 ) ( 1 -320 512 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( 0 -320 32 ) ( 1 -320 32 ) ( 0 -320 33 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( 0 -320 32 ) ( 0 -320 33 ) ( 0 -319 32 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+}
+// brush 7
+{
+( -416 -384 0 ) ( -416 -383 0 ) ( -416 -384 1 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( -416 -384 0 ) ( -416 -384 1 ) ( -415 -384 0 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( -416 -384 0 ) ( -415 -384 0 ) ( -416 -383 0 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( -352 -320 512 ) ( -352 -319 512 ) ( -351 -320 512 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( -352 -320 32 ) ( -351 -320 32 ) ( -352 -320 33 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( -352 -320 32 ) ( -352 -320 33 ) ( -352 -319 32 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+}
+// brush 8
+{
+( -256 -160 128 ) ( -256 -144 16 ) ( -256 -144 128 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( -240 -176 128 ) ( -256 -160 16 ) ( -256 -160 128 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( -240 -128 128 ) ( -256 -144 16 ) ( -240 -128 16 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( -224 -176 128 ) ( -240 -176 16 ) ( -240 -176 128 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( -208 -144 16 ) ( -224 -176 16 ) ( -208 -160 16 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( -208 -144 480 ) ( -240 -128 480 ) ( -224 -128 480 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( -224 -128 128 ) ( -240 -128 16 ) ( -224 -128 16 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( -208 -160 128 ) ( -224 -176 16 ) ( -224 -176 128 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( -208 -144 128 ) ( -224 -128 16 ) ( -208 -144 16 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+( -208 -144 128 ) ( -208 -160 16 ) ( -208 -160 128 ) prototype_quake_1_3_PNG/sky_gold_1 0 0 0 1 1
+}
+}

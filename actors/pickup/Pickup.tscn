@@ -1,16 +1,31 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://actors/pickup/Pickup.gd" type="Script" id=1]
 
 [sub_resource type="SphereShape" id=1]
 radius = 0.5
 
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshPosition:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.4, 0 ) ]
+}
+
 [sub_resource type="Animation" id=3]
 resource_name = "bobbing"
 loop = true
-step = 0.05
+step = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
+tracks/0/path = NodePath("MeshPosition:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -19,18 +34,20 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 1, 0 ), Vector3( 0, 0.5, 0 ), Vector3( 0, 1, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.4, 0 ), Vector3( 0, 0, 0 ) ]
 }
 
 [node name="Pickup" type="Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 script = ExtResource( 1 )
-ammount = 1
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
 anims/bobbing = SubResource( 3 )
 
-[connection signal="body_entered" from="." to="." method="_on_Pickup_body_entered"]
+[node name="MeshPosition" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0 )
+
+[connection signal="body_entered" from="." to="." method="_on_Pickup_player_entered"]

@@ -1,0 +1,79 @@
+// Game: Do_you_feel_this_level_similar
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures/prototype_quake_1_3_PNG"
+// brush 0
+{
+( 0 -64 -16 ) ( 0 -63 -16 ) ( 0 -64 -15 ) __TB_empty 0 0 0 1 1
+( 0 -64 -16 ) ( 0 -64 -15 ) ( 1 -64 -16 ) __TB_empty 0 0 0 1 1
+( 0 -64 -16 ) ( 1 -64 -16 ) ( 0 -63 -16 ) __TB_empty 0 0 0 1 1
+( 48 0 0 ) ( 48 1 0 ) ( 49 0 0 ) __TB_empty 0 0 0 1 1
+( 48 0 0 ) ( 49 0 0 ) ( 48 0 1 ) __TB_empty 0 0 0 1 1
+( 48 0 0 ) ( 48 0 1 ) ( 48 1 0 ) __TB_empty 0 0 0 1 1
+}
+// brush 1
+{
+( -800 0 0 ) ( -800 1 0 ) ( -800 0 1 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+( -32 0 0 ) ( -32 0 1 ) ( -31 0 0 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+( -32 0 0 ) ( -31 0 0 ) ( -32 1 0 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+( 0 160 16 ) ( 0 161 16 ) ( 1 160 16 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+( 0 800 16 ) ( 1 800 16 ) ( 0 800 17 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+( 0 160 16 ) ( 0 160 17 ) ( 0 161 16 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+}
+// brush 2
+{
+( -1440 32 16 ) ( -1440 336 16 ) ( -1440 336 144 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+( -832 0 0 ) ( -832 0 1 ) ( -831 0 0 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -832 0 0 ) ( -831 0 0 ) ( -832 1 0 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -800 160 16 ) ( -800 161 16 ) ( -799 160 16 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -1440 32 16 ) ( -1024 32 16 ) ( -1024 32 144 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -800 160 16 ) ( -800 160 17 ) ( -800 161 16 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+}
+// brush 3
+{
+( -1440 32 16 ) ( -1440 336 16 ) ( -1440 336 144 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+( -1440 32 16 ) ( -1024 32 144 ) ( -1024 32 16 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -832 0 0 ) ( -831 0 0 ) ( -832 1 0 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -800 160 16 ) ( -800 161 16 ) ( -799 160 16 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -1520 768 16 ) ( -1168 768 16 ) ( -1168 768 144 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -800 160 16 ) ( -800 160 17 ) ( -800 161 16 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+}
+// brush 4
+{
+( -1440 32 16 ) ( -1440 336 16 ) ( -1440 336 144 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+( -1520 768 16 ) ( -1168 768 144 ) ( -1168 768 16 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -832 0 0 ) ( -831 0 0 ) ( -832 1 0 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -800 160 16 ) ( -800 161 16 ) ( -799 160 16 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -800 800 16 ) ( -799 800 16 ) ( -800 800 17 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -800 160 16 ) ( -800 160 17 ) ( -800 161 16 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+}
+// brush 5
+{
+( -1600 0 0 ) ( -1600 1 0 ) ( -1600 0 1 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+( -832 0 0 ) ( -832 0 1 ) ( -831 0 0 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -832 0 0 ) ( -831 0 0 ) ( -832 1 0 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -800 160 16 ) ( -800 161 16 ) ( -799 160 16 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -1440 32 16 ) ( -1024 32 16 ) ( -1024 32 144 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -1440 32 16 ) ( -1440 336 144 ) ( -1440 336 16 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+}
+// brush 6
+{
+( -1600 0 0 ) ( -1600 1 0 ) ( -1600 0 1 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+( -1440 32 16 ) ( -1024 32 144 ) ( -1024 32 16 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -832 0 0 ) ( -831 0 0 ) ( -832 1 0 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -800 160 16 ) ( -800 161 16 ) ( -799 160 16 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -1520 768 16 ) ( -1168 768 16 ) ( -1168 768 144 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -1440 32 16 ) ( -1440 336 144 ) ( -1440 336 16 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+}
+// brush 7
+{
+( -1600 0 0 ) ( -1600 1 0 ) ( -1600 0 1 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+( -1520 768 16 ) ( -1168 768 144 ) ( -1168 768 16 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -832 0 0 ) ( -831 0 0 ) ( -832 1 0 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -800 160 16 ) ( -800 161 16 ) ( -799 160 16 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -800 800 16 ) ( -799 800 16 ) ( -800 800 17 ) prototype_quake_1_3_PNG/128_brown_1 32 0 0 1 1
+( -1440 32 16 ) ( -1440 336 144 ) ( -1440 336 16 ) prototype_quake_1_3_PNG/128_brown_1 0 0 0 1 1
+}
+}

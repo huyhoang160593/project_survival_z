@@ -1,16 +1,19 @@
 extends MeshInstance
 class_name ProjectileGun
 
+export(PackedScene)onready var bulletScene: PackedScene
+
 const GUN_SHOT_ANIMATION := "gun_shot"
-const MAX_VARIATION := 0.3
+const MAX_VARIATION := 0.5
 enum ShootingType { SINGLE, BURST }
 
 onready var muzzle: Position3D = $Muzzle
 onready var heatTimer: Timer = $HeatTimer
 
+onready var bulletInstance: ProjectileBullet = bulletScene.instance()
+
 export(NodePath)onready var animationPlayer = get_node(animationPlayer) as AnimationPlayer
 export(ShootingType) var shootingType
-export(PackedScene) onready var bulletScene: PackedScene
 export var recoilArrays = PoolVector2Array()
 
 export(int, 5,30,5) var damage
@@ -25,14 +28,18 @@ var heatValue = recoilArrays.size()
 
 func _ready() -> void:
 	randomize()
+	
+	#for testing
 	currentAmmo = int(rand_range(0.0, float(ammoSize)))
-	remainAmmo = int(rand_range(float(capacity) / 2, float(capacity)))
+#	remainAmmo = int(rand_range(float(capacity) / 2, float(capacity)))
 	
 	var error_code = GameEvents.connect('gun_shot_event', self, "_on_gun_shot_event_handle")
 	StaticHelper.log_error_code(error_code, self.name)
 	error_code = GameEvents.connect('weapon_change_success', self, "_on_weapon_change_success_handle")
 	StaticHelper.log_error_code(error_code, self.name)
 	error_code = GameEvents.connect('reload_finished', self, "_on_reload_finished_handle")
+	StaticHelper.log_error_code(error_code, self.name)
+	error_code = GameEvents.connect('gun_add_ammo', self,"_on_add_ammo_handle")
 	StaticHelper.log_error_code(error_code, self.name)
 	
 func _on_gun_shot_event_handle(playerRaycast: RayCast):
@@ -57,7 +64,7 @@ func _create_bullet(playerRaycast: RayCast) -> void:
 			_generated_new_spray_point(),
 			playerRaycast.get_collision_normal()
 		)
-	var bulletInstance: ProjectileBullet = bulletScene.instance()
+	bulletInstance = bulletScene.instance()
 	bulletInstance.setup(newCollisionPoint, playerRaycast.get_collision_normal())
 	muzzle.add_child(bulletInstance)
 	
@@ -82,11 +89,11 @@ func _add_heat_value() -> void:
 
 func _on_weapon_change_success_handle(weaponNode: Spatial) -> void:
 	if weaponNode == self:
-		GameEvents.emit_signal('update_ammo_value', currentAmmo, remainAmmo)
+		GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)
 
 func _decrease_ammo() -> void:
 	currentAmmo -= 1
-	GameEvents.emit_signal('update_ammo_value', currentAmmo, remainAmmo)
+	GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)
 
 func _on_reload_finished_handle(weaponNode: Spatial) -> void:
 	if weaponNode != self:
@@ -98,7 +105,13 @@ func _on_reload_finished_handle(weaponNode: Spatial) -> void:
 	else:
 		currentAmmo = ammoSize
 		remainAmmo -= ammoNeed
-	GameEvents.emit_signal('update_ammo_value', currentAmmo, remainAmmo)
+	GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)
+
+func _on_add_ammo_handle(weaponNode: Spatial) -> void:
+	if weaponNode == self:
+		remainAmmo = int(clamp(remainAmmo + ammoSize * ceil(rand_range(0.0,3.0)),0,capacity))
+		print(remainAmmo)
+		GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)
 
 func _on_HeatTimer_timeout() -> void:
 	if heatValue > 0:

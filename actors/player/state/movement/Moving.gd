@@ -2,16 +2,16 @@ extends PlayerState
 
 func physics_update(delta: float) -> void:
 	if not player.is_on_floor():
-		active_state_machine.transition_to(listPlayerState[AIR])
+		active_state_machine.transition_to(Constants.MovingStateDict[Constants.AIR])
 		return
 	movement_process(delta)
 	
 	if Input.is_action_just_pressed("jump"):
-		active_state_machine.transition_to(listPlayerState[AIR], {do_jump = true})
+		active_state_machine.transition_to(Constants.MovingStateDict[Constants.AIR], {do_jump = true})
 	
 	if is_equal_approx(player.velocity.x, 0.0) \
 		and is_equal_approx(player.velocity.z, 0.0):
-			active_state_machine.transition_to(listPlayerState[IDLE])
+			active_state_machine.transition_to(Constants.MovingStateDict[Constants.IDLE])
 	
 func movement_process(delta: float) -> void:
 	var movement_vector: Vector3 = StaticHelper.get_movement_direction(player.transform.basis)

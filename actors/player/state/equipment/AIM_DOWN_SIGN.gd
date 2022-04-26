@@ -2,7 +2,7 @@ extends PlayerState
 
 var ads_mode: bool = false
 var reload_weapon: bool = false
-var weapon_index: int
+var weapon_index: int = -1
 
 var playerHand: Spatial = null
 var playerCamera: Camera = null
@@ -25,29 +25,29 @@ func update(_delta: float) -> void:
 		ads_mode = not ads_mode
 	elif Input.is_action_just_pressed('main_weapon'):
 		ads_mode = not ads_mode
-		weapon_index = Weapon.MAIN
+		weapon_index = Constants.Weapon.MAIN
 	elif Input.is_action_just_pressed('second_weapon'):
 		ads_mode = not ads_mode
-		weapon_index = Weapon.SECOND
+		weapon_index = Constants.Weapon.SECOND
 	elif Input.is_action_just_pressed('melee_weapon'):
 		ads_mode = not ads_mode
-		weapon_index = Weapon.MELEE
+		weapon_index = Constants.Weapon.MELEE
 	elif Input.is_action_just_pressed('reload_ammo'):
 		ads_mode = not ads_mode
 		reload_weapon = true
 	if Input.is_action_just_pressed('attack') and StaticHelper.is_in_right_position(playerHand.transform.origin, player.ads_gun_position):
-		active_state_machine.transition_to(listEquipState[SHOOT], {prevState = AIM_DOWN_SIGN})
+		active_state_machine.transition_to(Constants.EquipStateDict[Constants.SHOOT], {prevState = Constants.AIM_DOWN_SIGN})
 	
 	_transform_gun_position(ads_mode,playerHand,playerCamera, _delta)
 
 	if StaticHelper.is_in_right_position(playerHand.transform.origin, player.default_gun_position):
 		if reload_weapon:
 			reload_weapon = false
-			active_state_machine.transition_to(listEquipState[RELOAD_AMMO])
-		elif weapon_index == Weapon.NONE:
-			active_state_machine.transition_to(listEquipState[IDLE])
+			active_state_machine.transition_to(Constants.EquipStateDict[Constants.RELOAD_AMMO])
+		elif weapon_index == -1:
+			active_state_machine.transition_to(Constants.EquipStateDict[Constants.IDLE])
 		else:
-			active_state_machine.transition_to(listEquipState[CHANGE_WEAPON], {weaponIndex = weapon_index})
+			active_state_machine.transition_to(Constants.EquipStateDict[Constants.CHANGE_WEAPON], {weaponIndex = weapon_index})
 	
 func _transform_gun_position(isInAdsMode: bool, player_hand: Spatial, player_camera: Camera, delta: float) -> void:
 	if isInAdsMode:
@@ -56,7 +56,3 @@ func _transform_gun_position(isInAdsMode: bool, player_hand: Spatial, player_cam
 	else: 
 		player_hand.transform.origin = player_hand.transform.origin.linear_interpolate(player.default_gun_position, player.ADS_LERP * delta)
 		player_camera.fov = lerp(player_camera.fov, player.FOV_DEFAULT, player.ADS_LERP * delta)
-
-
-func _on_Player_gun_index_change() -> void:
-	ads_mode = not ads_mode

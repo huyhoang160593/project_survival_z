@@ -5,12 +5,11 @@ func enter(_msg:={}) -> void:
 
 func physics_update(_delta: float) -> void:
 	if not player.is_on_floor():
-		active_state_machine.transition_to(listPlayerState[AIR])
-		return
+		active_state_machine.transition_to(Constants.MovingStateDict[Constants.AIR])
 	if Input.is_action_just_pressed("jump"):
-		active_state_machine.transition_to(listPlayerState[AIR], {do_jump = true})
+		active_state_machine.transition_to(Constants.MovingStateDict[Constants.AIR], {do_jump = true})
 	elif _check_movement_input():
-		active_state_machine.transition_to(listPlayerState[MOVE])
+		active_state_machine.transition_to(Constants.MovingStateDict[Constants.MOVE])
 		
 func _check_movement_input() -> bool:
 	return Input.is_action_pressed("move_backward") \

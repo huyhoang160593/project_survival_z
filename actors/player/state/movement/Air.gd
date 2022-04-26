@@ -1,10 +1,12 @@
 extends PlayerState
 
 var timePass: float
+var jumpMovingSpeed: float
 
 func enter(msg := {}) -> void:
+	jumpMovingSpeed = player.speed / 2
+
 	if msg.has("do_jump"):
-		# TODO: make jump action here
 		player.velocity.y = player.jump_impulse
 
 func physics_update(delta: float) -> void:
@@ -12,8 +14,8 @@ func physics_update(delta: float) -> void:
 	var movement_vector: Vector3 = StaticHelper.get_movement_direction(player.transform.basis)
 	
 	# Make movement half when in the air
-	player.velocity.x = movement_vector.x * (player.speed / 2)
-	player.velocity.z = movement_vector.z * (player.speed / 2)
+	player.velocity.x = movement_vector.x * jumpMovingSpeed
+	player.velocity.z = movement_vector.z * jumpMovingSpeed
 	
 	# Gravity apply
 	player.velocity.y -= (player.gravity + player.gravity * timePass) * delta
@@ -22,10 +24,7 @@ func physics_update(delta: float) -> void:
 	
 	# Landing
 	if player.is_on_floor():
-		if is_equal_approx(player.velocity.x, 0.0) and is_equal_approx(player.velocity.z, 0.0):
-			active_state_machine.transition_to(listPlayerState[IDLE])
-		else:
-			active_state_machine.transition_to(listPlayerState[MOVE])
+		active_state_machine.transition_to(Constants.MovingStateDict[Constants.MOVE])
 
 func exit() -> void:
 	timePass = 0

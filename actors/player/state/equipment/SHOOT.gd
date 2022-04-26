@@ -1,6 +1,6 @@
 extends PlayerState
 
-var _prev_state: int = IDLE
+var _prev_state: int = Constants.IDLE
 
 # Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
 # is a dictionary with arbitrary data the state can use to initialize itself.
@@ -20,10 +20,10 @@ func physics_update(_delta: float) -> void:
 	
 func on_gun_shot_finished_handle() -> void:
 	match _prev_state:
-		IDLE:
-			active_state_machine.transition_to(listEquipState[IDLE])
-		AIM_DOWN_SIGN:
-			active_state_machine.transition_to(listEquipState[AIM_DOWN_SIGN])
+		Constants.IDLE:
+			active_state_machine.transition_to(Constants.EquipStateDict[Constants.IDLE])
+		Constants.AIM_DOWN_SIGN:
+			active_state_machine.transition_to(Constants.EquipStateDict[Constants.AIM_DOWN_SIGN])
 
 # Virtual function. Called by the state machine before changing the active state. Use this function
 # to clean up the state.

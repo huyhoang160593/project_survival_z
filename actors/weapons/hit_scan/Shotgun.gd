@@ -1,6 +1,8 @@
 extends Spatial
 class_name Shotgun
 
+var bulletDecal: PackedScene = preload('res://actors/weapons/misc/BulletDecal.tscn')
+
 export(int, 5, 30, 5) var damage
 export(int, 1, 30, 2) var spread
 
@@ -10,23 +12,24 @@ export(float, 0.0, 5.0) var reloadTime
 var remainAmmo:int
 var currentAmmo:int
 
-export(PackedScene) onready var bulletDecal: PackedScene
-
 onready var rayContainer = $RayContainer
 
 func _ready() -> void:
 	randomize()
-	currentAmmo = int(rand_range(0.0, float(ammoSize)))
-	remainAmmo = int(rand_range(float(capacity) / 2, float(capacity)))
+	currentAmmo = int(rand_range(1, float(ammoSize + 1)))
+#	remainAmmo = int(rand_range(float(capacity) / 2, float(capacity)))
 	
 	for ray in rayContainer.get_children():
 		(ray as RayCast).cast_to.x = rand_range(spread, -spread)
 		(ray as RayCast).cast_to.y = rand_range(spread, -spread)
+
 	var error_code = GameEvents.connect('gun_shot_event', self,"_on_gun_shot_handle")
 	StaticHelper.log_error_code(error_code,self.name)
 	error_code = GameEvents.connect('weapon_change_success', self, "_on_weapon_change_success_handle")
 	StaticHelper.log_error_code(error_code, self.name)
 	error_code = GameEvents.connect('reload_finished', self, "_on_reload_finished_handle")
+	StaticHelper.log_error_code(error_code, self.name)
+	error_code = GameEvents.connect('gun_add_ammo', self,"_on_add_ammo_handle")
 	StaticHelper.log_error_code(error_code, self.name)
 	
 func _on_gun_shot_handle(_playerRaycast: RayCast) -> void:
@@ -45,28 +48,39 @@ func fire_shotgun() -> void:
 		rayTyped.cast_to.y = rand_range(spread, -spread)
 		if not rayTyped.is_colliding():
 			continue
-		var decalInstance: Spatial = bulletDecal.instance()
-		rayTyped.get_collider().add_child(decalInstance)
-		decalInstance.global_transform.origin = rayTyped.get_collision_point()
-
-		# Check ray collision_normal vector to make sure the bullet look at right "up" vector at look_at() function
-		# The "up" vector should be LEFT or RIGHT when the decal is in the ground or in the ceiling
-		var lookAtPosition: Vector3 = rayTyped.get_collision_point() + rayTyped.get_collision_normal()
-		if rayTyped.get_collision_normal() == Vector3.UP or rayTyped.get_collision_normal() == Vector3.DOWN:
-			decalInstance.look_at(lookAtPosition, Vector3.RIGHT)
+		if rayTyped.get_collider() is DummyEnemy:
+			GameEvents.emit_signal('heart_decrease', rayTyped.get_collider(), damage)
 		else:
-			decalInstance.look_at(lookAtPosition, Vector3.UP)
+			var decalInstance: Spatial = bulletDecal.instance()
+			rayTyped.get_collider().add_child(decalInstance)
+			decalInstance.global_transform.origin = rayTyped.get_collision_point()
+
+			# Check ray collision_normal vector to make sure the bullet look at right "up" vector at look_at() function
+			# The "up" vector should be LEFT or RIGHT when the decal is in the ground or in the ceiling
+			var lookAtPosition: Vector3 = rayTyped.get_collision_point() + rayTyped.get_collision_normal()
+			if rayTyped.get_collision_normal() == Vector3.UP or rayTyped.get_collision_normal() == Vector3.DOWN:
+				decalInstance.look_at(lookAtPosition, Vector3.RIGHT)
+			elif rayTyped.get_collision_normal() == Vector3.FORWARD or rayTyped.get_collision_normal() == Vector3.BACK:
+				decalInstance.look_at(lookAtPosition, Vector3.UP)
+			else:
+				decalInstance.look_at(lookAtPosition, Vector3.FORWARD)
 
 	yield($AnimationPlayer,'animation_finished')
 	GameEvents.emit_signal('attack_finished')
 
 func _on_weapon_change_success_handle(weaponNode: Spatial) -> void:
 	if weaponNode == self:
-		GameEvents.emit_signal('update_ammo_value', currentAmmo, remainAmmo)
+		GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)
+		
+func _on_add_ammo_handle(weaponNode: Spatial) -> void:
+	if weaponNode == self:
+		remainAmmo = int(clamp(remainAmmo + ammoSize * ceil(rand_range(0.0,3.0)),0,capacity))
+		print(remainAmmo)
+		GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)
 
 func _decrease_ammo() -> void:
 	currentAmmo -= 1
-	GameEvents.emit_signal('update_ammo_value', currentAmmo, remainAmmo)
+	GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)
 
 func _on_reload_finished_handle(weaponNode: Spatial) -> void:
 	if weaponNode != self:
@@ -78,4 +92,4 @@ func _on_reload_finished_handle(weaponNode: Spatial) -> void:
 	else:
 		currentAmmo = ammoSize
 		remainAmmo -= ammoNeed
-	GameEvents.emit_signal('update_ammo_value', currentAmmo, remainAmmo)
+	GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)

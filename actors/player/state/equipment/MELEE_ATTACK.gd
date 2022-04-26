@@ -7,7 +7,7 @@ func enter(_msg := {}) -> void:
 	GameEvents.emit_signal('melee_attack_event')
 
 func on_attack_finished_handle() -> void:
-	active_state_machine.transition_to(listEquipState[IDLE])
+	active_state_machine.transition_to(Constants.EquipStateDict[Constants.IDLE])
 
 # Virtual function. Called by the state machine before changing the active state. Use this function
 # to clean up the state.

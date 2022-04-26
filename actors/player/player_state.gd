@@ -8,23 +8,6 @@ var player: Player
 # Typed reference to the state machine node.
 var active_state_machine: StateMachine
 
-enum { IDLE, AIR, MOVE, SHOOT, AIM_DOWN_SIGN, CHANGE_WEAPON, RELOAD_AMMO, MELEE_ATTACK }
-enum Weapon { NONE, MAIN, SECOND, MELEE }
-
-var listPlayerState = {
-	IDLE: "IDLE",
-	AIR: "AIR",
-	MOVE: "MOVE",
-}
-var listEquipState = {
-	IDLE: "IDLE",
-	SHOOT: "SHOOT",
-	AIM_DOWN_SIGN: "AIM_DOWN_SIGN",
-	CHANGE_WEAPON: "CHANGE_WEAPON",
-	RELOAD_AMMO: "RELOAD_AMMO",
-	MELEE_ATTACK: "MELEE_ATTACK", 
-}
-
 func _ready() -> void:
 	# The states are children of the `Player` node so their `_ready()` callback will execute first.
 	# That's why we wait for the `owner` to be ready first.

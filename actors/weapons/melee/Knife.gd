@@ -21,4 +21,4 @@ func on_melee_attack_event_handle() -> void:
 
 func _on_weapon_change_success_handle(weaponNode: Spatial) -> void:
 	if weaponNode == self:
-		GameEvents.emit_signal('update_ammo_value', 0, 0)
+		GameEvents.emit_signal('update_ammo_ui', 0, 0)

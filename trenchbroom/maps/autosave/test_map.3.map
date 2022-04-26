@@ -1,0 +1,16 @@
+// Game: Do_you_feel_this_level_similar
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures/prototype_quake_1_3_PNG"
+// brush 0
+{
+( -464 -48 -16 ) ( -464 -47 -16 ) ( -464 -48 -15 ) prototype_quake_1_3_PNG/64_brown_2 0 0 0 1 1
+( -32 -464 -16 ) ( -32 -464 -15 ) ( -31 -464 -16 ) prototype_quake_1_3_PNG/64_brown_2 0 0 0 1 1
+( -32 -48 -16 ) ( -31 -48 -16 ) ( -32 -47 -16 ) prototype_quake_1_3_PNG/64_brown_2 0 0 0 1 1
+( 16 64 16 ) ( 16 65 16 ) ( 17 64 16 ) prototype_quake_1_3_PNG/64_brown_2 0 0 0 1 1
+( 16 48 0 ) ( 17 48 0 ) ( 16 48 1 ) prototype_quake_1_3_PNG/64_brown_2 0 0 0 1 1
+( 48 64 0 ) ( 48 64 1 ) ( 48 65 0 ) prototype_quake_1_3_PNG/64_brown_2 0 0 0 1 1
+}
+}
