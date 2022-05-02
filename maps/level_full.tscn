@@ -1065,7 +1065,7 @@ points = PoolVector3Array( 96.8536, 15.5, -58.1464, 96.5, 15.5, -57.7929, 96.5, 
 extents = Vector3( 4, 6, 1 )
 
 [sub_resource type="BoxShape" id=302]
-extents = Vector3( 24.3, 1, 24.9 )
+extents = Vector3( 24.3, 0.3, 24.9 )
 
 [node name="GameWorld" type="Spatial"]
 script = ExtResource( 3 )
@@ -1993,7 +1993,7 @@ shape = SubResource( 301 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -49.8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="DieArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6, -3, -12.3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6, -3.6, -12.3 )
 shape = SubResource( 302 )
 
 [node name="MachineGunPickup" parent="." instance=ExtResource( 4 )]
