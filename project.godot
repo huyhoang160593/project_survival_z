@@ -12,22 +12,32 @@ _global_script_classes=[ {
 "base": "Object",
 "class": "Constants",
 "language": "GDScript",
-"path": "res://global_node/constants.gd"
+"path": "res://utilities/constants.gd"
 }, {
 "base": "KinematicBody",
 "class": "DummyEnemy",
 "language": "GDScript",
-"path": "res://actors/dummy_enemy/DummyEnemy.gd"
+"path": "res://src/charaters/dummy_enemy/DummyEnemy.gd"
 }, {
 "base": "State",
 "class": "DummyEnemyState",
 "language": "GDScript",
-"path": "res://actors/dummy_enemy/dummy_enemy_state.gd"
+"path": "res://src/charaters/dummy_enemy/dummy_enemy_state.gd"
+}, {
+"base": "RigidBody",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://src/charaters/general_enemy/enemy.gd"
+}, {
+"base": "State",
+"class": "EnemyState",
+"language": "GDScript",
+"path": "res://src/charaters/general_enemy/enemy_state.gd"
 }, {
 "base": "Area",
 "class": "ItemPickup",
 "language": "GDScript",
-"path": "res://actors/pickup/Pickup.gd"
+"path": "res://src/pickup/Pickup.gd"
 }, {
 "base": "LiquidLayer",
 "class": "LavaLayer",
@@ -57,22 +67,22 @@ _global_script_classes=[ {
 "base": "KinematicBody",
 "class": "Player",
 "language": "GDScript",
-"path": "res://actors/player/Player.gd"
+"path": "res://src/charaters/player/Player.gd"
 }, {
 "base": "State",
 "class": "PlayerState",
 "language": "GDScript",
-"path": "res://actors/player/player_state.gd"
+"path": "res://src/charaters/player/player_state.gd"
 }, {
 "base": "RigidBody",
 "class": "ProjectileBullet",
 "language": "GDScript",
-"path": "res://actors/weapons/bullet/Bullet.gd"
+"path": "res://src/weapons/bullet/Bullet.gd"
 }, {
 "base": "MeshInstance",
 "class": "ProjectileGun",
 "language": "GDScript",
-"path": "res://actors/weapons/projectile/ProjectileGun.gd"
+"path": "res://src/weapons/projectile/ProjectileGun.gd"
 }, {
 "base": "Reference",
 "class": "QodotDependencies",
@@ -182,7 +192,7 @@ _global_script_classes=[ {
 "base": "Spatial",
 "class": "Shotgun",
 "language": "GDScript",
-"path": "res://actors/weapons/hit_scan/Shotgun.gd"
+"path": "res://src/weapons/hit_scan/Shotgun.gd"
 }, {
 "base": "LiquidLayer",
 "class": "SlimeLayer",
@@ -233,6 +243,8 @@ _global_script_class_icons={
 "Constants": "",
 "DummyEnemy": "",
 "DummyEnemyState": "",
+"Enemy": "",
+"EnemyState": "",
 "ItemPickup": "",
 "LavaLayer": "",
 "LiquidLayer": "",
@@ -280,12 +292,13 @@ _global_script_class_icons={
 
 config/name="Do you feel this level similar?"
 config/description="A FPS which will take turn in a single map and start at the same position every single time. But, every iteration will have some thing new for player to explore. What is the reason of all this, finish the game first most ^^"
-run/main_scene="res://game_world.tscn"
+run/main_scene="res://src/ui/separate_ui/main_menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-GameEvents="*res://global_node/game_events.gd"
+GameEvents="*res://src/global_node/game_events.gd"
+SceneChanger="*res://src/global_node/scene_changer.gd"
 
 [debug]
 
@@ -361,6 +374,14 @@ reload_ammo={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":82,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+3d_physics/layer_1="World"
+3d_physics/layer_2="Player"
+3d_physics/layer_3="Enemy"
+3d_physics/layer_4="Item"
+3d_physics/layer_5="Area"
 
 [physics]
 

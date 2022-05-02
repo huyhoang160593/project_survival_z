@@ -1,0 +1,153 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/weapons/hit_scan/Shotgun.gd" type="Script" id=1]
+[ext_resource path="res://assets/models/Weapon/shotgun/shotgun.obj" type="ArrayMesh" id=2]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0.6 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "gun_shot"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0.6 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 30, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[node name="Shotgun" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6 )
+script = ExtResource( 1 )
+damage = 30
+spread = 2
+ammoSize = 4
+capacity = 45
+reloadTime = 2.0
+
+[node name="ShotgunMesh" type="MeshInstance" parent="."]
+transform = Transform( -20, 0, -3.01992e-06, 0, 20, 0, 3.01992e-06, 0, -20, 0, 0, 0.101 )
+layers = 2
+mesh = ExtResource( 2 )
+skeleton = NodePath("../../..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+material/22 = null
+material/23 = null
+material/24 = null
+material/25 = null
+material/26 = null
+material/27 = null
+material/28 = null
+material/29 = null
+material/30 = null
+material/31 = null
+material/32 = null
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="RayContainer" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.69 )
+
+[node name="RayCast" type="RayCast" parent="RayContainer"]
+enabled = true
+cast_to = Vector3( 0, 0, -9 )
+collision_mask = 5
+
+[node name="RayCast2" type="RayCast" parent="RayContainer"]
+enabled = true
+cast_to = Vector3( 0, 0, -9 )
+collision_mask = 5
+
+[node name="RayCast3" type="RayCast" parent="RayContainer"]
+enabled = true
+cast_to = Vector3( 0, 0, -9 )
+collision_mask = 5
+
+[node name="RayCast4" type="RayCast" parent="RayContainer"]
+enabled = true
+cast_to = Vector3( 0, 0, -9 )
+collision_mask = 5
+
+[node name="RayCast5" type="RayCast" parent="RayContainer"]
+enabled = true
+cast_to = Vector3( 0, 0, -9 )
+collision_mask = 5
+
+[node name="RayCast6" type="RayCast" parent="RayContainer"]
+enabled = true
+cast_to = Vector3( 0, 0, -9 )
+collision_mask = 5
+
+[node name="RayCast7" type="RayCast" parent="RayContainer"]
+enabled = true
+cast_to = Vector3( 0, 0, -9 )
+collision_mask = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/gun_shot = SubResource( 1 )

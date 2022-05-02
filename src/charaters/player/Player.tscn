@@ -1,0 +1,243 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://src/charaters/player/Player.gd" type="Script" id=1]
+[ext_resource path="res://state_machine/state_machine.gd" type="Script" id=2]
+[ext_resource path="res://assets/font/new_dynamicfont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://src/charaters/player/state/equipment/SHOOT.gd" type="Script" id=4]
+[ext_resource path="res://src/charaters/player/state/movement/Moving.gd" type="Script" id=5]
+[ext_resource path="res://utilities/FPSCounter.gd" type="Script" id=6]
+[ext_resource path="res://src/charaters/player/state/equipment/IDLE.gd" type="Script" id=7]
+[ext_resource path="res://src/charaters/player/state/equipment/CHANGE_WEAPON.gd" type="Script" id=8]
+[ext_resource path="res://src/charaters/player/state/movement/Air.gd" type="Script" id=9]
+[ext_resource path="res://src/charaters/player/state/equipment/RELOAD_AMMO.gd" type="Script" id=10]
+[ext_resource path="res://src/charaters/player/state/movement/Idle.gd" type="Script" id=11]
+[ext_resource path="res://src/charaters/player/state/equipment/AIM_DOWN_SIGN.gd" type="Script" id=12]
+[ext_resource path="res://src/charaters/player/state/equipment/MELEE_ATTACK.gd" type="Script" id=13]
+[ext_resource path="res://src/charaters/player/player_UI.gd" type="Script" id=14]
+[ext_resource path="res://assets/ui/Crosshair.png" type="Texture" id=15]
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.682353, 0.0980392, 0.823529, 1 )
+
+[sub_resource type="CapsuleMesh" id=1]
+material = SubResource( 6 )
+radius = 0.5
+mid_height = 2.5
+
+[sub_resource type="CapsuleShape" id=2]
+radius = 0.5
+height = 2.5
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.537255, 0.537255, 0.537255, 1 )
+
+[sub_resource type="CapsuleMesh" id=8]
+material = SubResource( 7 )
+radius = 0.2
+mid_height = 0.25
+
+[sub_resource type="Animation" id=5]
+resource_name = "GunHide_Show"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head/Hand:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -90, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Head/Hand:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.6, -0.06, -1 ), Vector3( 0.6, -0.8, -0.1 ) ]
+}
+
+[node name="Player" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0 )
+collision_layer = 2
+collision_mask = 5
+script = ExtResource( 1 )
+currentHeart = 50
+default_gun_position = Vector3( 0.6, -0.06, -1 )
+ads_gun_position = Vector3( 0, -0.06, -1 )
+camera_sensitivity = 0.15
+jump_impulse = 6.5
+head = NodePath("Head")
+raycast = NodePath("Head/Camera/RayCast")
+hand = NodePath("Head/Hand")
+camera = NodePath("Head/Camera")
+gunViewPort = NodePath("PlayerUI/ViewportContainer/Viewport")
+gunCamera = NodePath("PlayerUI/ViewportContainer/Viewport/GunCam")
+animationPlayer = NodePath("AnimationPlayer")
+crossHairNode = NodePath("PlayerUI/PlayerUI/CrossHair")
+
+[node name="BodyShapeTesting" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.3, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.3, 0 )
+shape = SubResource( 2 )
+
+[node name="Head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.3 )
+
+[node name="Camera" type="Camera" parent="Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36, -0.12 )
+cull_mask = 1048573
+current = true
+far = 150.0
+
+[node name="RayCast" type="RayCast" parent="Head/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -1000 )
+debug_shape_thickness = 1
+
+[node name="Hand" type="Spatial" parent="Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.06, -1 )
+
+[node name="MainWeapon" type="Spatial" parent="Head/Hand"]
+
+[node name="SecondWeapon" type="Spatial" parent="Head/Hand"]
+
+[node name="MeleeWeapon" type="Spatial" parent="Head/Hand"]
+
+[node name="Eyes" type="MeshInstance" parent="Head"]
+transform = Transform( -4.37114e-08, 4.37114e-08, 1, 1, 3.55271e-15, 4.37114e-08, 0, 1, -4.37114e-08, 0, 0.33, -0.06 )
+mesh = SubResource( 8 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="MovementStateMachine" type="Node" parent="."]
+script = ExtResource( 2 )
+initial_state = NodePath("IDLE")
+
+[node name="IDLE" type="Node" parent="MovementStateMachine"]
+script = ExtResource( 11 )
+
+[node name="AIR" type="Node" parent="MovementStateMachine"]
+script = ExtResource( 9 )
+
+[node name="MOVE" type="Node" parent="MovementStateMachine"]
+script = ExtResource( 5 )
+
+[node name="EquipmentStateMachine" type="Node" parent="."]
+script = ExtResource( 2 )
+initial_state = NodePath("IDLE")
+
+[node name="IDLE" type="Node" parent="EquipmentStateMachine"]
+script = ExtResource( 7 )
+
+[node name="SHOOT" type="Node" parent="EquipmentStateMachine"]
+script = ExtResource( 4 )
+
+[node name="AIM_DOWN_SIGN" type="Node" parent="EquipmentStateMachine"]
+script = ExtResource( 12 )
+
+[node name="CHANGE_WEAPON" type="Node" parent="EquipmentStateMachine"]
+script = ExtResource( 8 )
+
+[node name="RELOAD_AMMO" type="Node" parent="EquipmentStateMachine"]
+script = ExtResource( 10 )
+
+[node name="MELEE_ATTACK" type="Node" parent="EquipmentStateMachine"]
+script = ExtResource( 13 )
+
+[node name="PlayerUI" type="CanvasLayer" parent="."]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="PlayerUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 7.0
+margin_bottom = 7.0
+
+[node name="Viewport" type="Viewport" parent="PlayerUI/ViewportContainer"]
+size = Vector2( 1280, 720 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="GunCam" type="Camera" parent="PlayerUI/ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61, -0.42 )
+cull_mask = 2
+current = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="PlayerUI" type="Control" parent="PlayerUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 14 )
+
+[node name="CrossHair" type="TextureRect" parent="PlayerUI/PlayerUI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -16.0
+margin_top = -16.0
+margin_right = 48.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 15 )
+
+[node name="FPSCounter" type="Label" parent="PlayerUI/PlayerUI"]
+margin_left = 43.0
+margin_top = 20.0
+margin_right = 245.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 3 )
+text = "FPS Counter"
+script = ExtResource( 6 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="HeartText" type="Label" parent="PlayerUI/PlayerUI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 41.0
+margin_top = -70.0
+margin_right = 243.0
+margin_bottom = -36.0
+custom_fonts/font = ExtResource( 3 )
+text = "Heart: 0"
+
+[node name="AmmoText" type="Label" parent="PlayerUI/PlayerUI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -243.0
+margin_top = -70.0
+margin_right = -41.0
+margin_bottom = -36.0
+custom_fonts/font = ExtResource( 3 )
+text = "0/0"
+align = 2
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/GunHide_Show = SubResource( 5 )
+
+[connection signal="resized" from="PlayerUI/ViewportContainer" to="." method="_on_ViewportContainer_resized"]

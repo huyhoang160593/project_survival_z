@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/charaters/general_enemy/enemy.tscn" type="PackedScene" id=1]
+
+[sub_resource type="CapsuleMesh" id=1]
+mid_height = 1.5
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.0862745, 0.270588, 0.976471, 1 )
+
+[node name="ThePusher" instance=ExtResource( 1 )]
+TURN_SPEED = 5
+damage = 10
+current_heart = 100
+push_distance = 100
+
+[node name="Mesh" parent="Body" index="1"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )

@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/charaters/general_enemy/enemy.gd" type="Script" id=1]
+[ext_resource path="res://state_machine/state_machine.gd" type="Script" id=2]
+[ext_resource path="res://src/charaters/general_enemy/states/IDLE.gd" type="Script" id=3]
+[ext_resource path="res://src/charaters/general_enemy/states/ALERT.gd" type="Script" id=4]
+
+[sub_resource type="PhysicsMaterial" id=5]
+
+[sub_resource type="SphereMesh" id=2]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="CapsuleShape" id=4]
+height = 1.5
+
+[sub_resource type="SphereShape" id=6]
+radius = 20.0
+
+[sub_resource type="SphereShape" id=7]
+radius = 3.0
+
+[node name="GeneralEnemy" type="RigidBody"]
+collision_layer = 4
+collision_mask = 7
+mode = 2
+physics_material_override = SubResource( 5 )
+script = ExtResource( 1 )
+damage = 1
+
+[node name="Body" type="Spatial" parent="."]
+
+[node name="RayCast" type="RayCast" parent="Body"]
+transform = Transform( -1.07284e-07, -8.47033e-22, 1, 1.06581e-14, 1, -4.23516e-22, -1, 1.06581e-14, -1.07284e-07, -8.47033e-22, 0.9, 7.10543e-15 )
+enabled = true
+cast_to = Vector3( 10, 0, 0 )
+collision_mask = 2
+debug_shape_custom_color = Color( 0.423529, 0.423529, 0.423529, 1 )
+debug_shape_thickness = 5
+
+[node name="Mesh" type="MeshInstance" parent="Body"]
+transform = Transform( -1, -1.50996e-07, 6.60024e-15, 0, -4.37114e-08, -1, 1.50996e-07, -1, 4.37114e-08, 0, 0, 0 )
+skeleton = NodePath("../..")
+
+[node name="Head" type="Spatial" parent="Body"]
+transform = Transform( 1, 0, 1.67037e-22, 2.5411e-21, 1, 0, 1.67037e-22, 0, 1, 1.27055e-21, 0.99, 1.77636e-14 )
+
+[node name="EyesLeft" type="MeshInstance" parent="Body/Head"]
+transform = Transform( -4.22219e-08, 1.13133e-08, 0.999999, 0.258819, 0.965925, 0, -0.965926, 0.258819, -4.37114e-08, 0.3, 0.09, -0.87 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="EyesRight" type="MeshInstance" parent="Body/Head"]
+transform = Transform( -4.22219e-08, 1.13133e-08, 0.999999, 0.258819, 0.965925, 0, -0.965926, 0.258819, -4.37114e-08, -0.36, 0.09, -0.87 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="SightRange" type="Area" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="SightRange"]
+shape = SubResource( 6 )
+
+[node name="AttackRange" type="Area" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="AttackRange"]
+shape = SubResource( 7 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 2 )
+initial_state = NodePath("IDLE")
+
+[node name="IDLE" type="Node" parent="StateMachine"]
+script = ExtResource( 3 )
+
+[node name="ALERT" type="Node" parent="StateMachine"]
+script = ExtResource( 4 )
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 1.25
+
+[connection signal="body_entered" from="SightRange" to="StateMachine/IDLE" method="_on_Area_body_entered"]
+[connection signal="body_exited" from="SightRange" to="StateMachine/ALERT" method="_on_Area_body_exited"]
+[connection signal="body_entered" from="AttackRange" to="StateMachine/ALERT" method="_on_AttackRange_body_entered"]
+[connection signal="timeout" from="AttackTimer" to="StateMachine/ALERT" method="_on_AttackTimer_timeout"]

@@ -21,6 +21,10 @@ func update(_delta: float) -> void:
 # Virtual function. Corresponds to the `_physics_process()` callback.
 func physics_update(_delta: float) -> void:
 	pass
+	
+# Virtual function. Corresponds to the `_integrate_forces_rigidBody()` callback.
+func integrate_forces_rigidBody(_body_state: PhysicsDirectBodyState) -> void:
+	pass
 
 # Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
 # is a dictionary with arbitrary data the state can use to initialize itself. We will use this function to append type for the actice_state_machine in child classes.
