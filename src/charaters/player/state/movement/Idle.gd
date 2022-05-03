@@ -4,12 +4,13 @@ func enter(_msg:={}) -> void:
 	player.velocity = Vector3.ZERO
 
 func physics_update(_delta: float) -> void:
-	if not player.is_on_floor():
-		active_state_machine.transition_to(Constants.MovingStateDict[Constants.AIR])
-		
 	if player.velocity != Vector3.ZERO:
 		active_state_machine.transition_to(Constants.MovingStateDict[Constants.MOVE])
 
+	if not player.is_on_floor():
+		active_state_machine.transition_to(Constants.MovingStateDict[Constants.AIR])
+
+	
 	if Input.is_action_just_pressed("jump"):
 		active_state_machine.transition_to(Constants.MovingStateDict[Constants.AIR], {do_jump = true})
 	elif _check_movement_input():

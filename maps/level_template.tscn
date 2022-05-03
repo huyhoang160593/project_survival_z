@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" type="Resource" id=1]
+[ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=2]
+[ext_resource path="res://addons/qodot/src/nodes/qodot_spatial.gd" type="Script" id=3]
+[ext_resource path="res://src/pickup/MachineGunPickup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/ui/intergrated_ui/pause_menu.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/charaters/player/Player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://SkyBox.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/ui/intergrated_ui/result_menu.tscn" type="PackedScene" id=20]
+
+[sub_resource type="SpatialMaterial" id=303]
+
+[sub_resource type="BoxShape" id=301]
+extents = Vector3( 4, 6, 1 )
+
+[sub_resource type="BoxShape" id=302]
+extents = Vector3( 24.3, 0.3, 24.9 )
+
+[node name="GameWorld" type="Spatial"]
+script = ExtResource( 3 )
+currentLevel = -1
+
+[node name="Player" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3, 3.45, 23.07 )
+
+[node name="MapBuider" type="Spatial" parent="."]
+script = ExtResource( 2 )
+currentLevel = null
+map_file = ""
+inverse_scale_factor = 16.0
+entity_fgd = ExtResource( 1 )
+base_texture_dir = "res://trenchbroom/textures"
+texture_file_extensions = PoolStringArray( "png" )
+worldspawn_layers = [  ]
+brush_clip_texture = "special/clip"
+face_skip_texture = "special/skip"
+texture_wads = [  ]
+material_file_extension = "tres"
+default_material = SubResource( 303 )
+uv_unwrap_texel_size = 1.0
+print_profiling_data = false
+use_trenchbroom_group_hierarchy = false
+tree_attach_batch_size = 16
+set_owner_batch_size = 16
+
+[node name="GUI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="result_menu" parent="GUI" instance=ExtResource( 20 )]
+
+[node name="PauseMenu" parent="GUI" instance=ExtResource( 10 )]
+mouse_filter = 2
+mouse_default_cursor_shape = 1
+
+[node name="FinishArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9, 1.2, -104.1 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="FinishArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.390001, 6.48, 4.77 )
+shape = SubResource( 301 )
+
+[node name="SkyBox" parent="." instance=ExtResource( 12 )]
+
+[node name="DieArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -49.8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="DieArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6, -3.6, -12.3 )
+shape = SubResource( 302 )
+
+[node name="MachineGunPickup" parent="." instance=ExtResource( 4 )]
+transform = Transform( 5.96046e-08, 0, -1, 0, 1, 0, 1, 0, 5.96046e-08, 21, 34.23, -95.13 )
+
+[connection signal="body_entered" from="FinishArea" to="." method="_on_FinishArea_body_entered"]
+[connection signal="body_entered" from="DieArea" to="." method="_on_DieArea_body_entered"]

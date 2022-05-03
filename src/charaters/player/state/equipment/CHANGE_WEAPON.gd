@@ -22,21 +22,24 @@ func _change_weapon_handle(nextWeapon: int) -> void:
 	
 	var previousWeaponNode: Spatial = player.get_weapon_node(player.previousWeapon)
 	var currentWeaponNode: Spatial = player.get_weapon_node(player.currentWeapon)
-	
-	player.animationPlayer.play('GunHide_Show')
-	
-	yield(player.animationPlayer,'animation_finished')
-	
-	if previousWeaponNode != null:
-		previousWeaponNode.visible = false
+	if currentWeaponNode == null:
+		player.currentWeapon = player.previousWeapon
+		player.previousWeapon = Constants.Weapon.NONE
+	else:
+		player.animationPlayer.play('GunHide_Show')
 		
-	player.animationPlayer.play_backwards('GunHide_Show')
-	if currentWeaponNode != null:
-		currentWeaponNode.visible = true
-	
-	GameEvents.emit_signal('weapon_change_success', currentWeaponNode)
-	
-	yield(player.animationPlayer,'animation_finished')
+		yield(player.animationPlayer,'animation_finished')
+		
+		if previousWeaponNode != null:
+			previousWeaponNode.visible = false
+			
+		player.animationPlayer.play_backwards('GunHide_Show')
+		if currentWeaponNode != null:
+			currentWeaponNode.visible = true
+		
+		GameEvents.emit_signal('weapon_change_success', currentWeaponNode)
+		
+		yield(player.animationPlayer,'animation_finished')
 	
 	active_state_machine.transition_to(Constants.EquipStateDict[Constants.IDLE])
 	

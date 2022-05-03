@@ -1,6 +1,6 @@
 [gd_scene load_steps=124 format=2]
 
-[ext_resource path="res://maps/level_full.tscn" type="PackedScene" id=1]
+[ext_resource path="res://maps/level_template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/128_blood_2.png" type="Texture" id=5]
 [ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/128_brown_1.png" type="Texture" id=6]
 [ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/128_brown_3.png" type="Texture" id=7]
@@ -449,332 +449,344 @@ points = PoolVector3Array( 4.18198, 4.5, -35.8536, 4.18198, 1, -35.8536, 4.68198
 points = PoolVector3Array( 4, 43, -110, 4, 33, -110, 13, 33, -110, 13, 43, -110, 4, 43, -109, 4, 33, -109, 13, 33, -109, 13, 43, -109 )
 
 [node name="GameWorld" instance=ExtResource( 1 )]
+currentLevel = 0
 
-[node name="QodotMap" parent="." index="1"]
+[node name="Player" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.4, 3.45, 23.07 )
+
+[node name="MapBuider" parent="." index="1"]
 map_file = "C:/Users/MSI-15/Downloads/Game_Programing/Godot/Project_Survival_F/trenchbroom/maps/map_00.map"
 
-[node name="entity_0_worldspawn" parent="QodotMap" index="0"]
-collision_mask = 1
+[node name="entity_0_worldspawn" type="StaticBody" parent="MapBuider" index="0"]
 
-[node name="entity_0_mesh_instance" parent="QodotMap/entity_0_worldspawn" index="0"]
+[node name="entity_0_mesh_instance" type="MeshInstance" parent="MapBuider/entity_0_worldspawn" index="0"]
+use_in_baked_light = true
 mesh = SubResource( 9 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
 
-[node name="entity_0_brush_0_collision_shape" parent="QodotMap/entity_0_worldspawn" index="1"]
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="1"]
 shape = SubResource( 10 )
 
-[node name="entity_0_brush_1_collision_shape" parent="QodotMap/entity_0_worldspawn" index="2"]
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="2"]
 shape = SubResource( 11 )
 
-[node name="entity_0_brush_2_collision_shape" parent="QodotMap/entity_0_worldspawn" index="3"]
+[node name="entity_0_brush_2_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="3"]
 shape = SubResource( 12 )
 
-[node name="entity_0_brush_3_collision_shape" parent="QodotMap/entity_0_worldspawn" index="4"]
+[node name="entity_0_brush_3_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="4"]
 shape = SubResource( 13 )
 
-[node name="entity_0_brush_4_collision_shape" parent="QodotMap/entity_0_worldspawn" index="5"]
+[node name="entity_0_brush_4_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="5"]
 shape = SubResource( 14 )
 
-[node name="entity_0_brush_5_collision_shape" parent="QodotMap/entity_0_worldspawn" index="6"]
+[node name="entity_0_brush_5_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="6"]
 shape = SubResource( 15 )
 
-[node name="entity_0_brush_6_collision_shape" parent="QodotMap/entity_0_worldspawn" index="7"]
+[node name="entity_0_brush_6_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="7"]
 shape = SubResource( 16 )
 
-[node name="entity_0_brush_7_collision_shape" parent="QodotMap/entity_0_worldspawn" index="8"]
+[node name="entity_0_brush_7_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="8"]
 shape = SubResource( 17 )
 
-[node name="entity_0_brush_8_collision_shape" parent="QodotMap/entity_0_worldspawn" index="9"]
+[node name="entity_0_brush_8_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="9"]
 shape = SubResource( 18 )
 
-[node name="entity_0_brush_9_collision_shape" parent="QodotMap/entity_0_worldspawn" index="10"]
+[node name="entity_0_brush_9_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="10"]
 shape = SubResource( 19 )
 
-[node name="entity_0_brush_10_collision_shape" parent="QodotMap/entity_0_worldspawn" index="11"]
+[node name="entity_0_brush_10_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="11"]
 shape = SubResource( 20 )
 
-[node name="entity_0_brush_11_collision_shape" parent="QodotMap/entity_0_worldspawn" index="12"]
+[node name="entity_0_brush_11_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="12"]
 shape = SubResource( 21 )
 
-[node name="entity_0_brush_12_collision_shape" parent="QodotMap/entity_0_worldspawn" index="13"]
+[node name="entity_0_brush_12_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="13"]
 shape = SubResource( 22 )
 
-[node name="entity_0_brush_13_collision_shape" parent="QodotMap/entity_0_worldspawn" index="14"]
+[node name="entity_0_brush_13_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="14"]
 shape = SubResource( 23 )
 
-[node name="entity_0_brush_14_collision_shape" parent="QodotMap/entity_0_worldspawn" index="15"]
+[node name="entity_0_brush_14_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="15"]
 shape = SubResource( 24 )
 
-[node name="entity_0_brush_15_collision_shape" parent="QodotMap/entity_0_worldspawn" index="16"]
+[node name="entity_0_brush_15_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="16"]
 shape = SubResource( 25 )
 
-[node name="entity_0_brush_16_collision_shape" parent="QodotMap/entity_0_worldspawn" index="17"]
+[node name="entity_0_brush_16_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="17"]
 shape = SubResource( 26 )
 
-[node name="entity_0_brush_17_collision_shape" parent="QodotMap/entity_0_worldspawn" index="18"]
+[node name="entity_0_brush_17_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="18"]
 shape = SubResource( 27 )
 
-[node name="entity_0_brush_18_collision_shape" parent="QodotMap/entity_0_worldspawn" index="19"]
+[node name="entity_0_brush_18_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="19"]
 shape = SubResource( 28 )
 
-[node name="entity_0_brush_19_collision_shape" parent="QodotMap/entity_0_worldspawn" index="20"]
+[node name="entity_0_brush_19_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="20"]
 shape = SubResource( 29 )
 
-[node name="entity_0_brush_20_collision_shape" parent="QodotMap/entity_0_worldspawn" index="21"]
+[node name="entity_0_brush_20_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="21"]
 shape = SubResource( 30 )
 
-[node name="entity_0_brush_21_collision_shape" parent="QodotMap/entity_0_worldspawn" index="22"]
+[node name="entity_0_brush_21_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="22"]
 shape = SubResource( 31 )
 
-[node name="entity_0_brush_22_collision_shape" parent="QodotMap/entity_0_worldspawn" index="23"]
+[node name="entity_0_brush_22_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="23"]
 shape = SubResource( 32 )
 
-[node name="entity_0_brush_23_collision_shape" parent="QodotMap/entity_0_worldspawn" index="24"]
+[node name="entity_0_brush_23_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="24"]
 shape = SubResource( 33 )
 
-[node name="entity_0_brush_24_collision_shape" parent="QodotMap/entity_0_worldspawn" index="25"]
+[node name="entity_0_brush_24_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="25"]
 shape = SubResource( 34 )
 
-[node name="entity_0_brush_25_collision_shape" parent="QodotMap/entity_0_worldspawn" index="26"]
+[node name="entity_0_brush_25_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="26"]
 shape = SubResource( 35 )
 
-[node name="entity_0_brush_26_collision_shape" parent="QodotMap/entity_0_worldspawn" index="27"]
+[node name="entity_0_brush_26_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="27"]
 shape = SubResource( 36 )
 
-[node name="entity_0_brush_27_collision_shape" parent="QodotMap/entity_0_worldspawn" index="28"]
+[node name="entity_0_brush_27_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="28"]
 shape = SubResource( 37 )
 
-[node name="entity_0_brush_28_collision_shape" parent="QodotMap/entity_0_worldspawn" index="29"]
+[node name="entity_0_brush_28_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="29"]
 shape = SubResource( 38 )
 
-[node name="entity_0_brush_29_collision_shape" parent="QodotMap/entity_0_worldspawn" index="30"]
+[node name="entity_0_brush_29_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="30"]
 shape = SubResource( 39 )
 
-[node name="entity_0_brush_30_collision_shape" parent="QodotMap/entity_0_worldspawn" index="31"]
+[node name="entity_0_brush_30_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="31"]
 shape = SubResource( 40 )
 
-[node name="entity_0_brush_31_collision_shape" parent="QodotMap/entity_0_worldspawn" index="32"]
+[node name="entity_0_brush_31_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="32"]
 shape = SubResource( 41 )
 
-[node name="entity_0_brush_32_collision_shape" parent="QodotMap/entity_0_worldspawn" index="33"]
+[node name="entity_0_brush_32_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="33"]
 shape = SubResource( 42 )
 
-[node name="entity_0_brush_33_collision_shape" parent="QodotMap/entity_0_worldspawn" index="34"]
+[node name="entity_0_brush_33_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="34"]
 shape = SubResource( 43 )
 
-[node name="entity_0_brush_34_collision_shape" parent="QodotMap/entity_0_worldspawn" index="35"]
+[node name="entity_0_brush_34_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="35"]
 shape = SubResource( 44 )
 
-[node name="entity_0_brush_35_collision_shape" parent="QodotMap/entity_0_worldspawn" index="36"]
+[node name="entity_0_brush_35_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="36"]
 shape = SubResource( 45 )
 
-[node name="entity_0_brush_36_collision_shape" parent="QodotMap/entity_0_worldspawn" index="37"]
+[node name="entity_0_brush_36_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="37"]
 shape = SubResource( 46 )
 
-[node name="entity_0_brush_37_collision_shape" parent="QodotMap/entity_0_worldspawn" index="38"]
+[node name="entity_0_brush_37_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="38"]
 shape = SubResource( 47 )
 
-[node name="entity_0_brush_38_collision_shape" parent="QodotMap/entity_0_worldspawn" index="39"]
+[node name="entity_0_brush_38_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="39"]
 shape = SubResource( 48 )
 
-[node name="entity_0_brush_39_collision_shape" parent="QodotMap/entity_0_worldspawn" index="40"]
+[node name="entity_0_brush_39_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="40"]
 shape = SubResource( 49 )
 
-[node name="entity_0_brush_40_collision_shape" parent="QodotMap/entity_0_worldspawn" index="41"]
+[node name="entity_0_brush_40_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="41"]
 shape = SubResource( 50 )
 
-[node name="entity_0_brush_41_collision_shape" parent="QodotMap/entity_0_worldspawn" index="42"]
+[node name="entity_0_brush_41_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="42"]
 shape = SubResource( 51 )
 
-[node name="entity_0_brush_42_collision_shape" parent="QodotMap/entity_0_worldspawn" index="43"]
+[node name="entity_0_brush_42_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="43"]
 shape = SubResource( 52 )
 
-[node name="entity_0_brush_43_collision_shape" parent="QodotMap/entity_0_worldspawn" index="44"]
+[node name="entity_0_brush_43_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="44"]
 shape = SubResource( 53 )
 
-[node name="entity_0_brush_44_collision_shape" parent="QodotMap/entity_0_worldspawn" index="45"]
+[node name="entity_0_brush_44_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="45"]
 shape = SubResource( 54 )
 
-[node name="entity_0_brush_45_collision_shape" parent="QodotMap/entity_0_worldspawn" index="46"]
+[node name="entity_0_brush_45_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="46"]
 shape = SubResource( 55 )
 
-[node name="entity_0_brush_46_collision_shape" parent="QodotMap/entity_0_worldspawn" index="47"]
+[node name="entity_0_brush_46_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="47"]
 shape = SubResource( 56 )
 
-[node name="entity_0_brush_47_collision_shape" parent="QodotMap/entity_0_worldspawn" index="48"]
+[node name="entity_0_brush_47_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="48"]
 shape = SubResource( 57 )
 
-[node name="entity_0_brush_48_collision_shape" parent="QodotMap/entity_0_worldspawn" index="49"]
+[node name="entity_0_brush_48_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="49"]
 shape = SubResource( 58 )
 
-[node name="entity_0_brush_49_collision_shape" parent="QodotMap/entity_0_worldspawn" index="50"]
+[node name="entity_0_brush_49_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="50"]
 shape = SubResource( 59 )
 
-[node name="entity_0_brush_50_collision_shape" parent="QodotMap/entity_0_worldspawn" index="51"]
+[node name="entity_0_brush_50_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="51"]
 shape = SubResource( 60 )
 
-[node name="entity_0_brush_51_collision_shape" parent="QodotMap/entity_0_worldspawn" index="52"]
+[node name="entity_0_brush_51_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="52"]
 shape = SubResource( 61 )
 
-[node name="entity_0_brush_52_collision_shape" parent="QodotMap/entity_0_worldspawn" index="53"]
+[node name="entity_0_brush_52_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="53"]
 shape = SubResource( 62 )
 
-[node name="entity_0_brush_53_collision_shape" parent="QodotMap/entity_0_worldspawn" index="54"]
+[node name="entity_0_brush_53_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="54"]
 shape = SubResource( 63 )
 
-[node name="entity_0_brush_54_collision_shape" parent="QodotMap/entity_0_worldspawn" index="55"]
+[node name="entity_0_brush_54_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="55"]
 shape = SubResource( 64 )
 
-[node name="entity_0_brush_55_collision_shape" parent="QodotMap/entity_0_worldspawn" index="56"]
+[node name="entity_0_brush_55_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="56"]
 shape = SubResource( 65 )
 
-[node name="entity_0_brush_56_collision_shape" parent="QodotMap/entity_0_worldspawn" index="57"]
+[node name="entity_0_brush_56_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="57"]
 shape = SubResource( 66 )
 
-[node name="entity_0_brush_57_collision_shape" parent="QodotMap/entity_0_worldspawn" index="58"]
+[node name="entity_0_brush_57_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="58"]
 shape = SubResource( 67 )
 
-[node name="entity_0_brush_58_collision_shape" parent="QodotMap/entity_0_worldspawn" index="59"]
+[node name="entity_0_brush_58_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="59"]
 shape = SubResource( 68 )
 
-[node name="entity_0_brush_59_collision_shape" parent="QodotMap/entity_0_worldspawn" index="60"]
+[node name="entity_0_brush_59_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="60"]
 shape = SubResource( 69 )
 
-[node name="entity_0_brush_60_collision_shape" parent="QodotMap/entity_0_worldspawn" index="61"]
+[node name="entity_0_brush_60_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="61"]
 shape = SubResource( 70 )
 
-[node name="entity_0_brush_61_collision_shape" parent="QodotMap/entity_0_worldspawn" index="62"]
+[node name="entity_0_brush_61_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="62"]
 shape = SubResource( 71 )
 
-[node name="entity_0_brush_62_collision_shape" parent="QodotMap/entity_0_worldspawn" index="63"]
+[node name="entity_0_brush_62_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="63"]
 shape = SubResource( 72 )
 
-[node name="entity_0_brush_63_collision_shape" parent="QodotMap/entity_0_worldspawn" index="64"]
+[node name="entity_0_brush_63_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="64"]
 shape = SubResource( 73 )
 
-[node name="entity_0_brush_64_collision_shape" parent="QodotMap/entity_0_worldspawn" index="65"]
+[node name="entity_0_brush_64_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="65"]
 shape = SubResource( 74 )
 
-[node name="entity_0_brush_65_collision_shape" parent="QodotMap/entity_0_worldspawn" index="66"]
+[node name="entity_0_brush_65_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="66"]
 shape = SubResource( 75 )
 
-[node name="entity_0_brush_66_collision_shape" parent="QodotMap/entity_0_worldspawn" index="67"]
+[node name="entity_0_brush_66_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="67"]
 shape = SubResource( 76 )
 
-[node name="entity_0_brush_67_collision_shape" parent="QodotMap/entity_0_worldspawn" index="68"]
+[node name="entity_0_brush_67_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="68"]
 shape = SubResource( 77 )
 
-[node name="entity_0_brush_68_collision_shape" parent="QodotMap/entity_0_worldspawn" index="69"]
+[node name="entity_0_brush_68_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="69"]
 shape = SubResource( 78 )
 
-[node name="entity_0_brush_69_collision_shape" parent="QodotMap/entity_0_worldspawn" index="70"]
+[node name="entity_0_brush_69_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="70"]
 shape = SubResource( 79 )
 
-[node name="entity_0_brush_70_collision_shape" parent="QodotMap/entity_0_worldspawn" index="71"]
+[node name="entity_0_brush_70_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="71"]
 shape = SubResource( 80 )
 
-[node name="entity_0_brush_71_collision_shape" parent="QodotMap/entity_0_worldspawn" index="72"]
+[node name="entity_0_brush_71_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="72"]
 shape = SubResource( 81 )
 
-[node name="entity_0_brush_72_collision_shape" parent="QodotMap/entity_0_worldspawn" index="73"]
+[node name="entity_0_brush_72_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="73"]
 shape = SubResource( 82 )
 
-[node name="entity_0_brush_73_collision_shape" parent="QodotMap/entity_0_worldspawn" index="74"]
+[node name="entity_0_brush_73_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="74"]
 shape = SubResource( 83 )
 
-[node name="entity_0_brush_74_collision_shape" parent="QodotMap/entity_0_worldspawn" index="75"]
+[node name="entity_0_brush_74_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="75"]
 shape = SubResource( 84 )
 
-[node name="entity_0_brush_75_collision_shape" parent="QodotMap/entity_0_worldspawn" index="76"]
+[node name="entity_0_brush_75_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="76"]
 shape = SubResource( 85 )
 
-[node name="entity_0_brush_76_collision_shape" parent="QodotMap/entity_0_worldspawn" index="77"]
+[node name="entity_0_brush_76_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="77"]
 shape = SubResource( 86 )
 
-[node name="entity_0_brush_77_collision_shape" parent="QodotMap/entity_0_worldspawn" index="78"]
+[node name="entity_0_brush_77_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="78"]
 shape = SubResource( 87 )
 
-[node name="entity_0_brush_78_collision_shape" parent="QodotMap/entity_0_worldspawn" index="79"]
+[node name="entity_0_brush_78_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="79"]
 shape = SubResource( 88 )
 
-[node name="entity_0_brush_79_collision_shape" parent="QodotMap/entity_0_worldspawn" index="80"]
+[node name="entity_0_brush_79_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="80"]
 shape = SubResource( 89 )
 
-[node name="entity_0_brush_80_collision_shape" parent="QodotMap/entity_0_worldspawn" index="81"]
+[node name="entity_0_brush_80_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="81"]
 shape = SubResource( 90 )
 
-[node name="entity_0_brush_81_collision_shape" parent="QodotMap/entity_0_worldspawn" index="82"]
+[node name="entity_0_brush_81_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="82"]
 shape = SubResource( 91 )
 
-[node name="entity_0_brush_82_collision_shape" parent="QodotMap/entity_0_worldspawn" index="83"]
+[node name="entity_0_brush_82_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="83"]
 shape = SubResource( 92 )
 
-[node name="entity_0_brush_83_collision_shape" parent="QodotMap/entity_0_worldspawn" index="84"]
+[node name="entity_0_brush_83_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="84"]
 shape = SubResource( 93 )
 
-[node name="entity_0_brush_84_collision_shape" parent="QodotMap/entity_0_worldspawn" index="85"]
+[node name="entity_0_brush_84_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="85"]
 shape = SubResource( 94 )
 
-[node name="entity_0_brush_85_collision_shape" parent="QodotMap/entity_0_worldspawn" index="86"]
+[node name="entity_0_brush_85_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="86"]
 shape = SubResource( 95 )
 
-[node name="entity_0_brush_86_collision_shape" parent="QodotMap/entity_0_worldspawn" index="87"]
+[node name="entity_0_brush_86_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="87"]
 shape = SubResource( 96 )
 
-[node name="entity_0_brush_87_collision_shape" parent="QodotMap/entity_0_worldspawn" index="88"]
+[node name="entity_0_brush_87_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="88"]
 shape = SubResource( 97 )
 
-[node name="entity_0_brush_88_collision_shape" parent="QodotMap/entity_0_worldspawn" index="89"]
+[node name="entity_0_brush_88_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="89"]
 shape = SubResource( 98 )
 
-[node name="entity_0_brush_89_collision_shape" parent="QodotMap/entity_0_worldspawn" index="90"]
+[node name="entity_0_brush_89_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="90"]
 shape = SubResource( 99 )
 
-[node name="entity_0_brush_90_collision_shape" parent="QodotMap/entity_0_worldspawn" index="91"]
+[node name="entity_0_brush_90_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="91"]
 shape = SubResource( 100 )
 
-[node name="entity_0_brush_91_collision_shape" parent="QodotMap/entity_0_worldspawn" index="92"]
+[node name="entity_0_brush_91_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="92"]
 shape = SubResource( 101 )
 
-[node name="entity_0_brush_92_collision_shape" parent="QodotMap/entity_0_worldspawn" index="93"]
+[node name="entity_0_brush_92_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="93"]
 shape = SubResource( 102 )
 
-[node name="entity_0_brush_93_collision_shape" parent="QodotMap/entity_0_worldspawn" index="94"]
+[node name="entity_0_brush_93_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="94"]
 shape = SubResource( 103 )
 
-[node name="entity_0_brush_94_collision_shape" parent="QodotMap/entity_0_worldspawn" index="95"]
+[node name="entity_0_brush_94_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="95"]
 shape = SubResource( 104 )
 
-[node name="entity_0_brush_95_collision_shape" parent="QodotMap/entity_0_worldspawn" index="96"]
+[node name="entity_0_brush_95_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="96"]
 shape = SubResource( 105 )
 
-[node name="entity_0_brush_96_collision_shape" parent="QodotMap/entity_0_worldspawn" index="97"]
+[node name="entity_0_brush_96_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="97"]
 shape = SubResource( 106 )
 
-[node name="entity_0_brush_97_collision_shape" parent="QodotMap/entity_0_worldspawn" index="98"]
+[node name="entity_0_brush_97_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="98"]
 shape = SubResource( 107 )
 
-[node name="entity_0_brush_98_collision_shape" parent="QodotMap/entity_0_worldspawn" index="99"]
+[node name="entity_0_brush_98_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="99"]
 shape = SubResource( 108 )
 
-[node name="entity_0_brush_99_collision_shape" parent="QodotMap/entity_0_worldspawn" index="100"]
+[node name="entity_0_brush_99_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="100"]
 shape = SubResource( 109 )
 
-[node name="entity_0_brush_100_collision_shape" parent="QodotMap/entity_0_worldspawn" index="101"]
+[node name="entity_0_brush_100_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="101"]
 shape = SubResource( 110 )
 
-[node name="entity_0_brush_101_collision_shape" parent="QodotMap/entity_0_worldspawn" index="102"]
+[node name="entity_0_brush_101_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="102"]
 shape = SubResource( 111 )
 
-[node name="entity_0_brush_102_collision_shape" parent="QodotMap/entity_0_worldspawn" index="103"]
+[node name="entity_0_brush_102_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="103"]
 shape = SubResource( 112 )
 
-[node name="entity_0_brush_103_collision_shape" parent="QodotMap/entity_0_worldspawn" index="104"]
+[node name="entity_0_brush_103_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="104"]
 shape = SubResource( 113 )
 
-[node name="entity_0_brush_104_collision_shape" parent="QodotMap/entity_0_worldspawn" index="105"]
+[node name="entity_0_brush_104_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="105"]
 shape = SubResource( 114 )
 
-[node name="entity_0_brush_105_collision_shape" parent="QodotMap/entity_0_worldspawn" index="106"]
+[node name="entity_0_brush_105_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="106"]
 shape = SubResource( 115 )
 
 [node name="result_menu" parent="GUI" index="0"]

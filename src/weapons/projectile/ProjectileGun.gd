@@ -30,7 +30,7 @@ func _ready() -> void:
 	randomize()
 	
 	#for testing
-	currentAmmo = int(rand_range(0.0, float(ammoSize)))
+	currentAmmo = ammoSize
 #	remainAmmo = int(rand_range(float(capacity) / 2, float(capacity)))
 	
 	var error_code = GameEvents.connect('gun_shot_event', self, "_on_gun_shot_event_handle")

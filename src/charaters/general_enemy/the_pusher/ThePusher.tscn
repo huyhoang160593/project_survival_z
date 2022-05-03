@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/charaters/general_enemy/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/models/Enemies/astronautBlue.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/charaters/general_enemy/the_pusher/ThePusher.gd" type="Script" id=3]
+
+[node name="ThePusher" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+TURN_SPEED = 3
+damage = 10
+current_heart = 100
+push_distance = 100
+modelAnimationPlayer = NodePath("Body/astronautBlue/AnimationPlayer")
+
+[node name="astronautBlue" parent="Body" index="0" instance=ExtResource( 2 )]
+transform = Transform( -0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, 0, -1.75, 0 )
+
+[node name="Armature" parent="Body/astronautBlue" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 0 )
+
+[editable path="Body/astronautBlue"]

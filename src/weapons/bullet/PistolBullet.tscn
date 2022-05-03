@@ -5,6 +5,7 @@
 
 [node name="PistolBullet" instance=ExtResource( 1 )]
 damage = 30
+speed = 0.7
 
 [node name="BulletMesh" parent="." index="1"]
 mesh = ExtResource( 2 )

@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/models/stall.glb" type="PackedScene" id=3]
 [ext_resource path="res://assets/models/paper_set.dae" type="PackedScene" id=4]
 [ext_resource path="res://assets/font/new_dynamicfont.tres" type="DynamicFont" id=5]
-[ext_resource path="res://assets/font/Ubuntu-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/font/DFVNCalignaRegular.otf" type="DynamicFontData" id=6]
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.482353, 0.478431, 0.478431, 1 )
@@ -13,12 +13,13 @@ albedo_color = Color( 0.482353, 0.478431, 0.478431, 1 )
 [sub_resource type="SpatialMaterial" id=1]
 
 [sub_resource type="DynamicFont" id=3]
-size = 70
+size = 60
 font_data = ExtResource( 6 )
 
 [node name="MainMenu" type="Spatial"]
 script = ExtResource( 1 )
 levelZeroPath = "res://maps/level_0.tscn"
+MAX_LEVEL = 2
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.352, -1.828, -0.117 )
@@ -124,34 +125,37 @@ flat = true
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/VBoxContainer"]
 margin_top = 55.0
 margin_right = 488.0
-margin_bottom = 89.0
+margin_bottom = 95.0
 
-[node name="Button" type="Button" parent="UI/Control/VBoxContainer/HBoxContainer"]
+[node name="Previous" type="Button" parent="UI/Control/VBoxContainer/HBoxContainer"]
 margin_right = 160.0
-margin_bottom = 34.0
+margin_bottom = 40.0
 size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
 text = "Previous"
+flat = true
 
-[node name="Label" type="Label" parent="UI/Control/VBoxContainer/HBoxContainer"]
+[node name="ChangeLevelButton" type="Button" parent="UI/Control/VBoxContainer/HBoxContainer"]
 margin_left = 164.0
 margin_right = 324.0
-margin_bottom = 34.0
+margin_bottom = 40.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 5 )
 text = "0"
-align = 1
 
-[node name="Button2" type="Button" parent="UI/Control/VBoxContainer/HBoxContainer"]
+[node name="Next" type="Button" parent="UI/Control/VBoxContainer/HBoxContainer"]
 margin_left = 328.0
 margin_right = 488.0
-margin_bottom = 34.0
+margin_bottom = 40.0
 size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 5 )
 text = "Next"
+flat = true
 
 [node name="OptionButton" type="Button" parent="UI/Control/VBoxContainer"]
-margin_top = 104.0
+margin_top = 110.0
 margin_right = 488.0
-margin_bottom = 144.0
+margin_bottom = 150.0
 focus_neighbour_top = NodePath("../StartButton")
 focus_neighbour_bottom = NodePath("../QuitButton")
 custom_fonts/font = ExtResource( 5 )
@@ -159,9 +163,9 @@ text = "Setting"
 flat = true
 
 [node name="QuitButton" type="Button" parent="UI/Control/VBoxContainer"]
-margin_top = 159.0
+margin_top = 165.0
 margin_right = 488.0
-margin_bottom = 199.0
+margin_bottom = 205.0
 focus_neighbour_top = NodePath("../OptionButton")
 focus_neighbour_bottom = NodePath("../StartButton")
 custom_fonts/font = ExtResource( 5 )
@@ -170,11 +174,14 @@ flat = true
 
 [node name="Label" type="Label" parent="UI/Control"]
 anchor_right = 1.0
-margin_top = 25.0
+margin_top = 80.0
 margin_bottom = 14.0
 custom_fonts/font = SubResource( 3 )
 text = "Do you find this level familiar?"
 align = 1
 
 [connection signal="pressed" from="UI/Control/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="UI/Control/VBoxContainer/HBoxContainer/Previous" to="." method="_on_Previous_pressed"]
+[connection signal="pressed" from="UI/Control/VBoxContainer/HBoxContainer/ChangeLevelButton" to="." method="_on_ChangeLevelButton_pressed"]
+[connection signal="pressed" from="UI/Control/VBoxContainer/HBoxContainer/Next" to="." method="_on_Next_pressed"]
 [connection signal="pressed" from="UI/Control/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

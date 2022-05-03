@@ -37,6 +37,8 @@ func _ready() -> void:
 
 
 func on_pickup_response(itemNode: Spatial, isSuccess: bool) -> void:
+	if itemNode != self: 
+		return
 	if not isSuccess:
 		print("This item can't be pickup")
 		return

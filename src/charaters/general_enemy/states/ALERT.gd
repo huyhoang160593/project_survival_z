@@ -19,7 +19,6 @@ func update(_delta: float) -> void:
 		return
 	(enemy.head as Spatial).look_at(enemy.target.global_transform.origin, Vector3.UP)
 	(enemy.body as Spatial).rotate_y(deg2rad(enemy.head.rotation.y * enemy.TURN_SPEED))
-	pass
 
 
 # Virtual function. Corresponds to the `integrate_forces_rigidBody()` callback.
@@ -30,15 +29,17 @@ func integrate_forces_rigidBody(body_state: PhysicsDirectBodyState) -> void:
 	#apply gravity
 	direction_vector.y -= 9.8
 	body_state.linear_velocity = direction_vector
-	
+
+	if (direction_vector.x != 0 and direction_vector.z != 0):
+		enemy.modelAnimationPlayer.play("Run")
 
 
 # Virtual function. Called by the state machine before changing the active state. Use this function
 # to clean up the state.
 func exit() -> void:
 	(enemy.attackTimer as Timer).stop()
-	pass
-
+	
+	enemy.modelAnimationPlayer.play("Idle")
 
 func _on_Area_body_exited(body: Node) -> void:
 	if body is Player:

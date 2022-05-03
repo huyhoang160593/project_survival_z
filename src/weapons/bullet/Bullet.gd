@@ -17,6 +17,7 @@ func _ready() -> void:
 	set_as_toplevel(true)
 	
 func _physics_process(_delta: float) -> void:
+	print(transform.basis.z)
 	apply_impulse(transform.basis.z, -transform.basis.z * speed)
 
 
@@ -25,6 +26,7 @@ func _on_Timer_timeout() -> void:
 
 
 func _on_BulletRealCollision_body_entered(body: Node) -> void:
+	print(body)
 	if body is Enemy or body is Player:
 		GameEvents.emit_signal('heart_decrease', body, damage)
 		queue_free()

@@ -42,7 +42,6 @@ func fire_shotgun() -> void:
 	_decrease_ammo()
 	
 	$AnimationPlayer.play('gun_shot')
-	var totalDamage := 0
 	for ray in rayContainer.get_children():
 		var rayTyped: RayCast = ray
 		rayTyped.cast_to.x = rand_range(spread, -spread)

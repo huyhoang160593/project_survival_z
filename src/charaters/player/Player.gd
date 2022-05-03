@@ -13,6 +13,7 @@ var isCaptureMouse = true
 export(Constants.Weapon) var selectedWeapon
 var previousWeapon = Constants.Weapon.NONE
 var currentWeapon = Constants.Weapon.NONE
+onready var groundCheck = $GroundCheck
 
 export(int, 0, 100) var currentHeart:int
 
@@ -33,6 +34,7 @@ export(NodePath) onready var camera = get_node(camera) as Camera
 export(NodePath) onready var gunViewPort = get_node(gunViewPort) as Viewport
 export(NodePath) onready var gunCamera = get_node(gunCamera) as Camera
 export(NodePath) onready var animationPlayer = get_node(animationPlayer) as AnimationPlayer
+export(NodePath) onready var effectPlayer = get_node(effectPlayer) as AnimationPlayer
 export (NodePath) onready var crossHairNode = get_node(crossHairNode) as TextureRect
 
 #vectors
@@ -46,6 +48,8 @@ func _ready():
 	gunViewPort.size = get_viewport().size
 	GameEvents.emit_signal('update_heart_ui', currentHeart)
 	error_code = GameEvents.connect('push_charater', self, "on_charater_pushed_handle")
+	
+	GameEvents.emit_signal('update_ammo_ui',0,0)
 	
 func on_charater_pushed_handle(push_vector: Vector3):
 	velocity.x = push_vector.x
@@ -81,13 +85,18 @@ func add_weapon(weaponType: int, weaponInstance: Spatial) -> void:
 func on_heart_decrease_handle(targetNode: Spatial, ammount: int) -> void:
 	if targetNode != self:
 		return
+	effectPlayer.play("Pain")
 	currentHeart = int(clamp(float(currentHeart - ammount), 0.0, 100.0))
 	GameEvents.emit_signal('update_heart_ui', currentHeart)
 	if currentHeart == 0:
+		yield(effectPlayer,'animation_finished')
 		GameEvents.emit_signal('level_finished', false)
 	
 func on_pick_up_item_handle(itemNode: Spatial ,itemType: int, playerNode: Spatial, weaponInstance: Spatial, weaponType: int) -> void:
 	if itemType == Constants.ItemType.HEART:
+		if currentHeart == 100:
+			GameEvents.emit_signal('pick_up_response', itemNode, false)
+			return
 		currentHeart = int(clamp(float(currentHeart + 30), 0.0, 100.0))
 		GameEvents.emit_signal('update_heart_ui', currentHeart)
 		GameEvents.emit_signal('pick_up_response', itemNode, true)

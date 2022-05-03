@@ -1,0 +1,102 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/dialogue_manager/dialogue_resource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+syntax_version = 2
+raw_text = "~ welcome_to_project_loop
+Dr Hùng: [speed=5][next=auto]Xin chào đối tượng #123, chào mừng đến căn phòng giả lập 101, mong bạn sẽ làm theo chỉ dẫn để cuộc kiểm tra của chúng ta diễn ra thực sự suôn sẻ...
+Dr Hùng: [speed=5][next=auto]Sử dụng 4 phím cơ bản W,A,S,D để di chuyển và hướng tới cánh cổng để hoàn thành vòng lặp, các chỉ dẫn mới hơn sẽ được đưa ra ở các màn chơi tiếp theo, chúc bạn may mắn!
+Dr Hùng: [speed=5][next=auto]Nếu như bạn cố tình tìm cách chết thì vòng lặp sẽ được khởi động lại và bạn có thể làm điều này cả ngày, nên là nếu bạn muốn nhanh chóng thoát khỏi đây, thì hãy [shake rate=20 level=10]làm theo chỉ dẫn của chúng tôi.[/shake]
+
+~ the_jump_of_belive
+Dr Hùng: [next=auto]Ở vòng lặp thứ 2 này, chúng ta sẽ học cách sử dụng phím nhảy nhé, nhấn phím [wave amp=25 freq=5]Space[/wave] để nhảy qua các chướng ngại vật và bước tiếp về cách cổng phía trước.
+Dr Hùng: [next=auto]Yên tâm là không có gì có thể làm hại bạn đâu, bạn hoàn toàn bất tử trong phòng này, nên tự tin lên nhé. Chúc may mắn"
+errors = [  ]
+titles = {
+"the_jump_of_belive": "6",
+"welcome_to_project_loop": "1"
+}
+lines = {
+"0": {
+"next_id": "1",
+"text": "welcome_to_project_loop",
+"type": "title"
+},
+"1": {
+"character": "Dr Hùng",
+"character_replacements": [  ],
+"inline_mutations": [  ],
+"next_id": "2",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [ [ 0, 5.0 ] ],
+"text": "Xin chào đối tượng #123, chào mừng đến căn phòng giả lập 101, mong bạn sẽ làm theo chỉ dẫn để cuộc kiểm tra của chúng ta diễn ra thực sự suôn sẻ...",
+"time": "auto",
+"translation_key": "Xin chào đối tượng #123, chào mừng đến căn phòng giả lập 101, mong bạn sẽ làm theo chỉ dẫn để cuộc kiểm tra của chúng ta diễn ra thực sự suôn sẻ...",
+"type": "dialogue"
+},
+"2": {
+"character": "Dr Hùng",
+"character_replacements": [  ],
+"inline_mutations": [  ],
+"next_id": "3",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [ [ 0, 5.0 ] ],
+"text": "Sử dụng 4 phím cơ bản W,A,S,D để di chuyển và hướng tới cánh cổng để hoàn thành vòng lặp, các chỉ dẫn mới hơn sẽ được đưa ra ở các màn chơi tiếp theo, chúc bạn may mắn!",
+"time": "auto",
+"translation_key": "Sử dụng 4 phím cơ bản W,A,S,D để di chuyển và hướng tới cánh cổng để hoàn thành vòng lặp, các chỉ dẫn mới hơn sẽ được đưa ra ở các màn chơi tiếp theo, chúc bạn may mắn!",
+"type": "dialogue"
+},
+"3": {
+"character": "Dr Hùng",
+"character_replacements": [  ],
+"inline_mutations": [  ],
+"next_id": "end",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [ [ 0, 5.0 ] ],
+"text": "Nếu như bạn cố tình tìm cách chết thì vòng lặp sẽ được khởi động lại và bạn có thể làm điều này cả ngày, nên là nếu bạn muốn nhanh chóng thoát khỏi đây, thì hãy [shake rate=20 level=10]làm theo chỉ dẫn của chúng tôi.[/shake]",
+"time": "auto",
+"translation_key": "Nếu như bạn cố tình tìm cách chết thì vòng lặp sẽ được khởi động lại và bạn có thể làm điều này cả ngày, nên là nếu bạn muốn nhanh chóng thoát khỏi đây, thì hãy [shake rate=20 level=10]làm theo chỉ dẫn của chúng tôi.[/shake]",
+"type": "dialogue"
+},
+"5": {
+"next_id": "6",
+"text": "the_jump_of_belive",
+"type": "title"
+},
+"6": {
+"character": "Dr Hùng",
+"character_replacements": [  ],
+"inline_mutations": [  ],
+"next_id": "7",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Ở vòng lặp thứ 2 này, chúng ta sẽ học cách sử dụng phím nhảy nhé, nhấn phím [wave amp=25 freq=5]Space[/wave] để nhảy qua các chướng ngại vật và bước tiếp về cách cổng phía trước.",
+"time": "auto",
+"translation_key": "Ở vòng lặp thứ 2 này, chúng ta sẽ học cách sử dụng phím nhảy nhé, nhấn phím [wave amp=25 freq=5]Space[/wave] để nhảy qua các chướng ngại vật và bước tiếp về cách cổng phía trước.",
+"type": "dialogue"
+},
+"7": {
+"character": "Dr Hùng",
+"character_replacements": [  ],
+"inline_mutations": [  ],
+"next_id": "",
+"pauses": {
+},
+"replacements": [  ],
+"speeds": [  ],
+"text": "Yên tâm là không có gì có thể làm hại bạn đâu, bạn hoàn toàn bất tử trong phòng này, nên tự tin lên nhé. Chúc may mắn",
+"time": "auto",
+"translation_key": "Yên tâm là không có gì có thể làm hại bạn đâu, bạn hoàn toàn bất tử trong phòng này, nên tự tin lên nhé. Chúc may mắn",
+"type": "dialogue"
+}
+}

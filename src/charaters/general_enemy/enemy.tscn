@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/charaters/general_enemy/enemy.gd" type="Script" id=1]
 [ext_resource path="res://state_machine/state_machine.gd" type="Script" id=2]
@@ -6,10 +6,6 @@
 [ext_resource path="res://src/charaters/general_enemy/states/ALERT.gd" type="Script" id=4]
 
 [sub_resource type="PhysicsMaterial" id=5]
-
-[sub_resource type="SphereMesh" id=2]
-radius = 0.2
-height = 0.4
 
 [sub_resource type="CapsuleShape" id=4]
 height = 1.5
@@ -38,22 +34,8 @@ collision_mask = 2
 debug_shape_custom_color = Color( 0.423529, 0.423529, 0.423529, 1 )
 debug_shape_thickness = 5
 
-[node name="Mesh" type="MeshInstance" parent="Body"]
-transform = Transform( -1, -1.50996e-07, 6.60024e-15, 0, -4.37114e-08, -1, 1.50996e-07, -1, 4.37114e-08, 0, 0, 0 )
-skeleton = NodePath("../..")
-
 [node name="Head" type="Spatial" parent="Body"]
 transform = Transform( 1, 0, 1.67037e-22, 2.5411e-21, 1, 0, 1.67037e-22, 0, 1, 1.27055e-21, 0.99, 1.77636e-14 )
-
-[node name="EyesLeft" type="MeshInstance" parent="Body/Head"]
-transform = Transform( -4.22219e-08, 1.13133e-08, 0.999999, 0.258819, 0.965925, 0, -0.965926, 0.258819, -4.37114e-08, 0.3, 0.09, -0.87 )
-mesh = SubResource( 2 )
-material/0 = null
-
-[node name="EyesRight" type="MeshInstance" parent="Body/Head"]
-transform = Transform( -4.22219e-08, 1.13133e-08, 0.999999, 0.258819, 0.965925, 0, -0.965926, 0.258819, -4.37114e-08, -0.36, 0.09, -0.87 )
-mesh = SubResource( 2 )
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )

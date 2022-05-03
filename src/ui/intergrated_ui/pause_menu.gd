@@ -22,4 +22,5 @@ func _on_ResumeBtn_pressed() -> void:
 
 
 func _on_QuitBtn_pressed() -> void:
-	get_tree().quit()
+	get_tree().paused = false
+	SceneChanger.goto_scene('res://src/ui/separate_ui/main_menu.tscn')

@@ -1,9 +1,11 @@
 extends PlayerState
 
+
 func physics_update(delta: float) -> void:
-	if not player.is_on_floor():
+	if not player.is_on_floor() or not (player.groundCheck as RayCast).is_colliding():
 		active_state_machine.transition_to(Constants.MovingStateDict[Constants.AIR])
 		return
+
 	movement_process(delta)
 	
 	if Input.is_action_just_pressed("jump"):

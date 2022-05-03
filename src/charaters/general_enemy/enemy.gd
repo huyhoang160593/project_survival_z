@@ -18,6 +18,8 @@ onready var head = $Body/Head
 onready var	rayCast = $Body/RayCast
 onready var attackTimer = $AttackTimer
 
+# Inherited Scene can't get node at onready so we need to do it in the _ready() function
+export(NodePath) onready var modelAnimationPlayer
 
 func _ready() -> void:
 	var error_code = GameEvents.connect('heart_decrease',self,"on_attacked_handle")
@@ -28,10 +30,10 @@ func _integrate_forces(state: PhysicsDirectBodyState) -> void:
 	$StateMachine.integrate_forces_rigidBody(state)
 
 func on_attacked_handle(targetNode: Spatial, ammount: int) -> void:
-	print("targetNode", targetNode)
 	if targetNode != self:
 		return
 	current_heart = int(clamp(float(current_heart - ammount), 0.0, 100.0))
+	print("enemy lost heart", current_heart)
 	# enemy dead handle
 	if current_heart == 0:
 		queue_free()
