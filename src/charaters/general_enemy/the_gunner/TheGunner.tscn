@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/charaters/general_enemy/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/charaters/general_enemy/the_gunner/TheGunner.gd" type="Script" id=2]
+[ext_resource path="res://assets/models/Enemies/astronautYellow.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/models/Weapon/pistol_gun/pistol.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://src/weapons/bullet/PistolBullet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/weapons/projectile/ProjectileGun.gd" type="Script" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "gun_shot"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0.101 ), Vector3( 0, 0, 0.25 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -180, 0 ), Vector3( -20, -180, 0 ), Vector3( 0, -180, 0 ) ]
+}
+
+[sub_resource type="SphereShape" id=2]
+radius = 30.0
+
+[node name="TheGunner" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+enemyType = 2
+TURN_SPEED = 3
+damage = 0
+move_speed = 9
+current_heart = 100
+modelAnimationPlayer = NodePath("Body/astronautYellow/AnimationPlayer")
+currentWeapon = NodePath("Body/HandPosition/PistolGun")
+
+[node name="astronautYellow" parent="Body" index="0" instance=ExtResource( 3 )]
+transform = Transform( -0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, 0, -1.75, 0 )
+
+[node name="Armature" parent="Body/astronautYellow" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 0 )
+
+[node name="RayCast" parent="Body" index="1"]
+cast_to = Vector3( 30, 0, 0 )
+
+[node name="HandPosition" type="Position3D" parent="Body" index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99, 0, -0.63 )
+
+[node name="PistolGun" type="MeshInstance" parent="Body/HandPosition" index="0"]
+transform = Transform( -20, 0, 1.74846e-06, 0, 20, 0, -1.74846e-06, 0, -20, 0, 0, 0 )
+mesh = ExtResource( 4 )
+skeleton = NodePath("../../../..")
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+script = ExtResource( 6 )
+bulletScene = ExtResource( 5 )
+animationPlayer = NodePath("AnimationPlayer")
+recoilArrays = PoolVector2Array( 0, 0, -0.2, -0.4, 0.6, 0.1, -0.3, 0.7, -0.8, 0.2 )
+MAX_VARIATION = 0.5
+damage = 30
+ammoSize = 7
+capacity = 40
+reloadTime = 2.2
+
+[node name="Muzzle" type="Position3D" parent="Body/HandPosition/PistolGun" index="0"]
+transform = Transform( 1, 0, -3.55271e-13, 0, 1, 0, 3.55271e-13, 0, 1, 6.87252e-09, 0.0135, 0.0337581 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Body/HandPosition/PistolGun" index="1"]
+anims/gun_shot = SubResource( 1 )
+
+[node name="HeatTimer" type="Timer" parent="Body/HandPosition/PistolGun" index="2"]
+wait_time = 0.375
+
+[node name="CollisionShape" parent="SightRange" index="0"]
+shape = SubResource( 2 )
+
+[node name="AttackTimer" parent="." index="5"]
+wait_time = 1.0
+
+[connection signal="timeout" from="Body/HandPosition/PistolGun/HeatTimer" to="Body/HandPosition/PistolGun" method="_on_HeatTimer_timeout"]
+
+[editable path="Body/astronautYellow"]

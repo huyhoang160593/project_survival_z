@@ -36,7 +36,7 @@ autostart = true
 
 [node name="BulletRealCollision" type="Area" parent="."]
 collision_layer = 0
-collision_mask = 5
+collision_mask = 7
 
 [node name="CollisionShape" type="CollisionShape" parent="BulletRealCollision"]
 shape = SubResource( 2 )

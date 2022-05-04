@@ -27,7 +27,7 @@ damage = 1
 [node name="Body" type="Spatial" parent="."]
 
 [node name="RayCast" type="RayCast" parent="Body"]
-transform = Transform( -1.07284e-07, -8.47033e-22, 1, 1.06581e-14, 1, -4.23516e-22, -1, 1.06581e-14, -1.07284e-07, -8.47033e-22, 0.9, 7.10543e-15 )
+transform = Transform( -1.07284e-07, -8.47033e-22, 1, 1.06581e-14, 1, -4.23516e-22, -1, 1.06581e-14, -1.07284e-07, 0, 0.9, 0 )
 enabled = true
 cast_to = Vector3( 10, 0, 0 )
 collision_mask = 2

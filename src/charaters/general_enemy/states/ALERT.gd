@@ -1,17 +1,14 @@
 extends EnemyState
 
+enum MINI_STATE { FOLLOW, ATTACK }
+
+var currentState = MINI_STATE.FOLLOW
 
 # Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
 # is a dictionary with arbitrary data the state can use to initialize itself.
 func enter(_msg := {}) -> void:
 	enemy.sleeping = false
 	(enemy.attackTimer as Timer).start()
-	pass
-
-# Virtual function. Receives events from the `_unhandled_input()` callback.
-func handle_input(_event: InputEvent) -> void:
-	pass
-
 
 # Virtual function. Corresponds to the `_process()` callback.
 func update(_delta: float) -> void:
@@ -23,22 +20,25 @@ func update(_delta: float) -> void:
 
 # Virtual function. Corresponds to the `integrate_forces_rigidBody()` callback.
 func integrate_forces_rigidBody(body_state: PhysicsDirectBodyState) -> void:
-	var direction = enemy.target.global_transform.origin - enemy.global_transform.origin
-	var direction_vector = direction.normalized() * enemy.move_speed
-	
-	#apply gravity
-	direction_vector.y -= 9.8
-	body_state.linear_velocity = direction_vector
+	match(currentState):
+		MINI_STATE.FOLLOW:
+			var direction = enemy.target.global_transform.origin - enemy.global_transform.origin
+			var direction_vector = direction.normalized() * enemy.move_speed
+			#apply gravity
+			direction_vector.y -= 9.8
+			body_state.linear_velocity = direction_vector
 
-	if (direction_vector.x != 0 and direction_vector.z != 0):
-		enemy.modelAnimationPlayer.play("Run")
+			if (direction_vector.x != 0 and direction_vector.z != 0):
+				enemy.modelAnimationPlayer.play("Run")
+		MINI_STATE.ATTACK:
+			body_state.linear_velocity = Vector3.ZERO
+			enemy.modelAnimationPlayer.play("Idle")
 
 
 # Virtual function. Called by the state machine before changing the active state. Use this function
 # to clean up the state.
 func exit() -> void:
 	(enemy.attackTimer as Timer).stop()
-	
 	enemy.modelAnimationPlayer.play("Idle")
 
 func _on_Area_body_exited(body: Node) -> void:
@@ -52,11 +52,17 @@ func _on_AttackTimer_timeout() -> void:
 		match(enemy.enemyType):
 			enemy.Type.HEALER:
 				GameEvents.emit_signal('heart_decrease', enemy.rayCast.get_collider(), enemy.damage)
+			enemy.Type.GUNNER:
+				currentState = MINI_STATE.ATTACK
+				GameEvents.emit_signal('gun_shot_event', enemy.rayCast, enemy.currentWeapon, enemy)
 	(enemy.attackTimer as Timer).start()
 
 func _on_AttackRange_body_entered(body: Node) -> void:
 	if body is Player:
-		var direction = enemy.target.global_transform.origin - enemy.global_transform.origin
-		var pushVector = direction.normalized() * enemy.push_distance
-		GameEvents.emit_signal('push_charater', pushVector)
+		match(enemy.enemyType):
+			enemy.Type.PUSHER:
+				var direction = enemy.target.global_transform.origin - enemy.global_transform.origin
+				var pushVector = direction.normalized() * enemy.push_distance
+				GameEvents.emit_signal('push_charater', pushVector)
 		GameEvents.emit_signal('heart_decrease', body, enemy.damage)
+

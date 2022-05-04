@@ -15,9 +15,10 @@ func on_melee_attack_event_handle() -> void:
 		$AnimationPlayer.queue('RETURN')
 	if $AnimationPlayer.current_animation == 'ATTACK':
 		for body in $Hitbox.get_overlapping_bodies():
-			# enemy lose heart here
-			pass
-	GameEvents.emit_signal('attack_finished')
+			if not body is Enemy:
+				continue
+			GameEvents.emit_signal('heart_decrease', body, damage)
+	GameEvents.emit_signal('attack_finished', self)
 
 func _on_weapon_change_success_handle(weaponNode: Spatial) -> void:
 	if weaponNode == self:

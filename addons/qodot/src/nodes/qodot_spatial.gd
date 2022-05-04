@@ -11,6 +11,8 @@ func _ready() -> void:
 			DialogueManager.show_example_dialogue_balloon('welcome_to_project_loop',resource)
 		1:
 			DialogueManager.show_example_dialogue_balloon('the_jump_of_belive',resource)
+		2: 
+			DialogueManager.show_example_dialogue_balloon('the_pusher_appear', resource)
 
 func get_class() -> String:
 	return 'QodotSpatial'

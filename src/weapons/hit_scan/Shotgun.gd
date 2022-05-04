@@ -32,7 +32,7 @@ func _ready() -> void:
 	error_code = GameEvents.connect('gun_add_ammo', self,"_on_add_ammo_handle")
 	StaticHelper.log_error_code(error_code, self.name)
 	
-func _on_gun_shot_handle(_playerRaycast: RayCast, selectedGunNode: Spatial) -> void:
+func _on_gun_shot_handle(_playerRaycast: RayCast, selectedGunNode: Spatial, _gunOwner: Spatial) -> void:
 	if not $AnimationPlayer.is_playing() and self == selectedGunNode:
 		fire_shotgun()
 	
@@ -66,7 +66,7 @@ func fire_shotgun() -> void:
 				decalInstance.look_at(lookAtPosition, Vector3.FORWARD)
 
 	yield($AnimationPlayer,'animation_finished')
-	GameEvents.emit_signal('attack_finished')
+	GameEvents.emit_signal('attack_finished', self)
 
 func _on_weapon_change_success_handle(weaponNode: Spatial) -> void:
 	if weaponNode == self:

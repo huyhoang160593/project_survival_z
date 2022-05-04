@@ -4,7 +4,6 @@ class_name ProjectileGun
 export(PackedScene)onready var bulletScene: PackedScene
 
 const GUN_SHOT_ANIMATION := "gun_shot"
-const MAX_VARIATION := 0.5
 enum ShootingType { SINGLE, BURST }
 
 onready var muzzle: Position3D = $Muzzle
@@ -16,19 +15,19 @@ export(NodePath)onready var animationPlayer = get_node(animationPlayer) as Anima
 export(ShootingType) var shootingType
 export var recoilArrays = PoolVector2Array()
 
+export(float, 0.0, 3.0) var MAX_VARIATION
 export(int, 5,30,5) var damage
 export(int, 1, 30) var ammoSize
 export(int, 0, 250) var capacity
 export(float, 0.0, 5.0) var reloadTime
+
 var remainAmmo:int
 var currentAmmo:int
 
 var heatValue = recoilArrays.size()
 
-
 func _ready() -> void:
 	randomize()
-	
 	#for testing
 	currentAmmo = ammoSize
 #	remainAmmo = int(rand_range(float(capacity) / 2, float(capacity)))
@@ -41,38 +40,43 @@ func _ready() -> void:
 	StaticHelper.log_error_code(error_code, self.name)
 	error_code = GameEvents.connect('gun_add_ammo', self,"_on_add_ammo_handle")
 	StaticHelper.log_error_code(error_code, self.name)
+	error_code = GameEvents.connect('gunner_cheating', self, "_on_gunner_cheating_handle")
 	
-func _on_gun_shot_event_handle(playerRaycast: RayCast, currentGunNode: Spatial):
+func _on_gun_shot_event_handle(raycast: RayCast, currentGunNode: Spatial, gunOwner: Spatial):
 	if self != currentGunNode: 
 		return
 	if shootingType == ShootingType.BURST:
 		if currentAmmo > 0:
-			_shoot_bullet(playerRaycast)
+			_shoot_bullet(raycast, gunOwner)
 	elif shootingType == ShootingType.SINGLE:
 		if currentAmmo > 0:
-			_shoot_bullet(playerRaycast)
-			GameEvents.emit_signal('attack_finished')
+			_shoot_bullet(raycast, gunOwner)
+			GameEvents.emit_signal('attack_finished', currentGunNode)
 
-func _shoot_bullet(playerRaycast: RayCast) -> void:
+func _shoot_bullet(raycast: RayCast, gunOwner: Spatial) -> void:
 	if not animationPlayer.is_playing():
-		_create_bullet(playerRaycast)
+		_create_bullet(raycast, gunOwner)
 		_add_heat_value()
-		_decrease_ammo()
+		_decrease_ammo(gunOwner)
 	animationPlayer.play(GUN_SHOT_ANIMATION)
 
-func _create_bullet(playerRaycast: RayCast) -> void:
-	var newCollisionPoint = playerRaycast.get_collision_point() \
+func _create_bullet(raycast: RayCast, gunOwner: Spatial) -> void:
+	var newCollisionPoint = raycast.get_collision_point() \
 		+ StaticHelper.add_spray_variation(
-			_generated_new_spray_point(),
-			playerRaycast.get_collision_normal()
+			_generated_new_spray_point(gunOwner),
+			raycast.get_collision_normal()
 		)
 	bulletInstance = bulletScene.instance()
-	bulletInstance.setup(newCollisionPoint, playerRaycast.get_collision_normal())
+	bulletInstance.setup(newCollisionPoint, raycast.get_collision_normal())
 	muzzle.add_child(bulletInstance)
 	
 	bulletInstance.look_at(newCollisionPoint, Vector3.UP)
 	
-func _generated_new_spray_point() -> Vector2:
+func _generated_new_spray_point(gunOwner: Spatial) -> Vector2:
+	if gunOwner is Enemy:
+		return Vector2(
+				rand_range(MAX_VARIATION,-MAX_VARIATION), rand_range(MAX_VARIATION,-MAX_VARIATION)
+			)
 	if heatValue == 0:
 		return recoilArrays[heatValue]
 	elif heatValue < recoilArrays.size() - 1:
@@ -93,9 +97,10 @@ func _on_weapon_change_success_handle(weaponNode: Spatial) -> void:
 	if weaponNode == self:
 		GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)
 
-func _decrease_ammo() -> void:
+func _decrease_ammo(gunOwner: Spatial) -> void:
 	currentAmmo -= 1
-	GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)
+	if gunOwner is Player:
+		GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)
 
 func _on_reload_finished_handle(weaponNode: Spatial) -> void:
 	if weaponNode != self:
@@ -113,6 +118,11 @@ func _on_add_ammo_handle(weaponNode: Spatial) -> void:
 	if weaponNode == self:
 		remainAmmo = int(clamp(remainAmmo + ammoSize * ceil(rand_range(0.0,3.0)),0,capacity))
 		GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)
+
+func _on_gunner_cheating_handle(weaponNode: Spatial) -> void:
+	if weaponNode != self:
+		return
+	currentAmmo = 99999
 
 func _on_HeatTimer_timeout() -> void:
 	if heatValue > 0:

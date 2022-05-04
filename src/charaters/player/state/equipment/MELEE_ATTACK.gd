@@ -6,7 +6,10 @@ func enter(_msg := {}) -> void:
 	var error_code = GameEvents.connect('attack_finished', self,'on_attack_finished_handle')
 	GameEvents.emit_signal('melee_attack_event')
 
-func on_attack_finished_handle() -> void:
+func on_attack_finished_handle(weaponNode: Spatial) -> void:
+	var currentWeaponNode = player.get_weapon_node(player.currentWeapon)
+	if weaponNode != currentWeaponNode:
+		return
 	active_state_machine.transition_to(Constants.EquipStateDict[Constants.IDLE])
 
 # Virtual function. Called by the state machine before changing the active state. Use this function

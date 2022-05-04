@@ -20,6 +20,7 @@ onready var attackTimer = $AttackTimer
 
 # Inherited Scene can't get node at onready so we need to do it in the _ready() function
 export(NodePath) onready var modelAnimationPlayer
+export(NodePath) onready var currentWeapon
 
 func _ready() -> void:
 	var error_code = GameEvents.connect('heart_decrease',self,"on_attacked_handle")

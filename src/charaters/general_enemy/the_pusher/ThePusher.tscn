@@ -1,8 +1,51 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/charaters/general_enemy/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/models/Enemies/astronautBlue.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/charaters/general_enemy/the_pusher/ThePusher.gd" type="Script" id=3]
+
+[sub_resource type="SphereMesh" id=1]
+radius = 3.0
+height = 5.92
+
+[sub_resource type="Shader" id=2]
+code = "shader_type spatial;
+//Simple 3D shader to create a force-field effect inspired by Faultless Defense from Guilty Gear Xrd.
+//In summary, it takes logic used for simple rim lighting and uses it to create the alpha instead.
+
+render_mode blend_mix,depth_draw_always,cull_back,diffuse_burley,specular_schlick_ggx;//depth_test_disable;
+uniform vec4 albedo : hint_color;
+uniform vec4 emission_color : hint_color;
+uniform sampler2D texture_albedo : hint_albedo;
+uniform float emission_amount: hint_range(0.0, 16.0) = 5.0f; 
+uniform float rim_steepness : hint_range(0.0f, 16.0f) = 3.0f; //higher values mean a smaller rim.
+uniform vec3 uv_scale;
+uniform vec3 uv_offset;
+
+
+void vertex() {
+	UV=UV*uv_scale.xy+uv_offset.xy;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	EMISSION = emission_color.rgb * emission_amount;
+	float PI = 3.14159265359;
+	float NdotV = dot(NORMAL, VIEW);
+	float rim_light = pow(1.0 - NdotV, rim_steepness);
+	ALPHA = rim_light * emission_color.a / PI;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/albedo = null
+shader_param/emission_color = null
+shader_param/emission_amount = 5.0
+shader_param/rim_steepness = 3.0
+shader_param/uv_scale = null
+shader_param/uv_offset = null
 
 [node name="ThePusher" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
@@ -12,10 +55,12 @@ current_heart = 100
 push_distance = 100
 modelAnimationPlayer = NodePath("Body/astronautBlue/AnimationPlayer")
 
-[node name="astronautBlue" parent="Body" index="0" instance=ExtResource( 2 )]
-transform = Transform( -0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, 0, -1.75, 0 )
+[node name="MeshInstance" type="MeshInstance" parent="Body" index="0"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 3 )
 
-[node name="Armature" parent="Body/astronautBlue" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 0 )
+[node name="astronautBlue" parent="Body" index="1" instance=ExtResource( 2 )]
+transform = Transform( -0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, 0, -1.75, 0 )
 
 [editable path="Body/astronautBlue"]
