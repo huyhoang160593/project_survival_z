@@ -31,8 +31,8 @@ func integrate_forces_rigidBody(body_state: PhysicsDirectBodyState) -> void:
 			if (direction_vector.x != 0 and direction_vector.z != 0):
 				enemy.modelAnimationPlayer.play("Run")
 		MINI_STATE.ATTACK:
-			body_state.linear_velocity = Vector3.ZERO
 			enemy.modelAnimationPlayer.play("Idle")
+			body_state.linear_velocity = Vector3.ZERO
 
 
 # Virtual function. Called by the state machine before changing the active state. Use this function
@@ -55,6 +55,8 @@ func _on_AttackTimer_timeout() -> void:
 			enemy.Type.GUNNER:
 				currentState = MINI_STATE.ATTACK
 				GameEvents.emit_signal('gun_shot_event', enemy.rayCast, enemy.currentWeapon, enemy)
+	else:
+		currentState = MINI_STATE.FOLLOW
 	(enemy.attackTimer as Timer).start()
 
 func _on_AttackRange_body_entered(body: Node) -> void:

@@ -16,9 +16,6 @@ modelAnimationPlayer = NodePath("Body/astronautredGreen/AnimationPlayer")
 [node name="astronautredGreen" parent="Body" index="0" instance=ExtResource( 2 )]
 transform = Transform( -0.7, 0, 1.05697e-07, 0, 0.7, 0, -1.05697e-07, 0, -0.7, 0, -1.75, 0 )
 
-[node name="Armature" parent="Body/astronautredGreen" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 0 )
-
 [node name="RayCast" parent="Body" index="1"]
 cast_to = Vector3( 4, 0, 0 )
 

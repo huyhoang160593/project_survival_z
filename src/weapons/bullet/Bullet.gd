@@ -17,7 +17,6 @@ func _ready() -> void:
 	set_as_toplevel(true)
 	
 func _physics_process(_delta: float) -> void:
-	print(transform.basis.z)
 	apply_impulse(transform.basis.z, -transform.basis.z * speed)
 
 
