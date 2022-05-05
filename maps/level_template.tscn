@@ -19,7 +19,6 @@ extents = Vector3( 24.3, 0.3, 24.9 )
 
 [node name="GameWorld" type="Spatial"]
 script = ExtResource( 3 )
-currentLevel = -1
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3, 3.45, 23.07 )

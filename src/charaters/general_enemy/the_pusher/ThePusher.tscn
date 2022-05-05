@@ -40,8 +40,8 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 2 )
-shader_param/albedo = null
-shader_param/emission_color = null
+shader_param/albedo = Color( 0.976471, 0.0509804, 0.0509804, 1 )
+shader_param/emission_color = Color( 0.286275, 0.423529, 0.47451, 1 )
 shader_param/emission_amount = 5.0
 shader_param/rim_steepness = 3.0
 shader_param/uv_scale = null
@@ -51,11 +51,12 @@ shader_param/uv_offset = null
 script = ExtResource( 3 )
 TURN_SPEED = 3
 damage = 10
+move_speed = 10
 current_heart = 100
 push_distance = 100
 modelAnimationPlayer = NodePath("Body/astronautBlue/AnimationPlayer")
 
-[node name="MeshInstance" type="MeshInstance" parent="Body" index="0"]
+[node name="ShieldShader" type="MeshInstance" parent="Body" index="0"]
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 3 )

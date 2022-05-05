@@ -1,7 +1,7 @@
 class_name QodotSpatial, 'res://addons/qodot/icons/icon_qodot_spatial.svg'
 extends Spatial
 
-export(int) var currentLevel
+export(int) var currentLevel = -1
 
 var resource = preload('res://maps/level_dialogue.tres')
 

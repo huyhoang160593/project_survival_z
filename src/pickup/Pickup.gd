@@ -6,7 +6,7 @@ enum WeaponEnum{ NONE, SHOTGUN, PISTOL, MACHINE_GUN, KNIFE}
 export(Constants.ItemType) var itemType
 export(WeaponEnum) var WeaponPickup
 
-var weaponScene
+var weaponScene:PackedScene
 var weaponInstance: Spatial = null
 var weaponType := -1
 
@@ -49,4 +49,5 @@ func _on_Pickup_player_entered(body: Node) -> void:
 		return
 	if(itemType == Constants.ItemType.WEAPON and weaponType == -1):
 		print("pickup weapon type not set")
+		return
 	GameEvents.emit_signal('pick_up_item', self ,itemType, body, weaponInstance, weaponType)

@@ -25,11 +25,11 @@ func set_is_pause(value: bool) -> void:
 
 func set_mission_finished(value: bool) -> void:
 	if value:
-		$ResultText.text = "Loop finished"
+		$ResultText.text = "Vòng lặp hoàn tất, hãy chuẩn bị cho những thứ thách tiếp theo"
 		$HBoxContainer/ResetLeverBtn.visible = false
 		$HBoxContainer/NextLoopBtn.visible = true
 	else:
-		$ResultText.text = "There is still hope, please try again"
+		$ResultText.text = "Hãy thử lại lần nữa nào!"
 		$HBoxContainer/ResetLeverBtn.visible = true
 		$HBoxContainer/NextLoopBtn.visible = false
 

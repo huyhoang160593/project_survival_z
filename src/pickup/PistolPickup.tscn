@@ -7,10 +7,9 @@
 itemType = 3
 WeaponPickup = 2
 
-[node name="PistolInstance" type="MeshInstance" parent="MeshPosition" index="0"]
-transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0 )
+[node name="PistolMesh" type="MeshInstance" parent="MeshPosition" index="0"]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -0.6, 0 )
 mesh = ExtResource( 2 )
-skeleton = NodePath("../../../ShotgunPickUp/MeshPosition")
 material/0 = null
 material/1 = null
 material/2 = null
