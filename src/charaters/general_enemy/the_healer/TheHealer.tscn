@@ -10,7 +10,7 @@ enemyType = 1
 TURN_SPEED = 3
 damage = 20
 move_speed = 10
-current_heart = 50
+current_heart = 100
 modelAnimationPlayer = NodePath("Body/astronautredGreen/AnimationPlayer")
 
 [node name="astronautredGreen" parent="Body" index="0" instance=ExtResource( 2 )]

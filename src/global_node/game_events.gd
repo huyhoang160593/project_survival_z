@@ -18,6 +18,9 @@ signal heart_decrease(targetNode, amount)
 signal pick_up_item(itemNode, type, playerNode, weaponInstance, weaponType)
 signal pick_up_response(itemNode, isSuccess)
 
+signal pick_up_key(keyNode)
+signal update_custom_pause_message(message)
+
 signal push_charater(pushVector)
 
 signal level_finished(finishedFlag)

@@ -2,7 +2,7 @@ extends Object
 class_name Constants
 
 #--------------------------General--------------------------#
-enum ItemType { NOTHING, HEART, AMMO, WEAPON }
+enum ItemType { NOTHING, HEART, AMMO, WEAPON, KEY }
 enum Weapon { MAIN, SECOND, MELEE, NONE }
 enum { IDLE, AIR, MOVE, SHOOT, AIM_DOWN_SIGN, CHANGE_WEAPON, RELOAD_AMMO, MELEE_ATTACK }
 
@@ -27,5 +27,6 @@ const EquipStateDict = {
 	RELOAD_AMMO: "RELOAD_AMMO",
 	MELEE_ATTACK: "MELEE_ATTACK", 
 }
+
 #---------------------------Enemy---------------------------#
 

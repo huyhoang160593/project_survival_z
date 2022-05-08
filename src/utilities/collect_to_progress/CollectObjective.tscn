@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/utilities/collect_to_progress/CollectObjective.gd" type="Script" id=1]
+
+[sub_resource type="BoxShape" id=1]
+resource_local_to_scene = true
+
+[node name="CollectObjective" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="ActiveArea" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="ActiveArea"]
+shape = SubResource( 1 )
+
+[node name="BlockWalls" type="Spatial" parent="."]
+
+[node name="Keys" type="Spatial" parent="."]
+
+[connection signal="body_exited" from="ActiveArea" to="." method="_on_ActiveArea_body_exited"]

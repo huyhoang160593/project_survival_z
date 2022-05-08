@@ -47,6 +47,9 @@ func on_pickup_response(itemNode: Spatial, isSuccess: bool) -> void:
 func _on_Pickup_player_entered(body: Node) -> void:
 	if not body is Player:
 		return
+	if itemType == Constants.ItemType.KEY:
+		GameEvents.emit_signal('pick_up_key', self)
+		return
 	if(itemType == Constants.ItemType.WEAPON and weaponType == -1):
 		print("pickup weapon type not set")
 		return
