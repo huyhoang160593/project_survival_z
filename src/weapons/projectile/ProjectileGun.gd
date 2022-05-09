@@ -3,6 +3,9 @@ class_name ProjectileGun
 
 export(PackedScene)onready var bulletScene: PackedScene
 
+var machineGunSound: AudioStream = preload('res://assets/sounds/sfx/machine_gun_shot.wav')
+var pistolGunSound: AudioStream = preload('res://assets/sounds/sfx/pistol_shot.wav')
+
 const GUN_SHOT_ANIMATION := "gun_shot"
 enum ShootingType { SINGLE, BURST }
 
@@ -47,9 +50,11 @@ func _on_gun_shot_event_handle(raycast: RayCast, currentGunNode: Spatial, gunOwn
 		return
 	if shootingType == ShootingType.BURST:
 		if currentAmmo > 0:
+			GlobalSoundManager.play_sound(machineGunSound)
 			_shoot_bullet(raycast, gunOwner)
 	elif shootingType == ShootingType.SINGLE:
 		if currentAmmo > 0:
+			GlobalSoundManager.play_sound(pistolGunSound)
 			_shoot_bullet(raycast, gunOwner)
 			GameEvents.emit_signal('attack_finished', currentGunNode)
 

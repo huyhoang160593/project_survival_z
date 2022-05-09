@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/glass_breaking_sound.wav-77ba0e6581b05f00974687cd319e7f13.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/glass_breaking_sound.wav"
+dest_files=[ "res://.import/glass_breaking_sound.wav-77ba0e6581b05f00974687cd319e7f13.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

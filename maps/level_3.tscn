@@ -1,17 +1,17 @@
-[gd_scene load_steps=302 format=2]
+[gd_scene load_steps=300 format=2]
 
 [ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/128_brown_1.png" type="Texture" id=1]
 [ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/128_blue_1.png" type="Texture" id=2]
 [ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/128_blood_1.png" type="Texture" id=3]
 [ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/128_blood_2.png" type="Texture" id=4]
-[ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/+0shbtn_3.png" type="Texture" id=5]
+[ext_resource path="res://trenchbroom/textures/enviroment_texture/lava_texture.tres" type="Material" id=5]
 [ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/128_brown_3.png" type="Texture" id=6]
 [ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/16_brown_3.png" type="Texture" id=7]
 [ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/128_grey_1.png" type="Texture" id=8]
 [ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/128_grey_2.png" type="Texture" id=9]
 [ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/+0shbtn_7.png" type="Texture" id=10]
 [ext_resource path="res://maps/level_template.tscn" type="PackedScene" id=11]
-[ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/64_blood_2.png" type="Texture" id=12]
+[ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/+0shbtn_3.tres" type="Material" id=12]
 [ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/clip.tres" type="Material" id=13]
 [ext_resource path="res://src/charaters/general_enemy/the_healer/TheHealer.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/pickup/Heart_Pickup.tscn" type="PackedScene" id=15]
@@ -28,39 +28,33 @@
 [sub_resource type="SpatialMaterial" id=277]
 
 [sub_resource type="SpatialMaterial" id=278]
-albedo_texture = ExtResource( 12 )
-
-[sub_resource type="SpatialMaterial" id=279]
 albedo_texture = ExtResource( 9 )
 
-[sub_resource type="SpatialMaterial" id=280]
+[sub_resource type="SpatialMaterial" id=279]
 albedo_texture = ExtResource( 8 )
 
-[sub_resource type="SpatialMaterial" id=281]
+[sub_resource type="SpatialMaterial" id=280]
 albedo_texture = ExtResource( 1 )
 
-[sub_resource type="SpatialMaterial" id=282]
-albedo_texture = ExtResource( 5 )
-
-[sub_resource type="SpatialMaterial" id=283]
+[sub_resource type="SpatialMaterial" id=281]
 albedo_texture = ExtResource( 2 )
 
-[sub_resource type="SpatialMaterial" id=284]
+[sub_resource type="SpatialMaterial" id=282]
 albedo_texture = ExtResource( 10 )
 
-[sub_resource type="SpatialMaterial" id=285]
+[sub_resource type="SpatialMaterial" id=283]
 albedo_texture = ExtResource( 6 )
 
-[sub_resource type="SpatialMaterial" id=286]
+[sub_resource type="SpatialMaterial" id=284]
 albedo_texture = ExtResource( 4 )
 
-[sub_resource type="SpatialMaterial" id=287]
+[sub_resource type="SpatialMaterial" id=285]
 albedo_texture = ExtResource( 3 )
 
-[sub_resource type="SpatialMaterial" id=288]
+[sub_resource type="SpatialMaterial" id=286]
 albedo_texture = ExtResource( 7 )
 
-[sub_resource type="ArrayMesh" id=289]
+[sub_resource type="ArrayMesh" id=287]
 surfaces/0 = {
 "aabb": AABB( -4, -1, 0, 4, 1.00001, 3 ),
 "array_data": PoolByteArray( 0, 0, 128, 192, 0, 0, 0, 0, 0, 0, 0, 0, 127, 127, 127, 193, 0, 212, 0, 0, 0, 0, 128, 192, 0, 0, 128, 191, 0, 0, 0, 0, 127, 127, 127, 193, 0, 212, 0, 76, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 0, 0, 127, 127, 127, 193, 0, 0, 0, 76, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 127, 127, 127, 193, 0, 0, 0, 0, 0, 0, 128, 192, 0, 0, 0, 0, 0, 0, 0, 0, 129, 0, 0, 63, 0, 0, 0, 0, 0, 0, 128, 192, 0, 0, 0, 0, 0, 0, 64, 64, 129, 0, 0, 63, 0, 82, 0, 0, 0, 0, 128, 192, 0, 0, 128, 191, 0, 0, 64, 64, 129, 0, 0, 63, 0, 82, 0, 76, 0, 0, 128, 192, 0, 0, 128, 191, 0, 0, 0, 0, 129, 0, 0, 63, 0, 0, 0, 76, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 0, 0, 0, 129, 0, 193, 0, 0, 0, 0, 0, 0, 128, 192, 0, 0, 128, 191, 0, 0, 0, 0, 0, 129, 0, 193, 0, 0, 0, 84, 0, 0, 128, 192, 0, 0, 128, 191, 0, 0, 64, 64, 0, 129, 0, 193, 0, 82, 0, 84, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 64, 64, 0, 129, 0, 193, 0, 82, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 127, 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 64, 0, 127, 0, 63, 0, 82, 0, 0, 0, 0, 128, 192, 0, 0, 0, 0, 0, 0, 64, 64, 0, 127, 0, 63, 0, 82, 0, 84, 0, 0, 128, 192, 0, 0, 0, 0, 0, 0, 0, 0, 0, 127, 0, 63, 0, 0, 0, 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 127, 0, 0, 193, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 0, 0, 127, 0, 0, 193, 0, 0, 0, 76, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 64, 64, 127, 0, 0, 193, 0, 82, 0, 76, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 64, 127, 0, 0, 193, 0, 82, 0, 0, 0, 0, 128, 192, 0, 0, 0, 0, 0, 0, 64, 64, 0, 0, 127, 63, 0, 212, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 64, 0, 0, 127, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 64, 64, 0, 0, 127, 63, 0, 0, 0, 76, 0, 0, 128, 192, 0, 0, 128, 191, 0, 0, 64, 64, 0, 0, 127, 63, 0, 212, 0, 76 ),
@@ -75,12 +69,12 @@ surfaces/0 = {
 }
 surfaces/1 = {
 "aabb": AABB( 0, -5, -90, 50, 1.00001, 54 ),
-"array_data": PoolByteArray( 0, 0, 0, 0, 0, 0, 128, 192, 0, 0, 180, 194, 127, 127, 127, 193, 0, 0, 0, 180, 0, 0, 0, 0, 0, 0, 160, 192, 0, 0, 180, 194, 127, 127, 127, 193, 0, 0, 0, 0, 0, 0, 72, 66, 0, 0, 160, 192, 0, 0, 180, 194, 127, 127, 127, 193, 64, 74, 0, 0, 0, 0, 72, 66, 0, 0, 128, 192, 0, 0, 180, 194, 127, 127, 127, 193, 64, 74, 0, 180, 0, 0, 0, 0, 0, 0, 128, 192, 0, 0, 180, 194, 129, 0, 0, 63, 128, 205, 0, 180, 0, 0, 0, 0, 0, 0, 128, 192, 0, 0, 16, 194, 129, 0, 0, 63, 64, 200, 0, 180, 0, 0, 0, 0, 0, 0, 160, 192, 0, 0, 16, 194, 129, 0, 0, 63, 64, 200, 0, 0, 0, 0, 0, 0, 0, 0, 160, 192, 0, 0, 180, 194, 129, 0, 0, 63, 128, 205, 0, 0, 0, 0, 72, 66, 0, 0, 160, 192, 0, 0, 180, 194, 0, 129, 0, 193, 128, 205, 64, 202, 0, 0, 0, 0, 0, 0, 160, 192, 0, 0, 180, 194, 0, 129, 0, 193, 128, 205, 0, 0, 0, 0, 0, 0, 0, 0, 160, 192, 0, 0, 16, 194, 0, 129, 0, 193, 64, 200, 0, 0, 0, 0, 72, 66, 0, 0, 160, 192, 0, 0, 16, 194, 0, 129, 0, 193, 64, 200, 64, 202, 0, 0, 72, 66, 0, 0, 128, 192, 0, 0, 180, 194, 0, 127, 0, 63, 128, 205, 64, 202, 0, 0, 72, 66, 0, 0, 128, 192, 0, 0, 16, 194, 0, 127, 0, 63, 64, 200, 64, 202, 0, 0, 0, 0, 0, 0, 128, 192, 0, 0, 16, 194, 0, 127, 0, 63, 64, 200, 0, 0, 0, 0, 0, 0, 0, 0, 128, 192, 0, 0, 180, 194, 0, 127, 0, 63, 128, 205, 0, 0, 0, 0, 72, 66, 0, 0, 128, 192, 0, 0, 180, 194, 127, 0, 0, 193, 128, 205, 0, 180, 0, 0, 72, 66, 0, 0, 160, 192, 0, 0, 180, 194, 127, 0, 0, 193, 128, 205, 0, 0, 0, 0, 72, 66, 0, 0, 160, 192, 0, 0, 16, 194, 127, 0, 0, 193, 64, 200, 0, 0, 0, 0, 72, 66, 0, 0, 128, 192, 0, 0, 16, 194, 127, 0, 0, 193, 64, 200, 0, 180, 0, 0, 0, 0, 0, 0, 128, 192, 0, 0, 16, 194, 0, 0, 127, 63, 0, 0, 0, 180, 0, 0, 72, 66, 0, 0, 128, 192, 0, 0, 16, 194, 0, 0, 127, 63, 64, 74, 0, 180, 0, 0, 72, 66, 0, 0, 160, 192, 0, 0, 16, 194, 0, 0, 127, 63, 64, 74, 0, 0, 0, 0, 0, 0, 0, 0, 160, 192, 0, 0, 16, 194, 0, 0, 127, 63, 0, 0, 0, 0 ),
+"array_data": PoolByteArray( 0, 0, 0, 0, 0, 0, 128, 192, 0, 0, 180, 194, 127, 127, 127, 193, 0, 0, 0, 176, 0, 0, 0, 0, 0, 0, 160, 192, 0, 0, 180, 194, 127, 127, 127, 193, 0, 0, 0, 0, 0, 0, 72, 66, 0, 0, 160, 192, 0, 0, 180, 194, 127, 127, 127, 193, 64, 70, 0, 0, 0, 0, 72, 66, 0, 0, 128, 192, 0, 0, 180, 194, 127, 127, 127, 193, 64, 70, 0, 176, 0, 0, 0, 0, 0, 0, 128, 192, 0, 0, 180, 194, 129, 0, 0, 63, 128, 201, 0, 176, 0, 0, 0, 0, 0, 0, 128, 192, 0, 0, 16, 194, 129, 0, 0, 63, 64, 196, 0, 176, 0, 0, 0, 0, 0, 0, 160, 192, 0, 0, 16, 194, 129, 0, 0, 63, 64, 196, 0, 0, 0, 0, 0, 0, 0, 0, 160, 192, 0, 0, 180, 194, 129, 0, 0, 63, 128, 201, 0, 0, 0, 0, 72, 66, 0, 0, 160, 192, 0, 0, 180, 194, 0, 129, 0, 193, 128, 201, 64, 198, 0, 0, 0, 0, 0, 0, 160, 192, 0, 0, 180, 194, 0, 129, 0, 193, 128, 201, 0, 0, 0, 0, 0, 0, 0, 0, 160, 192, 0, 0, 16, 194, 0, 129, 0, 193, 64, 196, 0, 0, 0, 0, 72, 66, 0, 0, 160, 192, 0, 0, 16, 194, 0, 129, 0, 193, 64, 196, 64, 198, 0, 0, 72, 66, 0, 0, 128, 192, 0, 0, 180, 194, 0, 127, 0, 63, 128, 201, 64, 198, 0, 0, 72, 66, 0, 0, 128, 192, 0, 0, 16, 194, 0, 127, 0, 63, 64, 196, 64, 198, 0, 0, 0, 0, 0, 0, 128, 192, 0, 0, 16, 194, 0, 127, 0, 63, 64, 196, 0, 0, 0, 0, 0, 0, 0, 0, 128, 192, 0, 0, 180, 194, 0, 127, 0, 63, 128, 201, 0, 0, 0, 0, 72, 66, 0, 0, 128, 192, 0, 0, 180, 194, 127, 0, 0, 193, 128, 201, 0, 176, 0, 0, 72, 66, 0, 0, 160, 192, 0, 0, 180, 194, 127, 0, 0, 193, 128, 201, 0, 0, 0, 0, 72, 66, 0, 0, 160, 192, 0, 0, 16, 194, 127, 0, 0, 193, 64, 196, 0, 0, 0, 0, 72, 66, 0, 0, 128, 192, 0, 0, 16, 194, 127, 0, 0, 193, 64, 196, 0, 176, 0, 0, 0, 0, 0, 0, 128, 192, 0, 0, 16, 194, 0, 0, 127, 63, 0, 0, 0, 176, 0, 0, 72, 66, 0, 0, 128, 192, 0, 0, 16, 194, 0, 0, 127, 63, 64, 70, 0, 176, 0, 0, 72, 66, 0, 0, 160, 192, 0, 0, 16, 194, 0, 0, 127, 63, 64, 70, 0, 0, 0, 0, 0, 0, 0, 0, 160, 192, 0, 0, 16, 194, 0, 0, 127, 63, 0, 0, 0, 0 ),
 "array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 8, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 12, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 16, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 20, 0, 22, 0, 23, 0 ),
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": SubResource( 278 ),
+"material": ExtResource( 5 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
@@ -92,7 +86,7 @@ surfaces/2 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 4728,
-"material": SubResource( 281 ),
+"material": SubResource( 280 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 3162
@@ -104,7 +98,7 @@ surfaces/3 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 36,
-"material": SubResource( 282 ),
+"material": ExtResource( 12 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
@@ -116,7 +110,7 @@ surfaces/4 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 186,
-"material": SubResource( 283 ),
+"material": SubResource( 281 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 124
@@ -128,7 +122,7 @@ surfaces/5 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 30,
-"material": SubResource( 284 ),
+"material": SubResource( 282 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 20
@@ -140,7 +134,7 @@ surfaces/6 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 552,
-"material": SubResource( 285 ),
+"material": SubResource( 283 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 288
@@ -152,7 +146,7 @@ surfaces/7 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 360,
-"material": SubResource( 286 ),
+"material": SubResource( 284 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 240
@@ -164,7 +158,7 @@ surfaces/8 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 2952,
-"material": SubResource( 287 ),
+"material": SubResource( 285 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 1968
@@ -176,7 +170,7 @@ surfaces/9 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 180,
-"material": SubResource( 288 ),
+"material": SubResource( 286 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 120
@@ -188,7 +182,7 @@ surfaces/10 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 216,
-"material": SubResource( 279 ),
+"material": SubResource( 278 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 144
@@ -200,7 +194,7 @@ surfaces/11 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 72,
-"material": SubResource( 280 ),
+"material": SubResource( 279 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 48
@@ -218,787 +212,787 @@ surfaces/12 = {
 "vertex_count": 288
 }
 
-[sub_resource type="ConvexPolygonShape" id=290]
+[sub_resource type="ConvexPolygonShape" id=288]
 points = PoolVector3Array( -4, 0, 0, -4, -1, 0, 0, -1, 0, 0, 0, 0, -4, 0, 3, -4, -1, 3, 0, -1, 3, 0, 0, 3 )
 
-[sub_resource type="ConvexPolygonShape" id=291]
+[sub_resource type="ConvexPolygonShape" id=289]
 points = PoolVector3Array( 0, -4, -90, 0, -5, -90, 50, -5, -90, 50, -4, -90, 0, -4, -36, 0, -5, -36, 50, -5, -36, 50, -4, -36 )
 
-[sub_resource type="ConvexPolygonShape" id=292]
+[sub_resource type="ConvexPolygonShape" id=290]
 points = PoolVector3Array( 20, 1, -88, 20, 0, -88, 29, 0, -88, 29, 1, -88, 20, 1, -36, 20, 0, -36, 29, 0, -36, 29, 1, -36 )
 
-[sub_resource type="ConvexPolygonShape" id=293]
+[sub_resource type="ConvexPolygonShape" id=291]
 points = PoolVector3Array( 0, 14, -103, 0, 1, -103, 20, 1, -103, 20, 14, -103, 0, 14, -99, 0, 1, -99, 20, 1, -99, 20, 14, -99 )
 
-[sub_resource type="ConvexPolygonShape" id=294]
+[sub_resource type="ConvexPolygonShape" id=292]
 points = PoolVector3Array( 20, 14, -107, 20, 1, -107, 29, 1, -107, 29, 14, -107, 20, 14, -103, 20, 1, -103, 29, 1, -103, 29, 14, -103 )
 
-[sub_resource type="ConvexPolygonShape" id=295]
+[sub_resource type="ConvexPolygonShape" id=293]
 points = PoolVector3Array( 29, 14, -103, 29, 1, -103, 50, 1, -103, 50, 14, -103, 29, 14, -99, 29, 1, -99, 50, 1, -99, 50, 14, -99 )
 
-[sub_resource type="ConvexPolygonShape" id=296]
+[sub_resource type="ConvexPolygonShape" id=294]
 points = PoolVector3Array( 50, 1, -100, 50, 0, -100, 126, 0, -100, 126, 1, -100, 50, 1, -50, 50, 0, -50, 126, 0, -50, 126, 1, -50 )
 
-[sub_resource type="ConvexPolygonShape" id=297]
+[sub_resource type="ConvexPolygonShape" id=295]
 points = PoolVector3Array( 50, 1, -50, 50, 0, -50, 100, 0, -50, 100, 1, -50, 50, 1, 1.00486e-14, 50, 0, 1.00486e-14 )
 
-[sub_resource type="ConvexPolygonShape" id=298]
+[sub_resource type="ConvexPolygonShape" id=296]
 points = PoolVector3Array( 50, 30, -50, 50, 29, -50, 100, 29, -50, 100, 30, -50, 50, 30, 1.00486e-14, 50, 29, 1.00486e-14 )
 
-[sub_resource type="ConvexPolygonShape" id=299]
+[sub_resource type="ConvexPolygonShape" id=297]
 points = PoolVector3Array( 0, 33, -99, 0, 32, -99, 50, 32, -99, 50, 33, -99, 0, 33, -83, 0, 32, -83, 50, 32, -83, 50, 33, -83 )
 
-[sub_resource type="ConvexPolygonShape" id=300]
+[sub_resource type="ConvexPolygonShape" id=298]
 points = PoolVector3Array( 93, 23, -80, 93, 18, -80, 95, 18, -80, 95, 23, -80, 93, 23, -79, 93, 18, -79, 95, 18, -79, 95, 23, -79 )
 
-[sub_resource type="ConvexPolygonShape" id=301]
+[sub_resource type="ConvexPolygonShape" id=299]
 points = PoolVector3Array( 94, 25, -80, 92, 23, -80, 96, 23, -80, 94, 25, -79, 92, 23, -79, 96, 23, -79 )
 
-[sub_resource type="ConvexPolygonShape" id=302]
+[sub_resource type="ConvexPolygonShape" id=300]
 points = PoolVector3Array( 73, 0.0526316, -99.9474, 113, 19, -101, 113, 20, -101, 73, 1.05263, -99.9474, 73, 1.05263, -86.9474, 73, 0.0526316, -86.9474, 113, 20, -88, 113, 19, -88 )
 
-[sub_resource type="ConvexPolygonShape" id=303]
+[sub_resource type="ConvexPolygonShape" id=301]
 points = PoolVector3Array( 113, 20, -101, 113, 19, -101, 126, 19, -101, 126, 20, -101, 113, 20, -72, 113, 19, -72, 126, 19, -72, 126, 20, -72 )
 
-[sub_resource type="ConvexPolygonShape" id=304]
+[sub_resource type="ConvexPolygonShape" id=302]
 points = PoolVector3Array( 92, 29.9474, -86, 92, 29, -86, 113, 19.0526, -86.5526, 113, 20, -86.5526, 92, 29.9474, -71.4474, 92, 29, -71.4474, 113, 19.0526, -72, 113, 20, -72 )
 
-[sub_resource type="ConvexPolygonShape" id=305]
+[sub_resource type="ConvexPolygonShape" id=303]
 points = PoolVector3Array( 125, 56, -135, 125, 20, -135, 126, 20, -135, 126, 56, -135, 125, 56, -72, 125, 20, -72, 126, 20, -72, 126, 56, -72 )
 
-[sub_resource type="ConvexPolygonShape" id=306]
+[sub_resource type="ConvexPolygonShape" id=304]
 points = PoolVector3Array( 86, 30, -100, 86, 29, -100, 100, 29, -100, 100, 30, -100, 86, 30, -87, 86, 29, -87, 100, 29, -87, 100, 30, -87 )
 
-[sub_resource type="ConvexPolygonShape" id=307]
+[sub_resource type="ConvexPolygonShape" id=305]
 points = PoolVector3Array( 54, 30, -74, 54, 29, -74, 86, 29, -74, 86, 30, -74, 54, 30, -50, 54, 29, -50, 86, 29, -50, 86, 30, -50 )
 
-[sub_resource type="ConvexPolygonShape" id=308]
+[sub_resource type="ConvexPolygonShape" id=306]
 points = PoolVector3Array( 54, 30, -100, 54, 29, -100, 86, 29, -100, 86, 30, -100, 54, 30, -88, 54, 29, -88, 86, 29, -88, 86, 30, -88 )
 
-[sub_resource type="ConvexPolygonShape" id=309]
+[sub_resource type="ConvexPolygonShape" id=307]
 points = PoolVector3Array( 86, 30, -88, 86, 29, -88, 92, 29, -88, 92, 30, -88, 86, 30, -72, 86, 29, -72, 92, 29, -72, 92, 30, -72 )
 
-[sub_resource type="ConvexPolygonShape" id=310]
+[sub_resource type="ConvexPolygonShape" id=308]
 points = PoolVector3Array( 54, 30, -88, 54, 29, -88, 86, 29, -88, 86, 30, -88, 54, 30, -74, 54, 29, -74, 86, 29, -74, 86, 30, -74 )
 
-[sub_resource type="ConvexPolygonShape" id=311]
+[sub_resource type="ConvexPolygonShape" id=309]
 points = PoolVector3Array( 92, 44, -88, 92, 19, -88, 113, 19, -88, 113, 44, -88, 92, 44, -86, 92, 19, -86, 113, 19, -86, 113, 44, -86 )
 
-[sub_resource type="ConvexPolygonShape" id=312]
+[sub_resource type="ConvexPolygonShape" id=310]
 points = PoolVector3Array( 73, 29, -88, 73, 1, -88, 75, 1, -88, 92, 9.05263, -88, 92, 29, -88, 73, 29, -86, 73, 1, -86, 75, 1, -86, 92, 29, -86, 92, 9.05263, -86 )
 
-[sub_resource type="ConvexPolygonShape" id=313]
+[sub_resource type="ConvexPolygonShape" id=311]
 points = PoolVector3Array( 92, 9.05263, -88, 113, 19, -88, 92, 19, -88, 92, 19, -86, 92, 9.05263, -86, 113, 19, -86 )
 
-[sub_resource type="ConvexPolygonShape" id=314]
+[sub_resource type="ConvexPolygonShape" id=312]
 points = PoolVector3Array( 0, 33, -103, 0, 14, -103, 4, 14, -103, 4, 33, -103, 0, 33, -99, 0, 14, -99, 4, 14, -99, 4, 33, -99 )
 
-[sub_resource type="ConvexPolygonShape" id=315]
+[sub_resource type="ConvexPolygonShape" id=313]
 points = PoolVector3Array( 4, 33, -103, 4, 14, -103, 10, 14, -103, 10, 33, -103, 4, 33, -99, 4, 14, -99, 10, 14, -99, 10, 33, -99 )
 
-[sub_resource type="ConvexPolygonShape" id=316]
+[sub_resource type="ConvexPolygonShape" id=314]
 points = PoolVector3Array( 10, 33, -103, 10, 14, -103, 50, 14, -103, 50, 33, -103, 10, 33, -99, 10, 14, -99, 50, 14, -99, 50, 33, -99 )
 
-[sub_resource type="ConvexPolygonShape" id=317]
+[sub_resource type="ConvexPolygonShape" id=315]
 points = PoolVector3Array( 0, 41, -103, 0, 33, -103, 4, 33, -103, 4, 41, -103, 0, 41, -99, 0, 33, -99, 4, 33, -99, 4, 41, -99 )
 
-[sub_resource type="ConvexPolygonShape" id=318]
+[sub_resource type="ConvexPolygonShape" id=316]
 points = PoolVector3Array( 0, 56.125, -103, 0, 41, -103, 4, 41, -103, 4, 56.125, -103, 0, 56.125, -99, 0, 41, -99, 4, 41, -99, 4, 56.125, -99 )
 
-[sub_resource type="ConvexPolygonShape" id=319]
+[sub_resource type="ConvexPolygonShape" id=317]
 points = PoolVector3Array( 4, 56.125, -103, 4, 41, -103, 10, 41, -103, 10, 56.125, -103, 4, 56.125, -99, 4, 41, -99, 10, 41, -99, 10, 56.125, -99 )
 
-[sub_resource type="ConvexPolygonShape" id=320]
+[sub_resource type="ConvexPolygonShape" id=318]
 points = PoolVector3Array( 10, 41, -103, 10, 33, -103, 50, 33, -103, 50, 41, -103, 10, 41, -99, 10, 33, -99, 50, 33, -99, 50, 41, -99 )
 
-[sub_resource type="ConvexPolygonShape" id=321]
+[sub_resource type="ConvexPolygonShape" id=319]
 points = PoolVector3Array( 10, 56.125, -103, 10, 41, -103, 50, 41, -103, 50, 56.125, -103, 10, 56.125, -99, 10, 41, -99, 50, 41, -99, 50, 56.125, -99 )
 
-[sub_resource type="ConvexPolygonShape" id=322]
+[sub_resource type="ConvexPolygonShape" id=320]
 points = PoolVector3Array( 0, 0, -36, 0, -5, -36, 52, -5, -36, 52, 0, -36, 0, 0, -34, 0, -5, -34, 52, -5, -34, 52, 0, -34 )
 
-[sub_resource type="ConvexPolygonShape" id=323]
+[sub_resource type="ConvexPolygonShape" id=321]
 points = PoolVector3Array( -2, 1, -90, -2, -5, -90, 0, -5, -90, 0, 1, -90, -2, 1, -36, -2, -5, -36, 0, -5, -36, 0, 1, -36 )
 
-[sub_resource type="ConvexPolygonShape" id=324]
+[sub_resource type="ConvexPolygonShape" id=322]
 points = PoolVector3Array( 50, 0, -90, 50, -5, -90, 52, -5, -90, 52, 0, -90, 50, 0, -36, 50, -5, -36, 52, -5, -36, 52, 0, -36 )
 
-[sub_resource type="ConvexPolygonShape" id=325]
+[sub_resource type="ConvexPolygonShape" id=323]
 points = PoolVector3Array( 82, 56, -72, 82, 29, -72, 126, 29, -72, 126, 56, -72, 82, 56, -71, 82, 29, -71, 126, 29, -71, 126, 56, -71 )
 
-[sub_resource type="ConvexPolygonShape" id=326]
+[sub_resource type="ConvexPolygonShape" id=324]
 points = PoolVector3Array( 92, 29, -72, 113.111, 19, -72, 126, 19, -72, 126, 29, -72, 92, 29, -71, 113.111, 19, -71, 126, 19, -71, 126, 29, -71 )
 
-[sub_resource type="ConvexPolygonShape" id=327]
+[sub_resource type="ConvexPolygonShape" id=325]
 points = PoolVector3Array( 2, 0, -103, 48, 0, -103, 48, 1, -103, 2, 1, -103, 0, 1, -100, 0, 0, -100, 50, 0, -100, 50, 1, -100, 0, 1, -90, 0, 0, -90, 4, 0, -88, 46, 0, -88, 50, 0, -90, 50, 1, -90, 46, 1, -88, 4, 1, -88 )
 
-[sub_resource type="ConvexPolygonShape" id=328]
+[sub_resource type="ConvexPolygonShape" id=326]
 points = PoolVector3Array( -4, 29, -99, -4, 1, -99, 0, 1, -99, 0, 29, -99, -4, 29, 0, -4, 1, 0, 0, 1, 0, 0, 29, 0 )
 
-[sub_resource type="ConvexPolygonShape" id=329]
+[sub_resource type="ConvexPolygonShape" id=327]
 points = PoolVector3Array( -4, 56, -99, -4, 29, -99, 0, 29, -99, 0, 56, -99, -4, 56, -50, -4, 29, -50, 0, 29, -50, 0, 56, -50 )
 
-[sub_resource type="ConvexPolygonShape" id=330]
+[sub_resource type="ConvexPolygonShape" id=328]
 points = PoolVector3Array( 50, 29, -100, 50, 1, -100, 54, 1, -100, 54, 29, -100, 50, 29, -35, 50, 1, -35, 54, 1, -35, 54, 29, -35 )
 
-[sub_resource type="ConvexPolygonShape" id=331]
+[sub_resource type="ConvexPolygonShape" id=329]
 points = PoolVector3Array( 50, 56, -100, 50, 29, -100, 54, 29, -100, 54, 56, -100, 50, 56, -50, 50, 29, -50, 54, 29, -50, 54, 56, -50 )
 
-[sub_resource type="ConvexPolygonShape" id=332]
+[sub_resource type="ConvexPolygonShape" id=330]
 points = PoolVector3Array( 100.092, 29, -50.6777, 49.4142, 29, -2.41585e-13, 49.4142, 0, -2.41585e-13, 100.092, 0, -50.6777, 100.799, 0, -49.9706, 100.799, 29, -49.9706, 50.1212, 0, 0.707221, 50.1212, 29, 0.707221 )
 
-[sub_resource type="ConvexPolygonShape" id=333]
+[sub_resource type="ConvexPolygonShape" id=331]
 points = PoolVector3Array( 54, 56, -101, 54, 0, -101, 125, 0, -101, 125, 56, -101, 54, 56, -100, 54, 0, -100, 125, 0, -100, 125, 56, -100 )
 
-[sub_resource type="ConvexPolygonShape" id=334]
+[sub_resource type="ConvexPolygonShape" id=332]
 points = PoolVector3Array( 125, 29, -71, 125, 1, -71, 126, 1, -71, 126, 29, -71, 125, 29, -50, 125, 1, -50, 126, 1, -50, 126, 29, -50 )
 
-[sub_resource type="ConvexPolygonShape" id=335]
+[sub_resource type="ConvexPolygonShape" id=333]
 points = PoolVector3Array( 125, 19, -100, 125, 1, -100, 126, 1, -100, 126, 19, -100, 125, 19, -71, 125, 1, -71, 126, 1, -71, 126, 19, -71 )
 
-[sub_resource type="ConvexPolygonShape" id=336]
+[sub_resource type="ConvexPolygonShape" id=334]
 points = PoolVector3Array( 100, 29, -50, 100, 1, -50, 125, 1, -50, 125, 29, -50, 100, 29, -49, 100, 1, -49, 125, 1, -49, 125, 29, -49 )
 
-[sub_resource type="ConvexPolygonShape" id=337]
+[sub_resource type="ConvexPolygonShape" id=335]
 points = PoolVector3Array( -1, 1, -91, -1, 0, -91, 0, 0, -91, 0, 1, -91, -1, 1, -84, -1, 0, -84, 0, 0, -84, 0, 1, -84 )
 
-[sub_resource type="ConvexPolygonShape" id=338]
+[sub_resource type="ConvexPolygonShape" id=336]
 points = PoolVector3Array( 50, -4, -90, 50, 0, -90, 0, 0, -90, 0, -4, -90, 4, -4, -88, 46, -4, -88, 46, 0, -88, 4, 0, -88 )
 
-[sub_resource type="ConvexPolygonShape" id=339]
+[sub_resource type="ConvexPolygonShape" id=337]
 points = PoolVector3Array( 11, 29, 0, 11, 1, 0, 12, 1, 0, 12, 29, 0, 11, 29, 24, 11, 1, 24, 12, 1, 24, 12, 29, 24 )
 
-[sub_resource type="ConvexPolygonShape" id=340]
+[sub_resource type="ConvexPolygonShape" id=338]
 points = PoolVector3Array( 36, 29, 0, 36, 1, 0, 37, 1, 0, 37, 29, 0, 36, 29, 24, 36, 1, 24, 37, 1, 24, 37, 29, 24 )
 
-[sub_resource type="ConvexPolygonShape" id=341]
+[sub_resource type="ConvexPolygonShape" id=339]
 points = PoolVector3Array( 0, 1, -36, 0, 0, -36, 50, 0, -36, 50, 1, -36, 0, 1, 0, 0, 0, 0, 50, 0, 0, 50, 1, 0 )
 
-[sub_resource type="ConvexPolygonShape" id=342]
+[sub_resource type="ConvexPolygonShape" id=340]
 points = PoolVector3Array( 12, 1, 0, 12, 0, 0, 36, 0, 0, 36, 1, 0, 12, 1, 25, 12, 0, 25, 36, 0, 25, 36, 1, 25 )
 
-[sub_resource type="ConvexPolygonShape" id=343]
+[sub_resource type="ConvexPolygonShape" id=341]
 points = PoolVector3Array( 0, 29, 0, 0, 1, 0, 11, 1, 0, 11, 29, 0, 0, 29, 1, 0, 1, 1, 11, 1, 1, 11, 29, 1 )
 
-[sub_resource type="ConvexPolygonShape" id=344]
+[sub_resource type="ConvexPolygonShape" id=342]
 points = PoolVector3Array( 37, 29, 0, 37, 1, 0, 50, 1, 0, 50, 29, 0, 37, 29, 1, 37, 1, 1, 50, 1, 1, 50, 29, 1 )
 
-[sub_resource type="ConvexPolygonShape" id=345]
+[sub_resource type="ConvexPolygonShape" id=343]
 points = PoolVector3Array( 11, 30, 1, 11, 29, 1, 37, 29, 1, 37, 30, 1, 11, 30, 25, 11, 29, 25, 37, 29, 25, 37, 30, 25 )
 
-[sub_resource type="ConvexPolygonShape" id=346]
+[sub_resource type="ConvexPolygonShape" id=344]
 points = PoolVector3Array( 0, 30, -50, 0, 29, -50, 50, 29, -50, 50, 30, -50, 0, 30, 1, 0, 29, 1, 50, 29, 1, 50, 30, 1 )
 
-[sub_resource type="ConvexPolygonShape" id=347]
+[sub_resource type="ConvexPolygonShape" id=345]
 points = PoolVector3Array( 11, 29, 24, 11, 8, 24, 22, 8, 24, 22, 29, 24, 11, 29, 25, 11, 8, 25, 22, 8, 25, 22, 29, 25 )
 
-[sub_resource type="ConvexPolygonShape" id=348]
+[sub_resource type="ConvexPolygonShape" id=346]
 points = PoolVector3Array( 11, 8, 24, 11, 1, 24, 21, 1, 24, 21, 8, 24, 11, 8, 25, 11, 1, 25, 21, 1, 25, 21, 8, 25 )
 
-[sub_resource type="ConvexPolygonShape" id=349]
+[sub_resource type="ConvexPolygonShape" id=347]
 points = PoolVector3Array( 22, 29, 24, 22, 8, 24, 27, 8, 24, 27, 29, 24, 22, 29, 25, 22, 8, 25, 27, 8, 25, 27, 29, 25 )
 
-[sub_resource type="ConvexPolygonShape" id=350]
+[sub_resource type="ConvexPolygonShape" id=348]
 points = PoolVector3Array( 27, 29, 24, 27, 8, 24, 37, 8, 24, 37, 29, 24, 27, 29, 25, 27, 8, 25, 37, 8, 25, 37, 29, 25 )
 
-[sub_resource type="ConvexPolygonShape" id=351]
+[sub_resource type="ConvexPolygonShape" id=349]
 points = PoolVector3Array( 21, 8, 25, 21, 1, 25, 26, 1, 25, 26, 8, 25, 21, 8, 26, 21, 1, 26, 26, 1, 26, 26, 8, 26 )
 
-[sub_resource type="ConvexPolygonShape" id=352]
+[sub_resource type="ConvexPolygonShape" id=350]
 points = PoolVector3Array( 26, 8, 24, 26, 1, 24, 37, 1, 24, 37, 8, 24, 26, 8, 25, 26, 1, 25, 37, 1, 25, 37, 8, 25 )
 
-[sub_resource type="ConvexPolygonShape" id=353]
+[sub_resource type="ConvexPolygonShape" id=351]
 points = PoolVector3Array( 11, 1, -24, 11, 29, -24, 10.2235, 29, -23.8978, 10.2235, 1, -23.8978, 11.7765, 1, -23.8978, 11.7765, 29, -23.8978, 12.5, 1, -23.5981, 12.5, 29, -23.5981, 9.5, 29, -23.5981, 9.5, 1, -23.5981, 8.87868, 29, -23.1213, 8.87868, 1, -23.1213, 13.1213, 1, -23.1213, 13.1213, 29, -23.1213, 13.5981, 1, -22.5, 13.5981, 29, -22.5, 8.40192, 29, -22.5, 8.40192, 1, -22.5, 8.10222, 29, -21.7765, 8.10222, 1, -21.7765, 13.8978, 1, -21.7765, 13.8978, 29, -21.7765, 14, 1, -21, 14, 29, -21, 8, 29, -21, 8, 1, -21, 8.10222, 1, -20.2235, 8.40192, 1, -19.5, 8.87868, 1, -18.8787, 9.5, 1, -18.4019, 10.2235, 1, -18.1022, 11, 1, -18, 11.7765, 1, -18.1022, 12.5, 1, -18.4019, 13.1213, 1, -18.8787, 13.5981, 1, -19.5, 13.8978, 1, -20.2235, 13.8978, 29, -20.2235, 13.5981, 29, -19.5, 13.1213, 29, -18.8787, 12.5, 29, -18.4019, 11.7765, 29, -18.1022, 11, 29, -18, 10.2235, 29, -18.1022, 9.5, 29, -18.4019, 8.87868, 29, -18.8787, 8.40192, 29, -19.5, 8.10222, 29, -20.2235 )
 
-[sub_resource type="ConvexPolygonShape" id=354]
+[sub_resource type="ConvexPolygonShape" id=352]
 points = PoolVector3Array( 41, 1, -24, 41, 29, -24, 40.2235, 29, -23.8978, 40.2235, 1, -23.8978, 41.7765, 1, -23.8978, 41.7765, 29, -23.8978, 42.5, 1, -23.5981, 42.5, 29, -23.5981, 39.5, 29, -23.5981, 39.5, 1, -23.5981, 38.8787, 29, -23.1213, 38.8787, 1, -23.1213, 43.1213, 1, -23.1213, 43.1213, 29, -23.1213, 43.5981, 1, -22.5, 43.5981, 29, -22.5, 38.4019, 29, -22.5, 38.4019, 1, -22.5, 38.1022, 29, -21.7765, 38.1022, 1, -21.7765, 43.8978, 1, -21.7765, 43.8978, 29, -21.7765, 44, 1, -21, 44, 29, -21, 38, 29, -21, 38, 1, -21, 38.1022, 1, -20.2235, 38.4019, 1, -19.5, 38.8787, 1, -18.8787, 39.5, 1, -18.4019, 40.2235, 1, -18.1022, 41, 1, -18, 41.7765, 1, -18.1022, 42.5, 1, -18.4019, 43.1213, 1, -18.8787, 43.5981, 1, -19.5, 43.8978, 1, -20.2235, 43.8978, 29, -20.2235, 43.5981, 29, -19.5, 43.1213, 29, -18.8787, 42.5, 29, -18.4019, 41.7765, 29, -18.1022, 41, 29, -18, 40.2235, 29, -18.1022, 39.5, 29, -18.4019, 38.8787, 29, -18.8787, 38.4019, 29, -19.5, 38.1022, 29, -20.2235 )
 
-[sub_resource type="ConvexPolygonShape" id=355]
+[sub_resource type="ConvexPolygonShape" id=353]
 points = PoolVector3Array( 3, 43, -110, 3, 33, -110, 4, 33, -110, 4, 43, -110, 3, 43, -103, 3, 33, -103, 4, 33, -103, 4, 43, -103 )
 
-[sub_resource type="ConvexPolygonShape" id=356]
+[sub_resource type="ConvexPolygonShape" id=354]
 points = PoolVector3Array( 4, 43, -110, 4, 33, -110, 113, 33, -110, 113, 43, -110, 4, 43, -109, 4, 33, -109, 113, 33, -109, 113, 43, -109 )
 
-[sub_resource type="ConvexPolygonShape" id=357]
+[sub_resource type="ConvexPolygonShape" id=355]
 points = PoolVector3Array( 54, 8, -49, 54, 1, -49, 71, 1, -49, 71, 8, -49, 54, 8, -35, 54, 1, -35, 71, 1, -35, 71, 8, -35 )
 
-[sub_resource type="ConvexPolygonShape" id=358]
+[sub_resource type="ConvexPolygonShape" id=356]
 points = PoolVector3Array( 60, 2.5, -54, 60, 1, -54, 63, 1, -54, 63, 2.5, -54, 60, 2.5, -49, 60, 1, -49, 63, 1, -49, 63, 2.5, -49 )
 
-[sub_resource type="ConvexPolygonShape" id=359]
+[sub_resource type="ConvexPolygonShape" id=357]
 points = PoolVector3Array( 76, 14, -86, 76, 1, -86, 111, 1, -86, 111, 14, -86, 76, 14, -76, 76, 1, -76, 111, 1, -76, 111, 14, -76 )
 
-[sub_resource type="ConvexPolygonShape" id=360]
+[sub_resource type="ConvexPolygonShape" id=358]
 points = PoolVector3Array( 86, 30, -71, 86, 29, -71, 126, 29, -71, 126, 30, -71, 86, 30, -50, 86, 29, -50, 126, 29, -50, 126, 30, -50 )
 
-[sub_resource type="ConvexPolygonShape" id=361]
+[sub_resource type="ConvexPolygonShape" id=359]
 points = PoolVector3Array( 126, 30, -135, 126, 29, -135, 208, 29, -135, 208, 30, -135, 126, 30, 3, 126, 29, 3, 208, 29, 3, 208, 30, 3 )
 
-[sub_resource type="ConvexPolygonShape" id=362]
+[sub_resource type="ConvexPolygonShape" id=360]
 points = PoolVector3Array( 126, 41, -100, 126, 30, -100, 137, 30, -100, 137, 41, -100, 126, 41, -84, 126, 30, -84, 137, 30, -84, 137, 41, -84 )
 
-[sub_resource type="ConvexPolygonShape" id=363]
+[sub_resource type="ConvexPolygonShape" id=361]
 points = PoolVector3Array( 126, 41, -117, 126, 30, -117, 137, 30, -117, 137, 41, -117, 126, 41, -101, 126, 30, -101, 137, 30, -101, 137, 41, -101 )
 
-[sub_resource type="ConvexPolygonShape" id=364]
+[sub_resource type="ConvexPolygonShape" id=362]
 points = PoolVector3Array( 127, 41, -47.5, 127, 30, -47.5, 138, 30, -47.5, 138, 41, -47.5, 127, 41, -31.5, 127, 30, -31.5, 138, 30, -31.5, 138, 41, -31.5 )
 
-[sub_resource type="ConvexPolygonShape" id=365]
+[sub_resource type="ConvexPolygonShape" id=363]
 points = PoolVector3Array( 127, 41, -31, 127, 30, -31, 138, 30, -31, 138, 41, -31, 127, 41, -15, 127, 30, -15, 138, 30, -15, 138, 41, -15 )
 
-[sub_resource type="ConvexPolygonShape" id=366]
+[sub_resource type="ConvexPolygonShape" id=364]
 points = PoolVector3Array( 127, 41, -14.5, 127, 30, -14.5, 138, 30, -14.5, 138, 41, -14.5, 127, 41, 1.5, 127, 30, 1.5, 138, 30, 1.5, 138, 41, 1.5 )
 
-[sub_resource type="ConvexPolygonShape" id=367]
+[sub_resource type="ConvexPolygonShape" id=365]
 points = PoolVector3Array( 138.5, 41, -13.5, 138.5, 30, -13.5, 149.5, 30, -13.5, 149.5, 41, -13.5, 138.5, 41, 2.5, 138.5, 30, 2.5, 149.5, 30, 2.5, 149.5, 41, 2.5 )
 
-[sub_resource type="ConvexPolygonShape" id=368]
+[sub_resource type="ConvexPolygonShape" id=366]
 points = PoolVector3Array( 150, 49, -14, 150, 30, -14, 161, 30, -14, 161, 49, -14, 150, 49, 2, 150, 30, 2, 161, 30, 2, 161, 49, 2 )
 
-[sub_resource type="ConvexPolygonShape" id=369]
+[sub_resource type="ConvexPolygonShape" id=367]
 points = PoolVector3Array( 162, 41, -14, 162, 30, -14, 173, 30, -14, 173, 41, -14, 162, 41, 2, 162, 30, 2, 173, 30, 2, 173, 41, 2 )
 
-[sub_resource type="ConvexPolygonShape" id=370]
+[sub_resource type="ConvexPolygonShape" id=368]
 points = PoolVector3Array( 174, 41, -14, 174, 30, -14, 185, 30, -14, 185, 41, -14, 174, 41, 2, 174, 30, 2, 185, 30, 2, 185, 41, 2 )
 
-[sub_resource type="ConvexPolygonShape" id=371]
+[sub_resource type="ConvexPolygonShape" id=369]
 points = PoolVector3Array( 150, 50, -49, 150, 30, -49, 161, 30, -49, 161, 50, -49, 150, 50, -33, 150, 30, -33, 161, 30, -33, 161, 50, -33 )
 
-[sub_resource type="ConvexPolygonShape" id=372]
+[sub_resource type="ConvexPolygonShape" id=370]
 points = PoolVector3Array( 150, 41, -65.5, 150, 30, -65.5, 161, 30, -65.5, 161, 41, -65.5, 150, 41, -49.5, 150, 30, -49.5, 161, 30, -49.5, 161, 41, -49.5 )
 
-[sub_resource type="ConvexPolygonShape" id=373]
+[sub_resource type="ConvexPolygonShape" id=371]
 points = PoolVector3Array( 150.5, 49, -82, 150.5, 30, -82, 161.5, 30, -82, 161.5, 49, -82, 150.5, 49, -66, 150.5, 30, -66, 161.5, 30, -66, 161.5, 49, -66 )
 
-[sub_resource type="ConvexPolygonShape" id=374]
+[sub_resource type="ConvexPolygonShape" id=372]
 points = PoolVector3Array( 150, 41, -98.5, 150, 30, -98.5, 162, 30, -98.5, 162, 41, -98.5, 150, 41, -82.5, 150, 30, -82.5, 162, 30, -82.5, 162, 41, -82.5 )
 
-[sub_resource type="ConvexPolygonShape" id=375]
+[sub_resource type="ConvexPolygonShape" id=373]
 points = PoolVector3Array( 162, 41, -82, 162, 30, -82, 173.5, 30, -82, 173.5, 41, -82, 162, 41, -66, 162, 30, -66, 173.5, 30, -66, 173.5, 41, -66 )
 
-[sub_resource type="ConvexPolygonShape" id=376]
+[sub_resource type="ConvexPolygonShape" id=374]
 points = PoolVector3Array( 174, 50, -84, 174, 30, -84, 185.5, 30, -84, 185.5, 50, -84, 174, 50, -68, 174, 30, -68, 185.5, 30, -68, 185.5, 50, -68 )
 
-[sub_resource type="ConvexPolygonShape" id=377]
+[sub_resource type="ConvexPolygonShape" id=375]
 points = PoolVector3Array( 186, 41, -84, 186, 30, -84, 197, 30, -84, 197, 41, -84, 186, 41, -68, 186, 30, -68, 197, 30, -68, 197, 41, -68 )
 
-[sub_resource type="ConvexPolygonShape" id=378]
+[sub_resource type="ConvexPolygonShape" id=376]
 points = PoolVector3Array( 175, 47, -100.5, 175, 30, -100.5, 186, 30, -100.5, 186, 47, -100.5, 175, 47, -84.5, 175, 30, -84.5, 186, 30, -84.5, 186, 47, -84.5 )
 
-[sub_resource type="ConvexPolygonShape" id=379]
+[sub_resource type="ConvexPolygonShape" id=377]
 points = PoolVector3Array( 175, 41, -117, 175, 30, -117, 186, 30, -117, 186, 41, -117, 175, 41, -101, 175, 30, -101, 186, 30, -101, 186, 41, -101 )
 
-[sub_resource type="ConvexPolygonShape" id=380]
+[sub_resource type="ConvexPolygonShape" id=378]
 points = PoolVector3Array( 126, 41, -134, 126, 30, -134, 137, 30, -134, 137, 41, -134, 126, 41, -118, 126, 30, -118, 137, 30, -118, 137, 41, -118 )
 
-[sub_resource type="ConvexPolygonShape" id=381]
+[sub_resource type="ConvexPolygonShape" id=379]
 points = PoolVector3Array( 150, 47, -134, 150, 30, -134, 161, 30, -134, 161, 47, -134, 150, 47, -118, 150, 30, -118, 161, 30, -118, 161, 47, -118 )
 
-[sub_resource type="ConvexPolygonShape" id=382]
+[sub_resource type="ConvexPolygonShape" id=380]
 points = PoolVector3Array( 138, 41, -134, 138, 30, -134, 149, 30, -134, 149, 41, -134, 138, 41, -118, 138, 30, -118, 149, 30, -118, 149, 41, -118 )
 
-[sub_resource type="ConvexPolygonShape" id=383]
+[sub_resource type="ConvexPolygonShape" id=381]
 points = PoolVector3Array( 162, 41, -134, 162, 30, -134, 174, 30, -134, 174, 41, -134, 162, 41, -118, 162, 30, -118, 174, 30, -118, 174, 41, -118 )
 
-[sub_resource type="ConvexPolygonShape" id=384]
+[sub_resource type="ConvexPolygonShape" id=382]
 points = PoolVector3Array( 175, 47, -31, 175, 30, -31, 186, 30, -31, 186, 47, -31, 175, 47, -15, 175, 30, -15, 186, 30, -15, 186, 47, -15 )
 
-[sub_resource type="ConvexPolygonShape" id=385]
+[sub_resource type="ConvexPolygonShape" id=383]
 points = PoolVector3Array( 175, 41, -48, 175, 30, -48, 186, 30, -48, 186, 41, -48, 175, 41, -32, 175, 30, -32, 186, 30, -32, 186, 41, -32 )
 
-[sub_resource type="ConvexPolygonShape" id=386]
+[sub_resource type="ConvexPolygonShape" id=384]
 points = PoolVector3Array( 187, 41, -48, 187, 30, -48, 198, 30, -48, 198, 41, -48, 187, 41, -32, 187, 30, -32, 198, 30, -32, 198, 41, -32 )
 
-[sub_resource type="ConvexPolygonShape" id=387]
+[sub_resource type="ConvexPolygonShape" id=385]
 points = PoolVector3Array( 54, 56, -51, 54, 30, -51, 125, 30, -51, 125, 56, -51, 54, 56, -50, 54, 30, -50, 125, 30, -50, 125, 56, -50 )
 
-[sub_resource type="ConvexPolygonShape" id=388]
+[sub_resource type="ConvexPolygonShape" id=386]
 points = PoolVector3Array( 204, 56, -135, 204, 30, -135, 208, 30, -135, 208, 56, -135, 204, 56, -64, 204, 30, -64, 208, 30, -64, 208, 56, -64 )
 
-[sub_resource type="ConvexPolygonShape" id=389]
+[sub_resource type="ConvexPolygonShape" id=387]
 points = PoolVector3Array( 204, 56, -48, 204, 30, -48, 208, 30, -48, 208, 56, -48, 204, 56, 3, 204, 30, 3, 208, 30, 3, 208, 56, 3 )
 
-[sub_resource type="ConvexPolygonShape" id=390]
+[sub_resource type="ConvexPolygonShape" id=388]
 points = PoolVector3Array( 204, 56, -64, 204, 52, -64, 208, 52, -64, 208, 56, -64, 204, 56, -48, 204, 52, -48, 208, 52, -48, 208, 56, -48 )
 
-[sub_resource type="ConvexPolygonShape" id=391]
+[sub_resource type="ConvexPolygonShape" id=389]
 points = PoolVector3Array( 204, 52, -64, 204, 44.125, -64, 208, 44.125, -64, 208, 52, -64, 204, 46.5, -62, 208, 46.5, -62 )
 
-[sub_resource type="ConvexPolygonShape" id=392]
+[sub_resource type="ConvexPolygonShape" id=390]
 points = PoolVector3Array( 204, 46.5, -62, 208, 46.5, -62, 208, 52, -64, 204, 52, -64, 204, 48.375, -60, 208, 48.375, -60 )
 
-[sub_resource type="ConvexPolygonShape" id=393]
+[sub_resource type="ConvexPolygonShape" id=391]
 points = PoolVector3Array( 204, 52, -64, 204, 48.375, -60, 208, 48.375, -60, 208, 52, -64, 204, 49.375, -58, 208, 49.375, -58 )
 
-[sub_resource type="ConvexPolygonShape" id=394]
+[sub_resource type="ConvexPolygonShape" id=392]
 points = PoolVector3Array( 204, 49.375, -58, 208, 49.375, -58, 208, 52, -64, 204, 52, -64, 204, 52, -56, 204, 50, -56, 208, 52, -56, 208, 50, -56 )
 
-[sub_resource type="ConvexPolygonShape" id=395]
+[sub_resource type="ConvexPolygonShape" id=393]
 points = PoolVector3Array( 208, 50, -56, 208, 52, -56, 204, 52, -56, 204, 50, -56, 204, 49.375, -54, 208, 49.375, -54, 204, 52, -48, 208, 52, -48 )
 
-[sub_resource type="ConvexPolygonShape" id=396]
+[sub_resource type="ConvexPolygonShape" id=394]
 points = PoolVector3Array( 208, 49.375, -54, 204, 49.375, -54, 204, 48.375, -52, 208, 48.375, -52, 208, 52, -48, 204, 52, -48 )
 
-[sub_resource type="ConvexPolygonShape" id=397]
+[sub_resource type="ConvexPolygonShape" id=395]
 points = PoolVector3Array( 208, 48.375, -52, 204, 48.375, -52, 204, 46.5, -50, 208, 46.5, -50, 208, 52, -48, 204, 52, -48 )
 
-[sub_resource type="ConvexPolygonShape" id=398]
+[sub_resource type="ConvexPolygonShape" id=396]
 points = PoolVector3Array( 208, 46.5, -50, 208, 52, -48, 204, 52, -48, 204, 46.5, -50, 204, 44.125, -48, 208, 44.125, -48 )
 
-[sub_resource type="ConvexPolygonShape" id=399]
+[sub_resource type="ConvexPolygonShape" id=397]
 points = PoolVector3Array( 125, 56, -50, 125, 30, -50, 126, 30, -50, 126, 56, -50, 125, 56, 3, 125, 30, 3, 126, 30, 3, 126, 56, 3 )
 
-[sub_resource type="ConvexPolygonShape" id=400]
+[sub_resource type="ConvexPolygonShape" id=398]
 points = PoolVector3Array( 126, 56, 3, 126, 30, 3, 204, 30, 3, 204, 56, 3, 126, 56, 4, 126, 30, 4, 204, 30, 4, 204, 56, 4 )
 
-[sub_resource type="ConvexPolygonShape" id=401]
+[sub_resource type="ConvexPolygonShape" id=399]
 points = PoolVector3Array( 113, 33, -135, 113, 32, -135, 125, 32, -135, 125, 33, -135, 113, 33, -110, 113, 32, -110, 125, 32, -110, 125, 33, -110 )
 
-[sub_resource type="ConvexPolygonShape" id=402]
+[sub_resource type="ConvexPolygonShape" id=400]
 points = PoolVector3Array( 113, 30.5, -150, 113, 29.5, -150, 193, 29.5, -150, 193, 30.5, -150, 113, 30.5, -136, 113, 29.5, -136, 193, 29.5, -136, 193, 30.5, -136 )
 
-[sub_resource type="ConvexPolygonShape" id=403]
+[sub_resource type="ConvexPolygonShape" id=401]
 points = PoolVector3Array( 112, 43, -151, 112, 33, -151, 113, 33, -151, 113, 43, -151, 112, 43, -110, 112, 33, -110, 113, 33, -110, 113, 43, -110 )
 
-[sub_resource type="ConvexPolygonShape" id=404]
+[sub_resource type="ConvexPolygonShape" id=402]
 points = PoolVector3Array( 113, 43, -151, 113, 33, -151, 193, 33, -151, 193, 43, -151, 113, 43, -150, 113, 33, -150, 193, 33, -150, 193, 43, -150 )
 
-[sub_resource type="ConvexPolygonShape" id=405]
+[sub_resource type="ConvexPolygonShape" id=403]
 points = PoolVector3Array( 192, 43, -150, 192, 30.5, -150, 193, 30.5, -150, 193, 43, -150, 192, 43, -136, 192, 30.5, -136, 193, 30.5, -136, 193, 43, -136 )
 
-[sub_resource type="ConvexPolygonShape" id=406]
+[sub_resource type="ConvexPolygonShape" id=404]
 points = PoolVector3Array( 57, 4.5, -54, 57, 1, -54, 60, 1, -54, 60, 4.5, -54, 57, 4.5, -49, 57, 1, -49, 60, 1, -49, 60, 4.5, -49 )
 
-[sub_resource type="ConvexPolygonShape" id=407]
+[sub_resource type="ConvexPolygonShape" id=405]
 points = PoolVector3Array( 54, 6.5, -54, 54, 1, -54, 57, 1, -54, 57, 6.5, -54, 54, 6.5, -49, 54, 1, -49, 57, 1, -49, 57, 6.5, -49 )
 
-[sub_resource type="ConvexPolygonShape" id=408]
+[sub_resource type="ConvexPolygonShape" id=406]
 points = PoolVector3Array( 72.7396, 10, -37.503, 72.7396, 9.5, -37.503, 80.0355, 9.5, -30.2071, 80.0355, 10, -30.2071, 68.5, 10, -33.2574, 68.5, 9.5, -33.2574, 75.7929, 9.5, -25.9645, 75.7929, 10, -25.9645 )
 
-[sub_resource type="ConvexPolygonShape" id=409]
+[sub_resource type="ConvexPolygonShape" id=407]
 points = PoolVector3Array( 185.25, 32, -12, 185.25, 30, -12, 190.75, 30, -12, 190.75, 32, -12, 185.25, 32, -9, 185.25, 30, -9, 190.75, 30, -9, 190.75, 32, -9 )
 
-[sub_resource type="ConvexPolygonShape" id=410]
+[sub_resource type="ConvexPolygonShape" id=408]
 points = PoolVector3Array( 185.25, 33.5, -14.75, 185.25, 30, -14.75, 190.75, 30, -14.75, 190.75, 33.5, -14.75, 185.25, 33.5, -12.25, 185.25, 30, -12.25, 190.75, 30, -12.25, 190.75, 33.5, -12.25 )
 
-[sub_resource type="ConvexPolygonShape" id=411]
+[sub_resource type="ConvexPolygonShape" id=409]
 points = PoolVector3Array( 185.25, 35, -8.75, 185.25, 30, -8.75, 190.75, 30, -8.75, 190.75, 35, -8.75, 185.25, 35, -2.25, 185.25, 30, -2.25, 190.75, 30, -2.25, 190.75, 35, -2.25 )
 
-[sub_resource type="ConvexPolygonShape" id=412]
+[sub_resource type="ConvexPolygonShape" id=410]
 points = PoolVector3Array( 175.059, 41.5, -42.5, 175.059, 41, -42.5, 178.348, 41, -41.3029, 178.348, 41.5, -41.3029, 164.674, 41.5, -13.968, 164.674, 41, -13.968, 167.963, 41, -12.771, 167.963, 41.5, -12.771 )
 
-[sub_resource type="ConvexPolygonShape" id=413]
+[sub_resource type="ConvexPolygonShape" id=411]
 points = PoolVector3Array( 147.457, 41.5, -98.9979, 147.457, 41, -98.9979, 157.23, 41, -94.4407, 157.23, 41.5, -94.4407, 145.978, 41.5, -95.8259, 145.978, 41, -95.8259, 155.752, 41, -91.2682, 155.752, 41.5, -91.2682 )
 
-[sub_resource type="ConvexPolygonShape" id=414]
+[sub_resource type="ConvexPolygonShape" id=412]
 points = PoolVector3Array( 129.446, 41.5, -88.9544, 129.446, 41, -88.9544, 143.116, 41, -86.544, 143.116, 41.5, -86.544, 128.838, 41.5, -85.5076, 128.838, 41, -85.5076, 142.5, 41, -83.0986, 142.5, 41.5, -83.0986 )
 
-[sub_resource type="ConvexPolygonShape" id=415]
+[sub_resource type="ConvexPolygonShape" id=413]
 points = PoolVector3Array( 170.156, 41.5, -72.2728, 166.984, 41.5, -70.7927, 166.984, 41, -70.7927, 170.156, 41, -72.2728, 181.708, 41, -47.5, 181.708, 41.5, -47.5, 178.536, 41, -46.0208, 178.536, 41.5, -46.0208 )
 
-[sub_resource type="ConvexPolygonShape" id=416]
+[sub_resource type="ConvexPolygonShape" id=414]
 points = PoolVector3Array( 175, 47, -135, 175, 40, -135, 186, 40, -135, 186, 47, -135, 175, 47, -118, 175, 40, -118, 186, 40, -118, 186, 47, -118 )
 
-[sub_resource type="ConvexPolygonShape" id=417]
+[sub_resource type="ConvexPolygonShape" id=415]
 points = PoolVector3Array( 175, 40, -128, 175, 30, -128, 186, 30, -128, 186, 40, -128, 175, 40, -118, 175, 30, -118, 186, 30, -118, 186, 40, -118 )
 
-[sub_resource type="ConvexPolygonShape" id=418]
+[sub_resource type="ConvexPolygonShape" id=416]
 points = PoolVector3Array( 197, 41, -84, 197, 30, -84, 204, 30, -84, 204, 41, -84, 197, 41, -68, 197, 30, -68, 204, 30, -68, 204, 41, -68 )
 
-[sub_resource type="ConvexPolygonShape" id=419]
+[sub_resource type="ConvexPolygonShape" id=417]
 points = PoolVector3Array( 126, 40, -136, 126, 30, -136, 174.5, 30, -136, 174.5, 40, -136, 126, 40, -135, 126, 30, -135, 174.5, 30, -135, 174.5, 40, -135 )
 
-[sub_resource type="ConvexPolygonShape" id=420]
+[sub_resource type="ConvexPolygonShape" id=418]
 points = PoolVector3Array( 126, 56, -136, 126, 40, -136, 174.5, 40, -136, 174.5, 56, -136, 126, 56, -135, 126, 40, -135, 174.5, 40, -135, 174.5, 56, -135 )
 
-[sub_resource type="ConvexPolygonShape" id=421]
+[sub_resource type="ConvexPolygonShape" id=419]
 points = PoolVector3Array( 174.5, 56, -136, 174.5, 40, -136, 182, 40, -136, 182, 56, -136, 174.5, 56, -135, 174.5, 40, -135, 182, 40, -135, 182, 56, -135 )
 
-[sub_resource type="ConvexPolygonShape" id=422]
+[sub_resource type="ConvexPolygonShape" id=420]
 points = PoolVector3Array( 182, 40, -136, 182, 30, -136, 204, 30, -136, 204, 40, -136, 182, 40, -135, 182, 30, -135, 204, 30, -135, 204, 40, -135 )
 
-[sub_resource type="ConvexPolygonShape" id=423]
+[sub_resource type="ConvexPolygonShape" id=421]
 points = PoolVector3Array( 182, 56, -136, 182, 40, -136, 204, 40, -136, 204, 56, -136, 182, 56, -135, 182, 40, -135, 204, 40, -135, 204, 56, -135 )
 
-[sub_resource type="ConvexPolygonShape" id=424]
+[sub_resource type="ConvexPolygonShape" id=422]
 points = PoolVector3Array( 174.5, 30.5, -136, 174.5, 30, -136, 182, 30, -136, 182, 30.5, -136, 174.5, 30.5, -135, 174.5, 30, -135, 182, 30, -135, 182, 30.5, -135 )
 
-[sub_resource type="ConvexPolygonShape" id=425]
+[sub_resource type="ConvexPolygonShape" id=423]
 points = PoolVector3Array( 112, 33, -136, 112, 30, -136, 125, 30, -136, 125, 33, -136, 112, 33, -135, 112, 30, -135, 125, 30, -135, 125, 33, -135 )
 
-[sub_resource type="ConvexPolygonShape" id=426]
+[sub_resource type="ConvexPolygonShape" id=424]
 points = PoolVector3Array( 112, 33, -151, 112, 29.5, -151, 113, 29.5, -151, 113, 33, -151, 112, 33, -135, 112, 29.5, -135, 113, 29.5, -135, 113, 33, -135 )
 
-[sub_resource type="ConvexPolygonShape" id=427]
+[sub_resource type="ConvexPolygonShape" id=425]
 points = PoolVector3Array( 113, 33, -151, 113, 29.5, -151, 193, 29.5, -151, 193, 33, -151, 113, 33, -150, 113, 29.5, -150, 193, 29.5, -150, 193, 33, -150 )
 
-[sub_resource type="ConvexPolygonShape" id=428]
+[sub_resource type="ConvexPolygonShape" id=426]
 points = PoolVector3Array( 149.915, 41.5, -57.2121, 134.992, 41.5, -46.7632, 134.992, 41, -46.7632, 149.915, 41, -57.2121, 151.923, 41, -54.3457, 151.923, 41.5, -54.3457, 137, 41, -43.8962, 137, 41.5, -43.8962 )
 
-[sub_resource type="ConvexPolygonShape" id=429]
+[sub_resource type="ConvexPolygonShape" id=427]
 points = PoolVector3Array( 50, 33, -110, 50, 32, -110, 125, 32, -110, 125, 33, -110, 50, 33, -101, 50, 32, -101, 125, 32, -101, 125, 33, -101 )
 
-[sub_resource type="ConvexPolygonShape" id=430]
+[sub_resource type="ConvexPolygonShape" id=428]
 points = PoolVector3Array( 4, 33, -110, 4, 32, -110, 50, 32, -110, 50, 33, -110, 4, 33, -103, 4, 32, -103, 50, 32, -103, 50, 33, -103 )
 
-[sub_resource type="ConvexPolygonShape" id=431]
+[sub_resource type="ConvexPolygonShape" id=429]
 points = PoolVector3Array( 208, 30, -64, 208, 29, -64, 223, 29, -64, 223, 30, -64, 208, 30, -48, 208, 29, -48, 223, 29, -48, 223, 30, -48 )
 
-[sub_resource type="ConvexPolygonShape" id=432]
+[sub_resource type="ConvexPolygonShape" id=430]
 points = PoolVector3Array( 208, 50, -48, 208, 30, -48, 223, 30, -48, 223, 50, -48, 208, 50, -47, 208, 30, -47, 223, 30, -47, 223, 50, -47 )
 
-[sub_resource type="ConvexPolygonShape" id=433]
+[sub_resource type="ConvexPolygonShape" id=431]
 points = PoolVector3Array( 208, 50, -65, 208, 30, -65, 223, 30, -65, 223, 50, -65, 208, 50, -64, 208, 30, -64, 223, 30, -64, 223, 50, -64 )
 
-[sub_resource type="ConvexPolygonShape" id=434]
+[sub_resource type="ConvexPolygonShape" id=432]
 points = PoolVector3Array( 223, 50, -64, 223, 30, -64, 224, 30, -64, 224, 50, -64, 223, 50, -48, 223, 30, -48, 224, 30, -48, 224, 50, -48 )
 
-[sub_resource type="ConvexPolygonShape" id=435]
+[sub_resource type="ConvexPolygonShape" id=433]
 points = PoolVector3Array( 208, 51, -64, 208, 50, -64, 223, 50, -64, 223, 51, -64, 208, 51, -48, 208, 50, -48, 223, 50, -48, 223, 51, -48 )
 
-[sub_resource type="ConvexPolygonShape" id=436]
+[sub_resource type="ConvexPolygonShape" id=434]
 points = PoolVector3Array( 100, 37, -100, 100, 30, -100, 101, 30, -100, 101, 37, -100, 100, 37, -88, 100, 30, -88, 101, 30, -88, 101, 37, -88 )
 
-[sub_resource type="ConvexPolygonShape" id=437]
+[sub_resource type="ConvexPolygonShape" id=435]
 points = PoolVector3Array( 82, 44, -88, 82, 30, -88, 92, 30, -88, 92, 44, -88, 82, 44, -86, 82, 30, -86, 92, 30, -86, 92, 44, -86 )
 
-[sub_resource type="ConvexPolygonShape" id=438]
+[sub_resource type="ConvexPolygonShape" id=436]
 points = PoolVector3Array( 0, 44, -50, 0, 30, -50, 50, 30, -50, 50, 44, -50, 0, 44, -48, 0, 30, -48, 50, 30, -48, 50, 44, -48 )
 
-[sub_resource type="ConvexPolygonShape" id=439]
+[sub_resource type="ConvexPolygonShape" id=437]
 points = PoolVector3Array( 5.52513, 4.5, -88.8536, 5.52513, 1, -88.8536, 6.02513, 1, -88.8536, 6.02513, 4.5, -88.8536, 5.52513, 4.5, -88.1464, 5.52513, 1, -88.1464, 6.02513, 1, -88.1464, 6.02513, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=440]
+[sub_resource type="ConvexPolygonShape" id=438]
 points = PoolVector3Array( 7.43934, 1, -88.8536, 7.43934, 4.5, -88.8536, 6.93934, 4.5, -88.8536, 6.93934, 1, -88.8536, 6.93934, 1, -88.1464, 7.43934, 1, -88.1464, 7.43934, 4.5, -88.1464, 6.93934, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=441]
+[sub_resource type="ConvexPolygonShape" id=439]
 points = PoolVector3Array( 8.35355, 4.5, -88.8536, 8.35355, 1, -88.8536, 8.85355, 1, -88.8536, 8.85355, 4.5, -88.8536, 8.35355, 4.5, -88.1464, 8.35355, 1, -88.1464, 8.85355, 1, -88.1464, 8.85355, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=442]
+[sub_resource type="ConvexPolygonShape" id=440]
 points = PoolVector3Array( 10.2678, 1, -88.8536, 10.2678, 4.5, -88.8536, 9.76777, 4.5, -88.8536, 9.76777, 1, -88.8536, 9.76777, 1, -88.1464, 10.2678, 1, -88.1464, 10.2678, 4.5, -88.1464, 9.76777, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=443]
+[sub_resource type="ConvexPolygonShape" id=441]
 points = PoolVector3Array( 11.182, 4.5, -88.8536, 11.182, 1, -88.8536, 11.682, 1, -88.8536, 11.682, 4.5, -88.8536, 11.182, 4.5, -88.1464, 11.182, 1, -88.1464, 11.682, 1, -88.1464, 11.682, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=444]
+[sub_resource type="ConvexPolygonShape" id=442]
 points = PoolVector3Array( 12.5251, 4.5, -88.8536, 12.5251, 1, -88.8536, 13.0251, 1, -88.8536, 13.0251, 4.5, -88.8536, 12.5251, 4.5, -88.1464, 12.5251, 1, -88.1464, 13.0251, 1, -88.1464, 13.0251, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=445]
+[sub_resource type="ConvexPolygonShape" id=443]
 points = PoolVector3Array( 13.9393, 1, -88.8536, 14.4393, 1, -88.8536, 14.4393, 4.5, -88.8536, 13.9393, 4.5, -88.8536, 13.9393, 1, -88.1464, 14.4393, 1, -88.1464, 14.4393, 4.5, -88.1464, 13.9393, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=446]
+[sub_resource type="ConvexPolygonShape" id=444]
 points = PoolVector3Array( 15.3536, 4.5, -88.8536, 15.3536, 1, -88.8536, 15.8536, 1, -88.8536, 15.8536, 4.5, -88.8536, 15.3536, 4.5, -88.1464, 15.3536, 1, -88.1464, 15.8536, 1, -88.1464, 15.8536, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=447]
+[sub_resource type="ConvexPolygonShape" id=445]
 points = PoolVector3Array( 17.2678, 1, -88.8536, 17.2678, 4.5, -88.8536, 16.7678, 4.5, -88.8536, 16.7678, 1, -88.8536, 16.7678, 1, -88.1464, 17.2678, 1, -88.1464, 17.2678, 4.5, -88.1464, 16.7678, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=448]
+[sub_resource type="ConvexPolygonShape" id=446]
 points = PoolVector3Array( 18.182, 4.5, -88.8536, 18.182, 1, -88.8536, 18.682, 1, -88.8536, 18.682, 4.5, -88.8536, 18.182, 4.5, -88.1464, 18.182, 1, -88.1464, 18.682, 1, -88.1464, 18.682, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=449]
+[sub_resource type="ConvexPolygonShape" id=447]
 points = PoolVector3Array( 30.5251, 4.5, -88.8536, 30.5251, 1, -88.8536, 31.0251, 1, -88.8536, 31.0251, 4.5, -88.8536, 30.5251, 4.5, -88.1464, 30.5251, 1, -88.1464, 31.0251, 1, -88.1464, 31.0251, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=450]
+[sub_resource type="ConvexPolygonShape" id=448]
 points = PoolVector3Array( 31.9393, 1, -88.8536, 32.4393, 1, -88.8536, 32.4393, 4.5, -88.8536, 31.9393, 4.5, -88.8536, 31.9393, 1, -88.1464, 32.4393, 1, -88.1464, 32.4393, 4.5, -88.1464, 31.9393, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=451]
+[sub_resource type="ConvexPolygonShape" id=449]
 points = PoolVector3Array( 33.3536, 4.5, -88.8536, 33.3536, 1, -88.8536, 33.8536, 1, -88.8536, 33.8536, 4.5, -88.8536, 33.3536, 4.5, -88.1464, 33.3536, 1, -88.1464, 33.8536, 1, -88.1464, 33.8536, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=452]
+[sub_resource type="ConvexPolygonShape" id=450]
 points = PoolVector3Array( 35.2678, 1, -88.8536, 35.2678, 4.5, -88.8536, 34.7678, 4.5, -88.8536, 34.7678, 1, -88.8536, 34.7678, 1, -88.1464, 35.2678, 1, -88.1464, 35.2678, 4.5, -88.1464, 34.7678, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=453]
+[sub_resource type="ConvexPolygonShape" id=451]
 points = PoolVector3Array( 36.182, 4.5, -88.8536, 36.182, 1, -88.8536, 36.682, 1, -88.8536, 36.682, 4.5, -88.8536, 36.182, 4.5, -88.1464, 36.182, 1, -88.1464, 36.682, 1, -88.1464, 36.682, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=454]
+[sub_resource type="ConvexPolygonShape" id=452]
 points = PoolVector3Array( 37.5251, 4.5, -88.8536, 37.5251, 1, -88.8536, 38.0251, 1, -88.8536, 38.0251, 4.5, -88.8536, 37.5251, 4.5, -88.1464, 37.5251, 1, -88.1464, 38.0251, 1, -88.1464, 38.0251, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=455]
+[sub_resource type="ConvexPolygonShape" id=453]
 points = PoolVector3Array( 38.9393, 1, -88.8536, 39.4393, 1, -88.8536, 39.4393, 4.5, -88.8536, 38.9393, 4.5, -88.8536, 38.9393, 1, -88.1464, 39.4393, 1, -88.1464, 39.4393, 4.5, -88.1464, 38.9393, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=456]
+[sub_resource type="ConvexPolygonShape" id=454]
 points = PoolVector3Array( 40.3536, 4.5, -88.8536, 40.3536, 1, -88.8536, 40.8536, 1, -88.8536, 40.8536, 4.5, -88.8536, 40.3536, 4.5, -88.1464, 40.3536, 1, -88.1464, 40.8536, 1, -88.1464, 40.8536, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=457]
+[sub_resource type="ConvexPolygonShape" id=455]
 points = PoolVector3Array( 42.2678, 1, -88.8536, 42.2678, 4.5, -88.8536, 41.7678, 4.5, -88.8536, 41.7678, 1, -88.8536, 41.7678, 1, -88.1464, 42.2678, 1, -88.1464, 42.2678, 4.5, -88.1464, 41.7678, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=458]
+[sub_resource type="ConvexPolygonShape" id=456]
 points = PoolVector3Array( 43.182, 4.5, -88.8536, 43.182, 1, -88.8536, 43.682, 1, -88.8536, 43.682, 4.5, -88.8536, 43.182, 4.5, -88.1464, 43.182, 1, -88.1464, 43.682, 1, -88.1464, 43.682, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=459]
+[sub_resource type="ConvexPolygonShape" id=457]
 points = PoolVector3Array( 44.682, 4.5, -88.8536, 44.682, 1, -88.8536, 45.182, 1, -88.8536, 45.182, 4.5, -88.8536, 44.682, 4.5, -88.1464, 44.682, 1, -88.1464, 45.182, 1, -88.1464, 45.182, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=460]
+[sub_resource type="ConvexPolygonShape" id=458]
 points = PoolVector3Array( 46.182, 4.5, -88.8536, 46.182, 1, -88.8536, 46.682, 1, -88.8536, 46.682, 4.5, -88.8536, 46.182, 4.5, -88.1464, 46.182, 1, -88.1464, 46.682, 1, -88.1464, 46.682, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=461]
+[sub_resource type="ConvexPolygonShape" id=459]
 points = PoolVector3Array( 47.682, 4.5, -89.8536, 47.682, 1, -89.8536, 48.182, 1, -89.8536, 48.182, 4.5, -89.8536, 47.682, 4.5, -89.1464, 47.682, 1, -89.1464, 48.182, 1, -89.1464, 48.182, 4.5, -89.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=462]
+[sub_resource type="ConvexPolygonShape" id=460]
 points = PoolVector3Array( 49.182, 4.5, -90.8536, 49.182, 1, -90.8536, 49.682, 1, -90.8536, 49.682, 4.5, -90.8536, 49.182, 4.5, -90.1464, 49.182, 1, -90.1464, 49.682, 1, -90.1464, 49.682, 4.5, -90.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=463]
+[sub_resource type="ConvexPolygonShape" id=461]
 points = PoolVector3Array( 4.02513, 4.5, -88.8536, 4.02513, 1, -88.8536, 4.52513, 1, -88.8536, 4.52513, 4.5, -88.8536, 4.02513, 4.5, -88.1464, 4.02513, 1, -88.1464, 4.52513, 1, -88.1464, 4.52513, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=464]
+[sub_resource type="ConvexPolygonShape" id=462]
 points = PoolVector3Array( 2.52513, 4.5, -89.3536, 2.52513, 1, -89.3536, 3.02513, 1, -89.3536, 3.02513, 4.5, -89.3536, 2.52513, 4.5, -88.6464, 2.52513, 1, -88.6464, 3.02513, 1, -88.6464, 3.02513, 4.5, -88.6464 )
 
-[sub_resource type="ConvexPolygonShape" id=465]
+[sub_resource type="ConvexPolygonShape" id=463]
 points = PoolVector3Array( 0.525126, 4.5, -90.3536, 0.525126, 1, -90.3536, 1.02513, 1, -90.3536, 1.02513, 4.5, -90.3536, 0.525126, 4.5, -89.6464, 0.525126, 1, -89.6464, 1.02513, 1, -89.6464, 1.02513, 4.5, -89.6464 )
 
-[sub_resource type="ConvexPolygonShape" id=466]
+[sub_resource type="ConvexPolygonShape" id=464]
 points = PoolVector3Array( 19.682, 4.5, -88.8536, 19.682, 1, -88.8536, 20.182, 1, -88.8536, 20.182, 4.5, -88.8536, 19.682, 4.5, -88.1464, 19.682, 1, -88.1464, 20.182, 1, -88.1464, 20.182, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=467]
+[sub_resource type="ConvexPolygonShape" id=465]
 points = PoolVector3Array( 29.0251, 4.5, -88.8536, 29.0251, 1, -88.8536, 29.5251, 1, -88.8536, 29.5251, 4.5, -88.8536, 29.0251, 4.5, -88.1464, 29.0251, 1, -88.1464, 29.5251, 1, -88.1464, 29.5251, 4.5, -88.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=468]
+[sub_resource type="ConvexPolygonShape" id=466]
 points = PoolVector3Array( 19.682, 4.5, -35.8536, 19.682, 1, -35.8536, 20.182, 1, -35.8536, 20.182, 4.5, -35.8536, 19.682, 4.5, -35.1464, 19.682, 1, -35.1464, 20.182, 1, -35.1464, 20.182, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=469]
+[sub_resource type="ConvexPolygonShape" id=467]
 points = PoolVector3Array( 18.182, 4.5, -35.8536, 18.182, 1, -35.8536, 18.682, 1, -35.8536, 18.682, 4.5, -35.8536, 18.182, 4.5, -35.1464, 18.182, 1, -35.1464, 18.682, 1, -35.1464, 18.682, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=470]
+[sub_resource type="ConvexPolygonShape" id=468]
 points = PoolVector3Array( 17.2678, 1, -35.8536, 17.2678, 4.5, -35.8536, 16.7678, 4.5, -35.8536, 16.7678, 1, -35.8536, 16.7678, 1, -35.1464, 17.2678, 1, -35.1464, 17.2678, 4.5, -35.1464, 16.7678, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=471]
+[sub_resource type="ConvexPolygonShape" id=469]
 points = PoolVector3Array( 15.3536, 4.5, -35.8536, 15.3536, 1, -35.8536, 15.8536, 1, -35.8536, 15.8536, 4.5, -35.8536, 15.3536, 4.5, -35.1464, 15.3536, 1, -35.1464, 15.8536, 1, -35.1464, 15.8536, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=472]
+[sub_resource type="ConvexPolygonShape" id=470]
 points = PoolVector3Array( 13.9393, 1, -35.8536, 14.4393, 1, -35.8536, 14.4393, 4.5, -35.8536, 13.9393, 4.5, -35.8536, 13.9393, 1, -35.1464, 14.4393, 1, -35.1464, 14.4393, 4.5, -35.1464, 13.9393, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=473]
+[sub_resource type="ConvexPolygonShape" id=471]
 points = PoolVector3Array( 12.5251, 4.5, -35.8536, 12.5251, 1, -35.8536, 13.0251, 1, -35.8536, 13.0251, 4.5, -35.8536, 12.5251, 4.5, -35.1464, 12.5251, 1, -35.1464, 13.0251, 1, -35.1464, 13.0251, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=474]
+[sub_resource type="ConvexPolygonShape" id=472]
 points = PoolVector3Array( 11.182, 4.5, -35.8536, 11.182, 1, -35.8536, 11.682, 1, -35.8536, 11.682, 4.5, -35.8536, 11.182, 4.5, -35.1464, 11.182, 1, -35.1464, 11.682, 1, -35.1464, 11.682, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=475]
+[sub_resource type="ConvexPolygonShape" id=473]
 points = PoolVector3Array( 10.2678, 1, -35.8536, 10.2678, 4.5, -35.8536, 9.76777, 4.5, -35.8536, 9.76777, 1, -35.8536, 9.76777, 1, -35.1464, 10.2678, 1, -35.1464, 10.2678, 4.5, -35.1464, 9.76777, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=476]
+[sub_resource type="ConvexPolygonShape" id=474]
 points = PoolVector3Array( 8.35355, 4.5, -35.8536, 8.35355, 1, -35.8536, 8.85355, 1, -35.8536, 8.85355, 4.5, -35.8536, 8.35355, 4.5, -35.1464, 8.35355, 1, -35.1464, 8.85355, 1, -35.1464, 8.85355, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=477]
+[sub_resource type="ConvexPolygonShape" id=475]
 points = PoolVector3Array( 7.43934, 1, -35.8536, 7.43934, 4.5, -35.8536, 6.93934, 4.5, -35.8536, 6.93934, 1, -35.8536, 6.93934, 1, -35.1464, 7.43934, 1, -35.1464, 7.43934, 4.5, -35.1464, 6.93934, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=478]
+[sub_resource type="ConvexPolygonShape" id=476]
 points = PoolVector3Array( 5.52513, 4.5, -35.8536, 5.52513, 1, -35.8536, 6.02513, 1, -35.8536, 6.02513, 4.5, -35.8536, 5.52513, 4.5, -35.1464, 5.52513, 1, -35.1464, 6.02513, 1, -35.1464, 6.02513, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=479]
+[sub_resource type="ConvexPolygonShape" id=477]
 points = PoolVector3Array( 43.182, 4.5, -35.8536, 43.182, 1, -35.8536, 43.682, 1, -35.8536, 43.682, 4.5, -35.8536, 43.182, 4.5, -35.1464, 43.182, 1, -35.1464, 43.682, 1, -35.1464, 43.682, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=480]
+[sub_resource type="ConvexPolygonShape" id=478]
 points = PoolVector3Array( 41.682, 4.5, -35.8536, 41.682, 1, -35.8536, 42.182, 1, -35.8536, 42.182, 4.5, -35.8536, 41.682, 4.5, -35.1464, 41.682, 1, -35.1464, 42.182, 1, -35.1464, 42.182, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=481]
+[sub_resource type="ConvexPolygonShape" id=479]
 points = PoolVector3Array( 40.7678, 1, -35.8536, 40.7678, 4.5, -35.8536, 40.2678, 4.5, -35.8536, 40.2678, 1, -35.8536, 40.2678, 1, -35.1464, 40.7678, 1, -35.1464, 40.7678, 4.5, -35.1464, 40.2678, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=482]
+[sub_resource type="ConvexPolygonShape" id=480]
 points = PoolVector3Array( 38.8536, 4.5, -35.8536, 38.8536, 1, -35.8536, 39.3536, 1, -35.8536, 39.3536, 4.5, -35.8536, 38.8536, 4.5, -35.1464, 38.8536, 1, -35.1464, 39.3536, 1, -35.1464, 39.3536, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=483]
+[sub_resource type="ConvexPolygonShape" id=481]
 points = PoolVector3Array( 37.4393, 1, -35.8536, 37.9393, 1, -35.8536, 37.9393, 4.5, -35.8536, 37.4393, 4.5, -35.8536, 37.4393, 1, -35.1464, 37.9393, 1, -35.1464, 37.9393, 4.5, -35.1464, 37.4393, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=484]
+[sub_resource type="ConvexPolygonShape" id=482]
 points = PoolVector3Array( 36.0251, 4.5, -35.8536, 36.0251, 1, -35.8536, 36.5251, 1, -35.8536, 36.5251, 4.5, -35.8536, 36.0251, 4.5, -35.1464, 36.0251, 1, -35.1464, 36.5251, 1, -35.1464, 36.5251, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=485]
+[sub_resource type="ConvexPolygonShape" id=483]
 points = PoolVector3Array( 34.682, 4.5, -35.8536, 34.682, 1, -35.8536, 35.182, 1, -35.8536, 35.182, 4.5, -35.8536, 34.682, 4.5, -35.1464, 34.682, 1, -35.1464, 35.182, 1, -35.1464, 35.182, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=486]
+[sub_resource type="ConvexPolygonShape" id=484]
 points = PoolVector3Array( 33.7678, 1, -35.8536, 33.7678, 4.5, -35.8536, 33.2678, 4.5, -35.8536, 33.2678, 1, -35.8536, 33.2678, 1, -35.1464, 33.7678, 1, -35.1464, 33.7678, 4.5, -35.1464, 33.2678, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=487]
+[sub_resource type="ConvexPolygonShape" id=485]
 points = PoolVector3Array( 31.8536, 4.5, -35.8536, 31.8536, 1, -35.8536, 32.3536, 1, -35.8536, 32.3536, 4.5, -35.8536, 31.8536, 4.5, -35.1464, 31.8536, 1, -35.1464, 32.3536, 1, -35.1464, 32.3536, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=488]
+[sub_resource type="ConvexPolygonShape" id=486]
 points = PoolVector3Array( 30.9393, 1, -35.8536, 30.9393, 4.5, -35.8536, 30.4393, 4.5, -35.8536, 30.4393, 1, -35.8536, 30.4393, 1, -35.1464, 30.9393, 1, -35.1464, 30.9393, 4.5, -35.1464, 30.4393, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=489]
+[sub_resource type="ConvexPolygonShape" id=487]
 points = PoolVector3Array( 29.0251, 4.5, -35.8536, 29.0251, 1, -35.8536, 29.5251, 1, -35.8536, 29.5251, 4.5, -35.8536, 29.0251, 4.5, -35.1464, 29.0251, 1, -35.1464, 29.5251, 1, -35.1464, 29.5251, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=490]
+[sub_resource type="ConvexPolygonShape" id=488]
 points = PoolVector3Array( 47.182, 4.5, -35.8536, 47.182, 1, -35.8536, 47.682, 1, -35.8536, 47.682, 4.5, -35.8536, 47.182, 4.5, -35.1464, 47.182, 1, -35.1464, 47.682, 1, -35.1464, 47.682, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=491]
+[sub_resource type="ConvexPolygonShape" id=489]
 points = PoolVector3Array( 45.682, 4.5, -35.8536, 45.682, 1, -35.8536, 46.182, 1, -35.8536, 46.182, 4.5, -35.8536, 45.682, 4.5, -35.1464, 45.682, 1, -35.1464, 46.182, 1, -35.1464, 46.182, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=492]
+[sub_resource type="ConvexPolygonShape" id=490]
 points = PoolVector3Array( 44.7678, 1, -35.8536, 44.7678, 4.5, -35.8536, 44.2678, 4.5, -35.8536, 44.2678, 1, -35.8536, 44.2678, 1, -35.1464, 44.7678, 1, -35.1464, 44.7678, 4.5, -35.1464, 44.2678, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=493]
+[sub_resource type="ConvexPolygonShape" id=491]
 points = PoolVector3Array( 48.682, 4.5, -35.8536, 48.682, 1, -35.8536, 49.182, 1, -35.8536, 49.182, 4.5, -35.8536, 48.682, 4.5, -35.1464, 48.682, 1, -35.1464, 49.182, 1, -35.1464, 49.182, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=494]
+[sub_resource type="ConvexPolygonShape" id=492]
 points = PoolVector3Array( 0.43934, 1, -35.8536, 0.43934, 4.5, -35.8536, -0.0606602, 4.5, -35.8536, -0.0606602, 1, -35.8536, -0.0606602, 1, -35.1464, 0.43934, 1, -35.1464, 0.43934, 4.5, -35.1464, -0.0606602, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=495]
+[sub_resource type="ConvexPolygonShape" id=493]
 points = PoolVector3Array( 1.35355, 4.5, -35.8536, 1.35355, 1, -35.8536, 1.85355, 1, -35.8536, 1.85355, 4.5, -35.8536, 1.35355, 4.5, -35.1464, 1.35355, 1, -35.1464, 1.85355, 1, -35.1464, 1.85355, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=496]
+[sub_resource type="ConvexPolygonShape" id=494]
 points = PoolVector3Array( 3.26777, 1, -35.8536, 3.26777, 4.5, -35.8536, 2.76777, 4.5, -35.8536, 2.76777, 1, -35.8536, 2.76777, 1, -35.1464, 3.26777, 1, -35.1464, 3.26777, 4.5, -35.1464, 2.76777, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=497]
+[sub_resource type="ConvexPolygonShape" id=495]
 points = PoolVector3Array( 4.18198, 4.5, -35.8536, 4.18198, 1, -35.8536, 4.68198, 1, -35.8536, 4.68198, 4.5, -35.8536, 4.18198, 4.5, -35.1464, 4.18198, 1, -35.1464, 4.68198, 1, -35.1464, 4.68198, 4.5, -35.1464 )
 
-[sub_resource type="ConvexPolygonShape" id=498]
+[sub_resource type="ConvexPolygonShape" id=496]
 points = PoolVector3Array( 92, 14, -76, 92, 0, -76, 96, 0, -76, 96, 14, -76, 92, 14, -68, 92, 0, -68, 96, 0, -68, 96, 14, -68 )
 
-[sub_resource type="ConvexPolygonShape" id=499]
+[sub_resource type="ConvexPolygonShape" id=497]
 points = PoolVector3Array( 184, 40, -135, 184, 30, -135, 185, 30, -135, 185, 40, -135, 184, 40, -128, 184, 30, -128, 185, 30, -128, 185, 40, -128 )
 
-[sub_resource type="ConvexPolygonShape" id=500]
+[sub_resource type="ConvexPolygonShape" id=498]
 points = PoolVector3Array( 151.561, 48.2842, -128.422, 132.713, 41.4241, -126.668, 132.884, 40.9542, -126.668, 151.732, 47.8144, -128.422, 152.02, 47.919, -124.936, 151.849, 48.3889, -124.936, 133.171, 41.0586, -123.181, 133, 41.5284, -123.181 )
 
-[sub_resource type="ConvexPolygonShape" id=501]
+[sub_resource type="ConvexPolygonShape" id=499]
 points = PoolVector3Array( 120, 12, -61, 120, 1, -61, 125, 1, -61, 125, 12, -61, 120, 12, -60, 120, 1, -60, 125, 1, -60, 125, 12, -60 )
 
-[sub_resource type="ConvexPolygonShape" id=502]
+[sub_resource type="ConvexPolygonShape" id=500]
 points = PoolVector3Array( 92, 12, -68, 92, 1, -68, 120, 1, -68, 120, 12, -68, 92, 12, -60, 92, 1, -60, 120, 1, -60, 120, 12, -60 )
 
-[sub_resource type="ConvexPolygonShape" id=503]
+[sub_resource type="ConvexPolygonShape" id=501]
 points = PoolVector3Array( 92, 14, -68, 92, 12, -68, 125, 12, -68, 125, 14, -68, 92, 14, -60, 92, 12, -60, 125, 12, -60, 125, 14, -60 )
 
-[sub_resource type="ConvexPolygonShape" id=504]
+[sub_resource type="ConvexPolygonShape" id=502]
 points = PoolVector3Array( 185.25, 37, -2, 185.25, 30, -2, 190.75, 30, -2, 190.75, 37, -2, 185.25, 37, 2, 185.25, 30, 2, 190.75, 30, 2, 190.75, 37, 2 )
 
-[sub_resource type="ConvexPolygonShape" id=505]
+[sub_resource type="ConvexPolygonShape" id=503]
 points = PoolVector3Array( 185.25, 39, -0.5, 185.25, 37, -0.5, 188.25, 37, -0.5, 188.25, 39, -0.5, 185.25, 39, 2, 185.25, 37, 2, 188.25, 37, 2, 188.25, 39, 2 )
 
-[sub_resource type="ConvexPolygonShape" id=506]
+[sub_resource type="ConvexPolygonShape" id=504]
 points = PoolVector3Array( 97.5, 12, -58.8137, 97.5, 11.5, -58.8137, 102.9, 11.5, -53.4151, 102.9, 12, -53.4151, 75.3327, 12, -36.6464, 75.3327, 11.5, -36.6464, 80.7322, 11.5, -31.247, 80.7322, 12, -31.247 )
 
-[sub_resource type="ConvexPolygonShape" id=507]
+[sub_resource type="ConvexPolygonShape" id=505]
 points = PoolVector3Array( 85.8536, 15.5, -47.1464, 85.5, 15.5, -46.7929, 85.5, 12, -46.7929, 85.8536, 12, -47.1464, 86.3536, 12, -46.6464, 86.3536, 15.5, -46.6464, 86, 12, -46.2929, 86, 15.5, -46.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=508]
+[sub_resource type="ConvexPolygonShape" id=506]
 points = PoolVector3Array( 89.8536, 15.5, -51.1464, 89.5, 15.5, -50.7929, 89.5, 12, -50.7929, 89.8536, 12, -51.1464, 90.3536, 12, -50.6464, 90.3536, 15.5, -50.6464, 90, 12, -50.2929, 90, 15.5, -50.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=509]
+[sub_resource type="ConvexPolygonShape" id=507]
 points = PoolVector3Array( 93.8536, 15.5, -55.1464, 93.5, 15.5, -54.7929, 93.5, 12, -54.7929, 93.8536, 12, -55.1464, 94.3536, 12, -54.6464, 94.3536, 15.5, -54.6464, 94, 12, -54.2929, 94, 15.5, -54.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=510]
+[sub_resource type="ConvexPolygonShape" id=508]
 points = PoolVector3Array( 92.8536, 15.5, -54.1464, 92.5, 15.5, -53.7929, 92.5, 12, -53.7929, 92.8536, 12, -54.1464, 93.3536, 12, -53.6464, 93.3536, 15.5, -53.6464, 93, 12, -53.2929, 93, 15.5, -53.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=511]
+[sub_resource type="ConvexPolygonShape" id=509]
 points = PoolVector3Array( 82.8536, 15.5, -44.1464, 82.5, 15.5, -43.7929, 82.5, 12, -43.7929, 82.8536, 12, -44.1464, 83.3536, 12, -43.6464, 83.3536, 15.5, -43.6464, 83, 12, -43.2929, 83, 15.5, -43.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=512]
+[sub_resource type="ConvexPolygonShape" id=510]
 points = PoolVector3Array( 86.8536, 15.5, -48.1464, 86.5, 15.5, -47.7929, 86.5, 12, -47.7929, 86.8536, 12, -48.1464, 87.3536, 12, -47.6464, 87.3536, 15.5, -47.6464, 87, 12, -47.2929, 87, 15.5, -47.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=513]
+[sub_resource type="ConvexPolygonShape" id=511]
 points = PoolVector3Array( 83.8536, 15.5, -45.1464, 83.5, 15.5, -44.7929, 83.5, 12, -44.7929, 83.8536, 12, -45.1464, 84.3536, 12, -44.6464, 84.3536, 15.5, -44.6464, 84, 12, -44.2929, 84, 15.5, -44.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=514]
+[sub_resource type="ConvexPolygonShape" id=512]
 points = PoolVector3Array( 87.8536, 15.5, -49.1464, 87.5, 15.5, -48.7929, 87.5, 12, -48.7929, 87.8536, 12, -49.1464, 88.3536, 12, -48.6464, 88.3536, 15.5, -48.6464, 88, 12, -48.2929, 88, 15.5, -48.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=515]
+[sub_resource type="ConvexPolygonShape" id=513]
 points = PoolVector3Array( 88.8536, 15.5, -50.1464, 88.5, 15.5, -49.7929, 88.5, 12, -49.7929, 88.8536, 12, -50.1464, 89.3536, 12, -49.6464, 89.3536, 15.5, -49.6464, 89, 12, -49.2929, 89, 15.5, -49.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=516]
+[sub_resource type="ConvexPolygonShape" id=514]
 points = PoolVector3Array( 95.8536, 15.5, -57.1464, 95.5, 15.5, -56.7929, 95.5, 12, -56.7929, 95.8536, 12, -57.1464, 96.3536, 12, -56.6464, 96.3536, 15.5, -56.6464, 96, 12, -56.2929, 96, 15.5, -56.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=517]
+[sub_resource type="ConvexPolygonShape" id=515]
 points = PoolVector3Array( 90.8536, 15.5, -52.1464, 90.5, 15.5, -51.7929, 90.5, 12, -51.7929, 90.8536, 12, -52.1464, 91.3536, 12, -51.6464, 91.3536, 15.5, -51.6464, 91, 12, -51.2929, 91, 15.5, -51.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=518]
+[sub_resource type="ConvexPolygonShape" id=516]
 points = PoolVector3Array( 94.8536, 15.5, -56.1464, 94.5, 15.5, -55.7929, 94.5, 12, -55.7929, 94.8536, 12, -56.1464, 95.3536, 12, -55.6464, 95.3536, 15.5, -55.6464, 95, 12, -55.2929, 95, 15.5, -55.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=519]
+[sub_resource type="ConvexPolygonShape" id=517]
 points = PoolVector3Array( 84.8536, 15.5, -46.1464, 84.5, 15.5, -45.7929, 84.5, 12, -45.7929, 84.8536, 12, -46.1464, 85.3536, 12, -45.6464, 85.3536, 15.5, -45.6464, 85, 12, -45.2929, 85, 15.5, -45.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=520]
+[sub_resource type="ConvexPolygonShape" id=518]
 points = PoolVector3Array( 91.8536, 15.5, -53.1464, 91.5, 15.5, -52.7929, 91.5, 12, -52.7929, 91.8536, 12, -53.1464, 92.3536, 12, -52.6464, 92.3536, 15.5, -52.6464, 92, 12, -52.2929, 92, 15.5, -52.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=521]
+[sub_resource type="ConvexPolygonShape" id=519]
 points = PoolVector3Array( 76.8536, 15.5, -38.1464, 76.5, 15.5, -37.7929, 76.5, 12, -37.7929, 76.8536, 12, -38.1464, 77.3536, 12, -37.6464, 77.3536, 15.5, -37.6464, 77, 12, -37.2929, 77, 15.5, -37.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=522]
+[sub_resource type="ConvexPolygonShape" id=520]
 points = PoolVector3Array( 79.8536, 15.5, -41.1464, 79.5, 15.5, -40.7929, 79.5, 12, -40.7929, 79.8536, 12, -41.1464, 80.3536, 12, -40.6464, 80.3536, 15.5, -40.6464, 80, 12, -40.2929, 80, 15.5, -40.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=523]
+[sub_resource type="ConvexPolygonShape" id=521]
 points = PoolVector3Array( 80.8536, 15.5, -42.1464, 80.5, 15.5, -41.7929, 80.5, 12, -41.7929, 80.8536, 12, -42.1464, 81.3536, 12, -41.6464, 81.3536, 15.5, -41.6464, 81, 12, -41.2929, 81, 15.5, -41.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=524]
+[sub_resource type="ConvexPolygonShape" id=522]
 points = PoolVector3Array( 77.8536, 15.5, -39.1464, 77.5, 15.5, -38.7929, 77.5, 12, -38.7929, 77.8536, 12, -39.1464, 78.3536, 12, -38.6464, 78.3536, 15.5, -38.6464, 78, 12, -38.2929, 78, 15.5, -38.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=525]
+[sub_resource type="ConvexPolygonShape" id=523]
 points = PoolVector3Array( 78.8536, 15.5, -40.1464, 78.5, 15.5, -39.7929, 78.5, 12, -39.7929, 78.8536, 12, -40.1464, 79.3536, 12, -39.6464, 79.3536, 15.5, -39.6464, 79, 12, -39.2929, 79, 15.5, -39.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=526]
+[sub_resource type="ConvexPolygonShape" id=524]
 points = PoolVector3Array( 81.8536, 15.5, -43.1464, 81.5, 15.5, -42.7929, 81.5, 12, -42.7929, 81.8536, 12, -43.1464, 82.3536, 12, -42.6464, 82.3536, 15.5, -42.6464, 82, 12, -42.2929, 82, 15.5, -42.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=527]
+[sub_resource type="ConvexPolygonShape" id=525]
 points = PoolVector3Array( 96.8536, 15.5, -58.1464, 96.5, 15.5, -57.7929, 96.5, 12, -57.7929, 96.8536, 12, -58.1464, 97.3536, 12, -57.6464, 97.3536, 15.5, -57.6464, 97, 12, -57.2929, 97, 15.5, -57.2929 )
 
-[sub_resource type="ConvexPolygonShape" id=528]
+[sub_resource type="ConvexPolygonShape" id=526]
 points = PoolVector3Array( 0, 33, -83, 0, 32, -83, 7, 32, -83, 7, 33, -83, 0, 33, -50, 0, 32, -50, 7, 32, -50, 7, 33, -50 )
 
-[sub_resource type="ConvexPolygonShape" id=529]
+[sub_resource type="ConvexPolygonShape" id=527]
 points = PoolVector3Array( 7, 33, -64, 7, 32, -64, 43, 32, -64, 43, 33, -64, 7, 33, -56, 7, 32, -56, 43, 32, -56, 43, 33, -56 )
 
-[sub_resource type="ConvexPolygonShape" id=530]
+[sub_resource type="ConvexPolygonShape" id=528]
 points = PoolVector3Array( 43, 22, -60, 43, 21, -60, 50, 21, -60, 50, 22, -60, 43, 22, -48, 43, 21, -48, 50, 21, -48, 50, 22, -48 )
 
-[sub_resource type="ConvexPolygonShape" id=531]
+[sub_resource type="ConvexPolygonShape" id=529]
 points = PoolVector3Array( 43, 22, -74, 43, 21, -74, 50, 21, -74, 50, 22, -74, 43, 22, -67, 43, 21, -67, 50, 21, -67, 50, 22, -67 )
 
-[sub_resource type="ConvexPolygonShape" id=532]
+[sub_resource type="ConvexPolygonShape" id=530]
 points = PoolVector3Array( 45, 10, -80, 45, 9, -80, 50, 9, -80, 50, 10, -80, 45, 10, -61, 45, 9, -61, 50, 9, -61, 50, 10, -61 )
 
-[sub_resource type="ConvexPolygonShape" id=533]
+[sub_resource type="ConvexPolygonShape" id=531]
 points = PoolVector3Array( 157, 42.5, -84.5, 157, 41, -84.5, 160, 41, -84.5, 160, 42.5, -84.5, 157, 42.5, -82, 157, 41, -82, 160, 41, -82, 160, 42.5, -82 )
 
-[sub_resource type="ConvexPolygonShape" id=534]
+[sub_resource type="ConvexPolygonShape" id=532]
 points = PoolVector3Array( 150.5, 43.5, -87, 150.5, 41, -87, 156.5, 41, -87, 156.5, 43.5, -87, 150.5, 43.5, -82, 150.5, 41, -82, 156.5, 41, -82, 156.5, 43.5, -82 )
 
-[sub_resource type="ConvexPolygonShape" id=535]
+[sub_resource type="ConvexPolygonShape" id=533]
 points = PoolVector3Array( 153, 45.5, -84.5, 153, 43.5, -84.5, 156, 43.5, -84.5, 156, 45.5, -84.5, 153, 45.5, -82, 153, 43.5, -82, 156, 43.5, -82, 156, 45.5, -82 )
 
-[sub_resource type="ConvexPolygonShape" id=536]
+[sub_resource type="ConvexPolygonShape" id=534]
 points = PoolVector3Array( 150.5, 47, -84.5, 150.5, 43.5, -84.5, 152.5, 43.5, -84.5, 152.5, 47, -84.5, 150.5, 47, -82, 150.5, 43.5, -82, 152.5, 43.5, -82, 152.5, 47, -82 )
 
-[sub_resource type="ConvexPolygonShape" id=537]
+[sub_resource type="ConvexPolygonShape" id=535]
 points = PoolVector3Array( 126, 41, -101, 126, 40.5, -101, 137, 40.5, -101, 137, 41, -101, 126, 41, -100, 126, 40.5, -100, 137, 40.5, -100, 137, 41, -100 )
 
-[sub_resource type="ConvexPolygonShape" id=538]
+[sub_resource type="ConvexPolygonShape" id=536]
 points = PoolVector3Array( 126, 41, -118, 126, 40.5, -118, 137, 40.5, -118, 137, 41, -118, 126, 41, -117, 126, 40.5, -117, 137, 40.5, -117, 137, 41, -117 )
 
-[sub_resource type="ConvexPolygonShape" id=539]
+[sub_resource type="ConvexPolygonShape" id=537]
 points = PoolVector3Array( 137, 41, -134.5, 137, 40.5, -134.5, 138, 40.5, -134.5, 138, 41, -134.5, 137, 41, -118, 137, 40.5, -118, 138, 40.5, -118, 138, 41, -118 )
 
-[sub_resource type="ConvexPolygonShape" id=540]
+[sub_resource type="ConvexPolygonShape" id=538]
 points = PoolVector3Array( 149, 41, -134, 149, 40.5, -134, 150, 40.5, -134, 150, 41, -134, 149, 41, -118, 149, 40.5, -118, 150, 40.5, -118, 150, 41, -118 )
 
-[sub_resource type="ConvexPolygonShape" id=541]
+[sub_resource type="ConvexPolygonShape" id=539]
 points = PoolVector3Array( 173, 41, -14, 173, 40.5, -14, 174, 40.5, -14, 174, 41, -14, 173, 41, 2, 173, 40.5, 2, 174, 40.5, 2, 174, 41, 2 )
 
-[sub_resource type="ConvexPolygonShape" id=542]
+[sub_resource type="ConvexPolygonShape" id=540]
 points = PoolVector3Array( 161, 41, -14, 161, 40.5, -14, 162, 40.5, -14, 162, 41, -14, 161, 41, 2, 161, 40.5, 2, 162, 40.5, 2, 162, 41, 2 )
 
-[sub_resource type="ConvexPolygonShape" id=543]
+[sub_resource type="ConvexPolygonShape" id=541]
 points = PoolVector3Array( 138, 41, -13.5, 138, 40.5, -13.5, 138.5, 40.5, -13.5, 138.5, 41, -13.5, 138, 41, 2.5, 138, 40.5, 2.5, 138.5, 40.5, 2.5, 138.5, 41, 2.5 )
 
-[sub_resource type="ConvexPolygonShape" id=544]
+[sub_resource type="ConvexPolygonShape" id=542]
 points = PoolVector3Array( 127, 41, -15, 127, 40.5, -15, 138, 40.5, -15, 138, 41, -15, 127, 41, -14.5, 127, 40.5, -14.5, 138, 40.5, -14.5, 138, 41, -14.5 )
 
-[sub_resource type="ConvexPolygonShape" id=545]
+[sub_resource type="ConvexPolygonShape" id=543]
 points = PoolVector3Array( 127, 41, -31.5, 127, 40.5, -31.5, 138, 40.5, -31.5, 138, 41, -31.5, 127, 41, -31, 127, 40.5, -31, 138, 40.5, -31, 138, 41, -31 )
 
-[sub_resource type="ConvexPolygonShape" id=546]
+[sub_resource type="ConvexPolygonShape" id=544]
 points = PoolVector3Array( 161, 41, -134, 161, 40.5, -134, 162, 40.5, -134, 162, 41, -134, 161, 41, -118, 161, 40.5, -118, 162, 40.5, -118, 162, 41, -118 )
 
-[sub_resource type="ConvexPolygonShape" id=547]
+[sub_resource type="ConvexPolygonShape" id=545]
 points = PoolVector3Array( 175, 41, -118, 175, 40.5, -118, 186, 40.5, -118, 186, 41, -118, 175, 41, -117, 175, 40.5, -117, 186, 40.5, -117, 186, 41, -117 )
 
-[sub_resource type="ConvexPolygonShape" id=548]
+[sub_resource type="ConvexPolygonShape" id=546]
 points = PoolVector3Array( 186, 41, -48, 186, 40.5, -48, 187, 40.5, -48, 187, 41, -48, 186, 41, -32, 186, 40.5, -32, 187, 40.5, -32, 187, 41, -32 )
 
-[sub_resource type="ConvexPolygonShape" id=549]
+[sub_resource type="ConvexPolygonShape" id=547]
 points = PoolVector3Array( 43, 33, -74, 43, 32, -74, 50, 32, -74, 50, 33, -74, 43, 33, -56, 43, 32, -56, 50, 32, -56, 50, 33, -56 )
 
-[sub_resource type="ConvexPolygonShape" id=550]
+[sub_resource type="ConvexPolygonShape" id=548]
 points = PoolVector3Array( 43, 32, -74, 43, 22, -74, 50, 22, -74, 50, 32, -74, 43, 32, -73, 43, 22, -73, 50, 22, -73, 50, 32, -73 )
 
 [sub_resource type="BoxShape" id=274]
@@ -1006,7 +1000,7 @@ extents = Vector3( 1.8, 4.8, 9.6 )
 
 [sub_resource type="BoxShape" id=275]
 resource_local_to_scene = true
-extents = Vector3( 4.8, 1, 10.2 )
+extents = Vector3( 2.7, 1, 9.6 )
 
 [sub_resource type="PlaneMesh" id=276]
 resource_local_to_scene = true
@@ -1022,7 +1016,7 @@ map_file = "C:/Users/MSI-15/Downloads/Game_Programing/Godot/Project_Survival_F/t
 
 [node name="entity_0_mesh_instance" type="MeshInstance" parent="MapBuider/entity_0_worldspawn" index="0"]
 use_in_baked_light = true
-mesh = SubResource( 289 )
+mesh = SubResource( 287 )
 material/0 = null
 material/1 = null
 material/2 = null
@@ -1038,789 +1032,789 @@ material/11 = null
 material/12 = null
 
 [node name="entity_0_brush_0_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="1"]
-shape = SubResource( 290 )
+shape = SubResource( 288 )
 
 [node name="entity_0_brush_1_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="2"]
-shape = SubResource( 291 )
+shape = SubResource( 289 )
 
 [node name="entity_0_brush_2_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="3"]
-shape = SubResource( 292 )
+shape = SubResource( 290 )
 
 [node name="entity_0_brush_3_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="4"]
-shape = SubResource( 293 )
+shape = SubResource( 291 )
 
 [node name="entity_0_brush_4_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="5"]
-shape = SubResource( 294 )
+shape = SubResource( 292 )
 
 [node name="entity_0_brush_5_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="6"]
-shape = SubResource( 295 )
+shape = SubResource( 293 )
 
 [node name="entity_0_brush_6_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="7"]
-shape = SubResource( 296 )
+shape = SubResource( 294 )
 
 [node name="entity_0_brush_7_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="8"]
-shape = SubResource( 297 )
+shape = SubResource( 295 )
 
 [node name="entity_0_brush_8_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="9"]
-shape = SubResource( 298 )
+shape = SubResource( 296 )
 
 [node name="entity_0_brush_9_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="10"]
-shape = SubResource( 299 )
+shape = SubResource( 297 )
 
 [node name="entity_0_brush_10_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="11"]
-shape = SubResource( 300 )
+shape = SubResource( 298 )
 
 [node name="entity_0_brush_11_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="12"]
-shape = SubResource( 301 )
+shape = SubResource( 299 )
 
 [node name="entity_0_brush_12_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="13"]
-shape = SubResource( 302 )
+shape = SubResource( 300 )
 
 [node name="entity_0_brush_13_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="14"]
-shape = SubResource( 303 )
+shape = SubResource( 301 )
 
 [node name="entity_0_brush_14_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="15"]
-shape = SubResource( 304 )
+shape = SubResource( 302 )
 
 [node name="entity_0_brush_15_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="16"]
-shape = SubResource( 305 )
+shape = SubResource( 303 )
 
 [node name="entity_0_brush_16_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="17"]
-shape = SubResource( 306 )
+shape = SubResource( 304 )
 
 [node name="entity_0_brush_17_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="18"]
-shape = SubResource( 307 )
+shape = SubResource( 305 )
 
 [node name="entity_0_brush_18_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="19"]
-shape = SubResource( 308 )
+shape = SubResource( 306 )
 
 [node name="entity_0_brush_19_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="20"]
-shape = SubResource( 309 )
+shape = SubResource( 307 )
 
 [node name="entity_0_brush_20_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="21"]
-shape = SubResource( 310 )
+shape = SubResource( 308 )
 
 [node name="entity_0_brush_21_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="22"]
-shape = SubResource( 311 )
+shape = SubResource( 309 )
 
 [node name="entity_0_brush_22_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="23"]
-shape = SubResource( 312 )
+shape = SubResource( 310 )
 
 [node name="entity_0_brush_23_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="24"]
-shape = SubResource( 313 )
+shape = SubResource( 311 )
 
 [node name="entity_0_brush_24_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="25"]
-shape = SubResource( 314 )
+shape = SubResource( 312 )
 
 [node name="entity_0_brush_25_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="26"]
-shape = SubResource( 315 )
+shape = SubResource( 313 )
 
 [node name="entity_0_brush_26_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="27"]
-shape = SubResource( 316 )
+shape = SubResource( 314 )
 
 [node name="entity_0_brush_27_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="28"]
-shape = SubResource( 317 )
+shape = SubResource( 315 )
 
 [node name="entity_0_brush_28_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="29"]
-shape = SubResource( 318 )
+shape = SubResource( 316 )
 
 [node name="entity_0_brush_29_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="30"]
-shape = SubResource( 319 )
+shape = SubResource( 317 )
 
 [node name="entity_0_brush_30_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="31"]
-shape = SubResource( 320 )
+shape = SubResource( 318 )
 
 [node name="entity_0_brush_31_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="32"]
-shape = SubResource( 321 )
+shape = SubResource( 319 )
 
 [node name="entity_0_brush_32_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="33"]
-shape = SubResource( 322 )
+shape = SubResource( 320 )
 
 [node name="entity_0_brush_33_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="34"]
-shape = SubResource( 323 )
+shape = SubResource( 321 )
 
 [node name="entity_0_brush_34_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="35"]
-shape = SubResource( 324 )
+shape = SubResource( 322 )
 
 [node name="entity_0_brush_35_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="36"]
-shape = SubResource( 325 )
+shape = SubResource( 323 )
 
 [node name="entity_0_brush_36_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="37"]
-shape = SubResource( 326 )
+shape = SubResource( 324 )
 
 [node name="entity_0_brush_37_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="38"]
-shape = SubResource( 327 )
+shape = SubResource( 325 )
 
 [node name="entity_0_brush_38_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="39"]
-shape = SubResource( 328 )
+shape = SubResource( 326 )
 
 [node name="entity_0_brush_39_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="40"]
-shape = SubResource( 329 )
+shape = SubResource( 327 )
 
 [node name="entity_0_brush_40_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="41"]
-shape = SubResource( 330 )
+shape = SubResource( 328 )
 
 [node name="entity_0_brush_41_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="42"]
-shape = SubResource( 331 )
+shape = SubResource( 329 )
 
 [node name="entity_0_brush_42_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="43"]
-shape = SubResource( 332 )
+shape = SubResource( 330 )
 
 [node name="entity_0_brush_43_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="44"]
-shape = SubResource( 333 )
+shape = SubResource( 331 )
 
 [node name="entity_0_brush_44_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="45"]
-shape = SubResource( 334 )
+shape = SubResource( 332 )
 
 [node name="entity_0_brush_45_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="46"]
-shape = SubResource( 335 )
+shape = SubResource( 333 )
 
 [node name="entity_0_brush_46_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="47"]
-shape = SubResource( 336 )
+shape = SubResource( 334 )
 
 [node name="entity_0_brush_47_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="48"]
-shape = SubResource( 337 )
+shape = SubResource( 335 )
 
 [node name="entity_0_brush_48_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="49"]
-shape = SubResource( 338 )
+shape = SubResource( 336 )
 
 [node name="entity_0_brush_49_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="50"]
-shape = SubResource( 339 )
+shape = SubResource( 337 )
 
 [node name="entity_0_brush_50_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="51"]
-shape = SubResource( 340 )
+shape = SubResource( 338 )
 
 [node name="entity_0_brush_51_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="52"]
-shape = SubResource( 341 )
+shape = SubResource( 339 )
 
 [node name="entity_0_brush_52_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="53"]
-shape = SubResource( 342 )
+shape = SubResource( 340 )
 
 [node name="entity_0_brush_53_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="54"]
-shape = SubResource( 343 )
+shape = SubResource( 341 )
 
 [node name="entity_0_brush_54_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="55"]
-shape = SubResource( 344 )
+shape = SubResource( 342 )
 
 [node name="entity_0_brush_55_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="56"]
-shape = SubResource( 345 )
+shape = SubResource( 343 )
 
 [node name="entity_0_brush_56_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="57"]
-shape = SubResource( 346 )
+shape = SubResource( 344 )
 
 [node name="entity_0_brush_57_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="58"]
-shape = SubResource( 347 )
+shape = SubResource( 345 )
 
 [node name="entity_0_brush_58_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="59"]
-shape = SubResource( 348 )
+shape = SubResource( 346 )
 
 [node name="entity_0_brush_59_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="60"]
-shape = SubResource( 349 )
+shape = SubResource( 347 )
 
 [node name="entity_0_brush_60_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="61"]
-shape = SubResource( 350 )
+shape = SubResource( 348 )
 
 [node name="entity_0_brush_61_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="62"]
-shape = SubResource( 351 )
+shape = SubResource( 349 )
 
 [node name="entity_0_brush_62_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="63"]
-shape = SubResource( 352 )
+shape = SubResource( 350 )
 
 [node name="entity_0_brush_63_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="64"]
-shape = SubResource( 353 )
+shape = SubResource( 351 )
 
 [node name="entity_0_brush_64_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="65"]
-shape = SubResource( 354 )
+shape = SubResource( 352 )
 
 [node name="entity_0_brush_65_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="66"]
-shape = SubResource( 355 )
+shape = SubResource( 353 )
 
 [node name="entity_0_brush_66_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="67"]
-shape = SubResource( 356 )
+shape = SubResource( 354 )
 
 [node name="entity_0_brush_67_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="68"]
-shape = SubResource( 357 )
+shape = SubResource( 355 )
 
 [node name="entity_0_brush_68_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="69"]
-shape = SubResource( 358 )
+shape = SubResource( 356 )
 
 [node name="entity_0_brush_69_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="70"]
-shape = SubResource( 359 )
+shape = SubResource( 357 )
 
 [node name="entity_0_brush_70_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="71"]
-shape = SubResource( 360 )
+shape = SubResource( 358 )
 
 [node name="entity_0_brush_71_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="72"]
-shape = SubResource( 361 )
+shape = SubResource( 359 )
 
 [node name="entity_0_brush_72_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="73"]
-shape = SubResource( 362 )
+shape = SubResource( 360 )
 
 [node name="entity_0_brush_73_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="74"]
-shape = SubResource( 363 )
+shape = SubResource( 361 )
 
 [node name="entity_0_brush_74_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="75"]
-shape = SubResource( 364 )
+shape = SubResource( 362 )
 
 [node name="entity_0_brush_75_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="76"]
-shape = SubResource( 365 )
+shape = SubResource( 363 )
 
 [node name="entity_0_brush_76_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="77"]
-shape = SubResource( 366 )
+shape = SubResource( 364 )
 
 [node name="entity_0_brush_77_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="78"]
-shape = SubResource( 367 )
+shape = SubResource( 365 )
 
 [node name="entity_0_brush_78_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="79"]
-shape = SubResource( 368 )
+shape = SubResource( 366 )
 
 [node name="entity_0_brush_79_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="80"]
-shape = SubResource( 369 )
+shape = SubResource( 367 )
 
 [node name="entity_0_brush_80_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="81"]
-shape = SubResource( 370 )
+shape = SubResource( 368 )
 
 [node name="entity_0_brush_81_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="82"]
-shape = SubResource( 371 )
+shape = SubResource( 369 )
 
 [node name="entity_0_brush_82_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="83"]
-shape = SubResource( 372 )
+shape = SubResource( 370 )
 
 [node name="entity_0_brush_83_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="84"]
-shape = SubResource( 373 )
+shape = SubResource( 371 )
 
 [node name="entity_0_brush_84_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="85"]
-shape = SubResource( 374 )
+shape = SubResource( 372 )
 
 [node name="entity_0_brush_85_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="86"]
-shape = SubResource( 375 )
+shape = SubResource( 373 )
 
 [node name="entity_0_brush_86_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="87"]
-shape = SubResource( 376 )
+shape = SubResource( 374 )
 
 [node name="entity_0_brush_87_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="88"]
-shape = SubResource( 377 )
+shape = SubResource( 375 )
 
 [node name="entity_0_brush_88_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="89"]
-shape = SubResource( 378 )
+shape = SubResource( 376 )
 
 [node name="entity_0_brush_89_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="90"]
-shape = SubResource( 379 )
+shape = SubResource( 377 )
 
 [node name="entity_0_brush_90_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="91"]
-shape = SubResource( 380 )
+shape = SubResource( 378 )
 
 [node name="entity_0_brush_91_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="92"]
-shape = SubResource( 381 )
+shape = SubResource( 379 )
 
 [node name="entity_0_brush_92_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="93"]
-shape = SubResource( 382 )
+shape = SubResource( 380 )
 
 [node name="entity_0_brush_93_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="94"]
-shape = SubResource( 383 )
+shape = SubResource( 381 )
 
 [node name="entity_0_brush_94_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="95"]
-shape = SubResource( 384 )
+shape = SubResource( 382 )
 
 [node name="entity_0_brush_95_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="96"]
-shape = SubResource( 385 )
+shape = SubResource( 383 )
 
 [node name="entity_0_brush_96_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="97"]
-shape = SubResource( 386 )
+shape = SubResource( 384 )
 
 [node name="entity_0_brush_97_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="98"]
-shape = SubResource( 387 )
+shape = SubResource( 385 )
 
 [node name="entity_0_brush_98_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="99"]
-shape = SubResource( 388 )
+shape = SubResource( 386 )
 
 [node name="entity_0_brush_99_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="100"]
-shape = SubResource( 389 )
+shape = SubResource( 387 )
 
 [node name="entity_0_brush_100_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="101"]
-shape = SubResource( 390 )
+shape = SubResource( 388 )
 
 [node name="entity_0_brush_101_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="102"]
-shape = SubResource( 391 )
+shape = SubResource( 389 )
 
 [node name="entity_0_brush_102_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="103"]
-shape = SubResource( 392 )
+shape = SubResource( 390 )
 
 [node name="entity_0_brush_103_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="104"]
-shape = SubResource( 393 )
+shape = SubResource( 391 )
 
 [node name="entity_0_brush_104_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="105"]
-shape = SubResource( 394 )
+shape = SubResource( 392 )
 
 [node name="entity_0_brush_105_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="106"]
-shape = SubResource( 395 )
+shape = SubResource( 393 )
 
 [node name="entity_0_brush_106_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="107"]
-shape = SubResource( 396 )
+shape = SubResource( 394 )
 
 [node name="entity_0_brush_107_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="108"]
-shape = SubResource( 397 )
+shape = SubResource( 395 )
 
 [node name="entity_0_brush_108_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="109"]
-shape = SubResource( 398 )
+shape = SubResource( 396 )
 
 [node name="entity_0_brush_109_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="110"]
-shape = SubResource( 399 )
+shape = SubResource( 397 )
 
 [node name="entity_0_brush_110_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="111"]
-shape = SubResource( 400 )
+shape = SubResource( 398 )
 
 [node name="entity_0_brush_111_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="112"]
-shape = SubResource( 401 )
+shape = SubResource( 399 )
 
 [node name="entity_0_brush_112_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="113"]
-shape = SubResource( 402 )
+shape = SubResource( 400 )
 
 [node name="entity_0_brush_113_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="114"]
-shape = SubResource( 403 )
+shape = SubResource( 401 )
 
 [node name="entity_0_brush_114_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="115"]
-shape = SubResource( 404 )
+shape = SubResource( 402 )
 
 [node name="entity_0_brush_115_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="116"]
-shape = SubResource( 405 )
+shape = SubResource( 403 )
 
 [node name="entity_0_brush_116_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="117"]
-shape = SubResource( 406 )
+shape = SubResource( 404 )
 
 [node name="entity_0_brush_117_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="118"]
-shape = SubResource( 407 )
+shape = SubResource( 405 )
 
 [node name="entity_0_brush_118_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="119"]
-shape = SubResource( 408 )
+shape = SubResource( 406 )
 
 [node name="entity_0_brush_119_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="120"]
-shape = SubResource( 409 )
+shape = SubResource( 407 )
 
 [node name="entity_0_brush_120_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="121"]
-shape = SubResource( 410 )
+shape = SubResource( 408 )
 
 [node name="entity_0_brush_121_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="122"]
-shape = SubResource( 411 )
+shape = SubResource( 409 )
 
 [node name="entity_0_brush_122_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="123"]
-shape = SubResource( 412 )
+shape = SubResource( 410 )
 
 [node name="entity_0_brush_123_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="124"]
-shape = SubResource( 413 )
+shape = SubResource( 411 )
 
 [node name="entity_0_brush_124_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="125"]
-shape = SubResource( 414 )
+shape = SubResource( 412 )
 
 [node name="entity_0_brush_125_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="126"]
-shape = SubResource( 415 )
+shape = SubResource( 413 )
 
 [node name="entity_0_brush_126_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="127"]
-shape = SubResource( 416 )
+shape = SubResource( 414 )
 
 [node name="entity_0_brush_127_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="128"]
-shape = SubResource( 417 )
+shape = SubResource( 415 )
 
 [node name="entity_0_brush_128_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="129"]
-shape = SubResource( 418 )
+shape = SubResource( 416 )
 
 [node name="entity_0_brush_129_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="130"]
-shape = SubResource( 419 )
+shape = SubResource( 417 )
 
 [node name="entity_0_brush_130_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="131"]
-shape = SubResource( 420 )
+shape = SubResource( 418 )
 
 [node name="entity_0_brush_131_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="132"]
-shape = SubResource( 421 )
+shape = SubResource( 419 )
 
 [node name="entity_0_brush_132_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="133"]
-shape = SubResource( 422 )
+shape = SubResource( 420 )
 
 [node name="entity_0_brush_133_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="134"]
-shape = SubResource( 423 )
+shape = SubResource( 421 )
 
 [node name="entity_0_brush_134_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="135"]
-shape = SubResource( 424 )
+shape = SubResource( 422 )
 
 [node name="entity_0_brush_135_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="136"]
-shape = SubResource( 425 )
+shape = SubResource( 423 )
 
 [node name="entity_0_brush_136_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="137"]
-shape = SubResource( 426 )
+shape = SubResource( 424 )
 
 [node name="entity_0_brush_137_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="138"]
-shape = SubResource( 427 )
+shape = SubResource( 425 )
 
 [node name="entity_0_brush_138_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="139"]
-shape = SubResource( 428 )
+shape = SubResource( 426 )
 
 [node name="entity_0_brush_139_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="140"]
-shape = SubResource( 429 )
+shape = SubResource( 427 )
 
 [node name="entity_0_brush_140_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="141"]
-shape = SubResource( 430 )
+shape = SubResource( 428 )
 
 [node name="entity_0_brush_141_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="142"]
-shape = SubResource( 431 )
+shape = SubResource( 429 )
 
 [node name="entity_0_brush_142_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="143"]
-shape = SubResource( 432 )
+shape = SubResource( 430 )
 
 [node name="entity_0_brush_143_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="144"]
-shape = SubResource( 433 )
+shape = SubResource( 431 )
 
 [node name="entity_0_brush_144_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="145"]
-shape = SubResource( 434 )
+shape = SubResource( 432 )
 
 [node name="entity_0_brush_145_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="146"]
-shape = SubResource( 435 )
+shape = SubResource( 433 )
 
 [node name="entity_0_brush_146_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="147"]
-shape = SubResource( 436 )
+shape = SubResource( 434 )
 
 [node name="entity_0_brush_147_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="148"]
-shape = SubResource( 437 )
+shape = SubResource( 435 )
 
 [node name="entity_0_brush_148_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="149"]
-shape = SubResource( 438 )
+shape = SubResource( 436 )
 
 [node name="entity_0_brush_149_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="150"]
-shape = SubResource( 439 )
+shape = SubResource( 437 )
 
 [node name="entity_0_brush_150_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="151"]
-shape = SubResource( 440 )
+shape = SubResource( 438 )
 
 [node name="entity_0_brush_151_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="152"]
-shape = SubResource( 441 )
+shape = SubResource( 439 )
 
 [node name="entity_0_brush_152_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="153"]
-shape = SubResource( 442 )
+shape = SubResource( 440 )
 
 [node name="entity_0_brush_153_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="154"]
-shape = SubResource( 443 )
+shape = SubResource( 441 )
 
 [node name="entity_0_brush_154_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="155"]
-shape = SubResource( 444 )
+shape = SubResource( 442 )
 
 [node name="entity_0_brush_155_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="156"]
-shape = SubResource( 445 )
+shape = SubResource( 443 )
 
 [node name="entity_0_brush_156_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="157"]
-shape = SubResource( 446 )
+shape = SubResource( 444 )
 
 [node name="entity_0_brush_157_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="158"]
-shape = SubResource( 447 )
+shape = SubResource( 445 )
 
 [node name="entity_0_brush_158_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="159"]
-shape = SubResource( 448 )
+shape = SubResource( 446 )
 
 [node name="entity_0_brush_159_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="160"]
-shape = SubResource( 449 )
+shape = SubResource( 447 )
 
 [node name="entity_0_brush_160_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="161"]
-shape = SubResource( 450 )
+shape = SubResource( 448 )
 
 [node name="entity_0_brush_161_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="162"]
-shape = SubResource( 451 )
+shape = SubResource( 449 )
 
 [node name="entity_0_brush_162_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="163"]
-shape = SubResource( 452 )
+shape = SubResource( 450 )
 
 [node name="entity_0_brush_163_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="164"]
-shape = SubResource( 453 )
+shape = SubResource( 451 )
 
 [node name="entity_0_brush_164_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="165"]
-shape = SubResource( 454 )
+shape = SubResource( 452 )
 
 [node name="entity_0_brush_165_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="166"]
-shape = SubResource( 455 )
+shape = SubResource( 453 )
 
 [node name="entity_0_brush_166_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="167"]
-shape = SubResource( 456 )
+shape = SubResource( 454 )
 
 [node name="entity_0_brush_167_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="168"]
-shape = SubResource( 457 )
+shape = SubResource( 455 )
 
 [node name="entity_0_brush_168_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="169"]
-shape = SubResource( 458 )
+shape = SubResource( 456 )
 
 [node name="entity_0_brush_169_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="170"]
-shape = SubResource( 459 )
+shape = SubResource( 457 )
 
 [node name="entity_0_brush_170_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="171"]
-shape = SubResource( 460 )
+shape = SubResource( 458 )
 
 [node name="entity_0_brush_171_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="172"]
-shape = SubResource( 461 )
+shape = SubResource( 459 )
 
 [node name="entity_0_brush_172_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="173"]
-shape = SubResource( 462 )
+shape = SubResource( 460 )
 
 [node name="entity_0_brush_173_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="174"]
-shape = SubResource( 463 )
+shape = SubResource( 461 )
 
 [node name="entity_0_brush_174_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="175"]
-shape = SubResource( 464 )
+shape = SubResource( 462 )
 
 [node name="entity_0_brush_175_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="176"]
-shape = SubResource( 465 )
+shape = SubResource( 463 )
 
 [node name="entity_0_brush_176_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="177"]
-shape = SubResource( 466 )
+shape = SubResource( 464 )
 
 [node name="entity_0_brush_177_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="178"]
-shape = SubResource( 467 )
+shape = SubResource( 465 )
 
 [node name="entity_0_brush_178_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="179"]
-shape = SubResource( 468 )
+shape = SubResource( 466 )
 
 [node name="entity_0_brush_179_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="180"]
-shape = SubResource( 469 )
+shape = SubResource( 467 )
 
 [node name="entity_0_brush_180_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="181"]
-shape = SubResource( 470 )
+shape = SubResource( 468 )
 
 [node name="entity_0_brush_181_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="182"]
-shape = SubResource( 471 )
+shape = SubResource( 469 )
 
 [node name="entity_0_brush_182_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="183"]
-shape = SubResource( 472 )
+shape = SubResource( 470 )
 
 [node name="entity_0_brush_183_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="184"]
-shape = SubResource( 473 )
+shape = SubResource( 471 )
 
 [node name="entity_0_brush_184_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="185"]
-shape = SubResource( 474 )
+shape = SubResource( 472 )
 
 [node name="entity_0_brush_185_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="186"]
-shape = SubResource( 475 )
+shape = SubResource( 473 )
 
 [node name="entity_0_brush_186_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="187"]
-shape = SubResource( 476 )
+shape = SubResource( 474 )
 
 [node name="entity_0_brush_187_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="188"]
-shape = SubResource( 477 )
+shape = SubResource( 475 )
 
 [node name="entity_0_brush_188_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="189"]
-shape = SubResource( 478 )
+shape = SubResource( 476 )
 
 [node name="entity_0_brush_189_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="190"]
-shape = SubResource( 479 )
+shape = SubResource( 477 )
 
 [node name="entity_0_brush_190_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="191"]
-shape = SubResource( 480 )
+shape = SubResource( 478 )
 
 [node name="entity_0_brush_191_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="192"]
-shape = SubResource( 481 )
+shape = SubResource( 479 )
 
 [node name="entity_0_brush_192_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="193"]
-shape = SubResource( 482 )
+shape = SubResource( 480 )
 
 [node name="entity_0_brush_193_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="194"]
-shape = SubResource( 483 )
+shape = SubResource( 481 )
 
 [node name="entity_0_brush_194_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="195"]
-shape = SubResource( 484 )
+shape = SubResource( 482 )
 
 [node name="entity_0_brush_195_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="196"]
-shape = SubResource( 485 )
+shape = SubResource( 483 )
 
 [node name="entity_0_brush_196_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="197"]
-shape = SubResource( 486 )
+shape = SubResource( 484 )
 
 [node name="entity_0_brush_197_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="198"]
-shape = SubResource( 487 )
+shape = SubResource( 485 )
 
 [node name="entity_0_brush_198_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="199"]
-shape = SubResource( 488 )
+shape = SubResource( 486 )
 
 [node name="entity_0_brush_199_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="200"]
-shape = SubResource( 489 )
+shape = SubResource( 487 )
 
 [node name="entity_0_brush_200_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="201"]
-shape = SubResource( 490 )
+shape = SubResource( 488 )
 
 [node name="entity_0_brush_201_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="202"]
-shape = SubResource( 491 )
+shape = SubResource( 489 )
 
 [node name="entity_0_brush_202_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="203"]
-shape = SubResource( 492 )
+shape = SubResource( 490 )
 
 [node name="entity_0_brush_203_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="204"]
-shape = SubResource( 493 )
+shape = SubResource( 491 )
 
 [node name="entity_0_brush_204_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="205"]
-shape = SubResource( 494 )
+shape = SubResource( 492 )
 
 [node name="entity_0_brush_205_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="206"]
-shape = SubResource( 495 )
+shape = SubResource( 493 )
 
 [node name="entity_0_brush_206_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="207"]
-shape = SubResource( 496 )
+shape = SubResource( 494 )
 
 [node name="entity_0_brush_207_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="208"]
-shape = SubResource( 497 )
+shape = SubResource( 495 )
 
 [node name="entity_0_brush_208_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="209"]
-shape = SubResource( 498 )
+shape = SubResource( 496 )
 
 [node name="entity_0_brush_209_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="210"]
-shape = SubResource( 499 )
+shape = SubResource( 497 )
 disabled = true
 
 [node name="entity_0_brush_210_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="211"]
-shape = SubResource( 500 )
+shape = SubResource( 498 )
 
 [node name="entity_0_brush_211_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="212"]
-shape = SubResource( 501 )
+shape = SubResource( 499 )
 disabled = true
 
 [node name="entity_0_brush_212_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="213"]
-shape = SubResource( 502 )
+shape = SubResource( 500 )
 
 [node name="entity_0_brush_213_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="214"]
-shape = SubResource( 503 )
+shape = SubResource( 501 )
 
 [node name="entity_0_brush_214_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="215"]
-shape = SubResource( 504 )
+shape = SubResource( 502 )
 
 [node name="entity_0_brush_215_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="216"]
-shape = SubResource( 505 )
+shape = SubResource( 503 )
 
 [node name="entity_0_brush_216_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="217"]
-shape = SubResource( 506 )
+shape = SubResource( 504 )
 
 [node name="entity_0_brush_217_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="218"]
-shape = SubResource( 507 )
+shape = SubResource( 505 )
 
 [node name="entity_0_brush_218_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="219"]
-shape = SubResource( 508 )
+shape = SubResource( 506 )
 
 [node name="entity_0_brush_219_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="220"]
-shape = SubResource( 509 )
+shape = SubResource( 507 )
 
 [node name="entity_0_brush_220_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="221"]
-shape = SubResource( 510 )
+shape = SubResource( 508 )
 
 [node name="entity_0_brush_221_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="222"]
-shape = SubResource( 511 )
+shape = SubResource( 509 )
 
 [node name="entity_0_brush_222_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="223"]
-shape = SubResource( 512 )
+shape = SubResource( 510 )
 
 [node name="entity_0_brush_223_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="224"]
-shape = SubResource( 513 )
+shape = SubResource( 511 )
 
 [node name="entity_0_brush_224_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="225"]
-shape = SubResource( 514 )
+shape = SubResource( 512 )
 
 [node name="entity_0_brush_225_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="226"]
-shape = SubResource( 515 )
+shape = SubResource( 513 )
 
 [node name="entity_0_brush_226_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="227"]
-shape = SubResource( 516 )
+shape = SubResource( 514 )
 
 [node name="entity_0_brush_227_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="228"]
-shape = SubResource( 517 )
+shape = SubResource( 515 )
 
 [node name="entity_0_brush_228_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="229"]
-shape = SubResource( 518 )
+shape = SubResource( 516 )
 
 [node name="entity_0_brush_229_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="230"]
-shape = SubResource( 519 )
+shape = SubResource( 517 )
 
 [node name="entity_0_brush_230_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="231"]
-shape = SubResource( 520 )
+shape = SubResource( 518 )
 
 [node name="entity_0_brush_231_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="232"]
-shape = SubResource( 521 )
+shape = SubResource( 519 )
 
 [node name="entity_0_brush_232_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="233"]
-shape = SubResource( 522 )
+shape = SubResource( 520 )
 
 [node name="entity_0_brush_233_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="234"]
-shape = SubResource( 523 )
+shape = SubResource( 521 )
 
 [node name="entity_0_brush_234_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="235"]
-shape = SubResource( 524 )
+shape = SubResource( 522 )
 
 [node name="entity_0_brush_235_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="236"]
-shape = SubResource( 525 )
+shape = SubResource( 523 )
 
 [node name="entity_0_brush_236_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="237"]
-shape = SubResource( 526 )
+shape = SubResource( 524 )
 
 [node name="entity_0_brush_237_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="238"]
-shape = SubResource( 527 )
+shape = SubResource( 525 )
 
 [node name="entity_0_brush_238_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="239"]
-shape = SubResource( 528 )
+shape = SubResource( 526 )
 
 [node name="entity_0_brush_239_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="240"]
-shape = SubResource( 529 )
+shape = SubResource( 527 )
 
 [node name="entity_0_brush_240_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="241"]
-shape = SubResource( 530 )
+shape = SubResource( 528 )
 
 [node name="entity_0_brush_241_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="242"]
-shape = SubResource( 531 )
+shape = SubResource( 529 )
 
 [node name="entity_0_brush_242_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="243"]
-shape = SubResource( 532 )
+shape = SubResource( 530 )
 
 [node name="entity_0_brush_243_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="244"]
-shape = SubResource( 533 )
+shape = SubResource( 531 )
 
 [node name="entity_0_brush_244_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="245"]
-shape = SubResource( 534 )
+shape = SubResource( 532 )
 
 [node name="entity_0_brush_245_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="246"]
-shape = SubResource( 535 )
+shape = SubResource( 533 )
 
 [node name="entity_0_brush_246_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="247"]
-shape = SubResource( 536 )
+shape = SubResource( 534 )
 
 [node name="entity_0_brush_247_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="248"]
-shape = SubResource( 537 )
+shape = SubResource( 535 )
 
 [node name="entity_0_brush_248_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="249"]
-shape = SubResource( 538 )
+shape = SubResource( 536 )
 
 [node name="entity_0_brush_249_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="250"]
-shape = SubResource( 539 )
+shape = SubResource( 537 )
 
 [node name="entity_0_brush_250_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="251"]
-shape = SubResource( 540 )
+shape = SubResource( 538 )
 
 [node name="entity_0_brush_251_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="252"]
-shape = SubResource( 541 )
+shape = SubResource( 539 )
 
 [node name="entity_0_brush_252_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="253"]
-shape = SubResource( 542 )
+shape = SubResource( 540 )
 
 [node name="entity_0_brush_253_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="254"]
-shape = SubResource( 543 )
+shape = SubResource( 541 )
 
 [node name="entity_0_brush_254_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="255"]
-shape = SubResource( 544 )
+shape = SubResource( 542 )
 
 [node name="entity_0_brush_255_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="256"]
-shape = SubResource( 545 )
+shape = SubResource( 543 )
 
 [node name="entity_0_brush_256_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="257"]
-shape = SubResource( 546 )
+shape = SubResource( 544 )
 
 [node name="entity_0_brush_257_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="258"]
-shape = SubResource( 547 )
+shape = SubResource( 545 )
 
 [node name="entity_0_brush_258_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="259"]
-shape = SubResource( 548 )
+shape = SubResource( 546 )
 
 [node name="entity_0_brush_259_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="260"]
-shape = SubResource( 549 )
+shape = SubResource( 547 )
 
 [node name="entity_0_brush_260_collision_shape" type="CollisionShape" parent="MapBuider/entity_0_worldspawn" index="261"]
-shape = SubResource( 550 )
+shape = SubResource( 548 )
 
 [node name="result_menu" parent="GUI" index="0"]
 currentLevel = "res://maps/level_3.tscn"
@@ -2020,7 +2014,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2, 6.6, -39.9 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 133.2, 39.3, -60.3 )
 
 [node name="CollisionShape" parent="CollectObjective/ActiveArea" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.599991, -6.6, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.99998, -8.1, -0.599998 )
 shape = SubResource( 275 )
 
 [node name="Wall" parent="CollectObjective/BlockWalls" index="0" instance=ExtResource( 20 )]
@@ -2035,6 +2029,9 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 82.5, -
 
 [node name="KeyPickup3" parent="CollectObjective/Keys" index="2" instance=ExtResource( 21 )]
 transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 10.8, 4.5, -38.7 )
+
+[node name="BackgroundMusic" parent="CollectObjective" index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49998, 6, -23.7 )
 
 [editable path="EnemiesSpawner"]
 [editable path="EnemiesSpawner2"]

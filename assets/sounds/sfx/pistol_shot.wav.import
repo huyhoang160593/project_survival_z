@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pistol_shot.wav-220ab84b87defe91cf5eb4b9976aa72d.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/pistol_shot.wav"
+dest_files=[ "res://.import/pistol_shot.wav-220ab84b87defe91cf5eb4b9976aa72d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

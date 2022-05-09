@@ -29,38 +29,38 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 536.0
-margin_top = 285.0
-margin_right = 743.0
-margin_bottom = 434.0
+margin_left = 570.0
+margin_top = 287.0
+margin_right = 709.0
+margin_bottom = 433.0
 custom_constants/separation = 10
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 207.0
-margin_bottom = 34.0
+margin_right = 139.0
+margin_bottom = 33.0
 custom_fonts/font = ExtResource( 1 )
-text = "Paused"
+text = "Tạm dừng"
 align = 1
 
 [node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
-margin_top = 44.0
-margin_right = 207.0
-margin_bottom = 49.0
+margin_top = 43.0
+margin_right = 139.0
+margin_bottom = 48.0
 rect_min_size = Vector2( 0, 5 )
 
 [node name="ResumeBtn" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 59.0
-margin_right = 207.0
-margin_bottom = 99.0
+margin_top = 58.0
+margin_right = 139.0
+margin_bottom = 97.0
 custom_fonts/font = ExtResource( 1 )
-text = "Resume Game"
+text = "Tiếp tục"
 
 [node name="QuitBtn" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 109.0
-margin_right = 207.0
-margin_bottom = 149.0
+margin_top = 107.0
+margin_right = 139.0
+margin_bottom = 146.0
 custom_fonts/font = ExtResource( 1 )
-text = "Main Menu"
+text = "Màn hình chính"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeBtn" to="." method="_on_ResumeBtn_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]

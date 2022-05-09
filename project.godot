@@ -312,6 +312,7 @@ config/icon="res://icon.png"
 GameEvents="*res://src/global_node/game_events.gd"
 SceneChanger="*res://src/global_node/scene_changer.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+GlobalSoundManager="*res://src/global_node/global_sound_manager.gd"
 
 [debug]
 

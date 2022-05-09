@@ -34,7 +34,6 @@ func on_attacked_handle(targetNode: Spatial, ammount: int) -> void:
 	if targetNode != self:
 		return
 	current_heart = int(clamp(float(current_heart - ammount), 0.0, 100.0))
-	print("enemy lost heart", current_heart)
 	# enemy dead handle
 	if current_heart == 0:
 		queue_free()

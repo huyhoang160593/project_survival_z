@@ -2,6 +2,7 @@ extends Spatial
 class_name Shotgun
 
 var bulletDecal: PackedScene = preload('res://src/weapons/misc/BulletDecal.tscn')
+var gunShootSound: AudioStream = preload('res://assets/sounds/sfx/shotgun_shot.wav')
 
 export(int, 5, 30, 5) var damage
 export(int, 1, 30, 2) var spread
@@ -41,6 +42,8 @@ func fire_shotgun() -> void:
 		return
 	_decrease_ammo()
 	
+	GlobalSoundManager.play_sound(gunShootSound)
+
 	$AnimationPlayer.play('gun_shot')
 	for ray in rayContainer.get_children():
 		var rayTyped: RayCast = ray
@@ -75,7 +78,6 @@ func _on_weapon_change_success_handle(weaponNode: Spatial) -> void:
 func _on_add_ammo_handle(weaponNode: Spatial) -> void:
 	if weaponNode == self:
 		remainAmmo = int(clamp(remainAmmo + ammoSize * ceil(rand_range(0.0,3.0)),0,capacity))
-		print(remainAmmo)
 		GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)
 
 func _decrease_ammo() -> void:

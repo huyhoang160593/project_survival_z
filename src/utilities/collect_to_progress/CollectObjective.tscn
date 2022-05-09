@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/utilities/collect_to_progress/CollectObjective.gd" type="Script" id=1]
+[ext_resource path="res://assets/sounds/soundtracks/A_Man_Without_Love_Loop.ogg" type="AudioStream" id=2]
 
 [sub_resource type="BoxShape" id=1]
 resource_local_to_scene = true
@@ -16,5 +17,8 @@ shape = SubResource( 1 )
 [node name="BlockWalls" type="Spatial" parent="."]
 
 [node name="Keys" type="Spatial" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 2 )
 
 [connection signal="body_exited" from="ActiveArea" to="." method="_on_ActiveArea_body_exited"]

@@ -8,6 +8,11 @@ export(int, 1, 10, 1) var MAX_LEVEL
 
 var currentLevel = 0
 onready var changeLevelButton = $UI/Control/VBoxContainer/HBoxContainer/ChangeLevelButton
+onready var animationPlayer = $stall/AnimationPlayer
+onready var spotLightTimer = $stall/SpotLight/SpotLightTimer
+
+func _ready() -> void:
+	randomize()
 
 func gotoLevel(level: int) -> void:
 	var levelPath = "res://maps/level_%d.tscn" % level
@@ -37,3 +42,15 @@ func _on_Next_pressed() -> void:
 
 func _on_ChangeLevelButton_pressed() -> void:
 	gotoLevel(currentLevel)
+
+
+func _on_SpotLightTimer_timeout() -> void:
+	var randomType = randi() % 3
+	match randomType:
+		0:
+			return
+		1:
+			animationPlayer.play('BlinkingLight')
+		2:
+			animationPlayer.play_backwards('BlinkingLight')
+	spotLightTimer.start()

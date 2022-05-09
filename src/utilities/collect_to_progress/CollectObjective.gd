@@ -38,6 +38,7 @@ func _on_ActiveArea_body_exited(body: Node) -> void:
 	if blockWalls.get_child_count() == 0:
 		printerr("Please add wall to prevent player from escaped")
 		return
+	$BackgroundMusic.play()
 	wall_action(Action.START)
 	var formatted_message = format_message % key_count
 	GameEvents.emit_signal('update_custom_pause_message', formatted_message)
