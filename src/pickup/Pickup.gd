@@ -6,6 +6,7 @@ enum WeaponEnum{ NONE, SHOTGUN, PISTOL, MACHINE_GUN, KNIFE}
 export(Constants.ItemType) var itemType
 export(WeaponEnum) var WeaponPickup
 
+var keyPickUpSound: AudioStream = preload('res://assets/sounds/sfx/jump_sound.wav')
 var weaponScene:PackedScene
 var weaponInstance: Spatial = null
 var weaponType := -1
@@ -48,6 +49,7 @@ func _on_Pickup_player_entered(body: Node) -> void:
 	if not body is Player:
 		return
 	if itemType == Constants.ItemType.KEY:
+		GlobalSoundManager.play_sound(keyPickUpSound)
 		GameEvents.emit_signal('pick_up_key', self)
 		return
 	if(itemType == Constants.ItemType.WEAPON and weaponType == -1):

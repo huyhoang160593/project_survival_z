@@ -37,6 +37,10 @@ export(NodePath) onready var animationPlayer = get_node(animationPlayer) as Anim
 export(NodePath) onready var effectPlayer = get_node(effectPlayer) as AnimationPlayer
 export (NodePath) onready var crossHairNode = get_node(crossHairNode) as TextureRect
 
+var gunPickUpSound: AudioStream = preload('res://assets/sounds/sfx/gun_reload_sound.wav')
+var healingSound: AudioStream = preload('res://assets/sounds/sfx/healing_sound_effect.wav')
+var hurtSound: AudioStream = preload('res://assets/sounds/sfx/hurt_sound.wav')
+
 #vectors
 var velocity: Vector3 = Vector3.ZERO
 var mouseDelta: Vector2 = Vector2.ZERO
@@ -85,6 +89,7 @@ func add_weapon(weaponType: int, weaponInstance: Spatial) -> void:
 func on_heart_decrease_handle(targetNode: Spatial, ammount: int) -> void:
 	if targetNode != self:
 		return
+	GlobalSoundManager.play_sound(hurtSound, -5.0)
 	effectPlayer.play("Pain")
 	currentHeart = int(clamp(float(currentHeart - ammount), 0.0, 100.0))
 	GameEvents.emit_signal('update_heart_ui', currentHeart)
@@ -97,6 +102,7 @@ func on_pick_up_item_handle(itemNode: Spatial ,itemType: int, playerNode: Spatia
 		if currentHeart == 100:
 			GameEvents.emit_signal('pick_up_response', itemNode, false)
 			return
+		GlobalSoundManager.play_sound(healingSound, -10.0)
 		currentHeart = int(clamp(float(currentHeart + 30), 0.0, 100.0))
 		GameEvents.emit_signal('update_heart_ui', currentHeart)
 		GameEvents.emit_signal('pick_up_response', itemNode, true)
@@ -105,8 +111,8 @@ func on_pick_up_item_handle(itemNode: Spatial ,itemType: int, playerNode: Spatia
 		if currentWeaponNode == null:
 			GameEvents.emit_signal('pick_up_response', itemNode, false)
 			return
-		GameEvents.emit_signal('pick_up_response', itemNode, true)
-		GameEvents.emit_signal('gun_add_ammo',get_weapon_node(currentWeapon))
+#		GameEvents.emit_signal('pick_up_response', itemNode, true)
+		GameEvents.emit_signal('gun_add_ammo',get_weapon_node(currentWeapon), itemNode)
 		
 	elif itemType == Constants.ItemType.WEAPON:
 		if currentWeapon != Constants.Weapon.NONE:
@@ -115,6 +121,7 @@ func on_pick_up_item_handle(itemNode: Spatial ,itemType: int, playerNode: Spatia
 				currentWeaponNode.visible = false
 		add_weapon(weaponType, weaponInstance)
 		currentWeapon = weaponType
+		GlobalSoundManager.play_sound(gunPickUpSound)
 		GameEvents.emit_signal('weapon_change_success', weaponInstance)
 		GameEvents.emit_signal('pick_up_response', itemNode, true)
 		

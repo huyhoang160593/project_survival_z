@@ -3,6 +3,7 @@ class_name Shotgun
 
 var bulletDecal: PackedScene = preload('res://src/weapons/misc/BulletDecal.tscn')
 var gunShootSound: AudioStream = preload('res://assets/sounds/sfx/shotgun_shot.wav')
+var ammoPickupSound: AudioStream = preload('res://assets/sounds/sfx/ammo_pickup.wav')
 
 export(int, 5, 30, 5) var damage
 export(int, 1, 30, 2) var spread
@@ -42,7 +43,7 @@ func fire_shotgun() -> void:
 		return
 	_decrease_ammo()
 	
-	GlobalSoundManager.play_sound(gunShootSound)
+	GlobalSoundManager.play_3D_sound(gunShootSound, $RayContainer)
 
 	$AnimationPlayer.play('gun_shot')
 	for ray in rayContainer.get_children():
@@ -75,9 +76,14 @@ func _on_weapon_change_success_handle(weaponNode: Spatial) -> void:
 	if weaponNode == self:
 		GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)
 		
-func _on_add_ammo_handle(weaponNode: Spatial) -> void:
+func _on_add_ammo_handle(weaponNode: Spatial, itemNode:Spatial) -> void:
 	if weaponNode == self:
+		if(remainAmmo == capacity):
+			GameEvents.emit_signal('pick_up_response', itemNode, false)
+			return
 		remainAmmo = int(clamp(remainAmmo + ammoSize * ceil(rand_range(0.0,3.0)),0,capacity))
+		GlobalSoundManager.play_sound(ammoPickupSound)
+		GameEvents.emit_signal('pick_up_response', itemNode, true)
 		GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)
 
 func _decrease_ammo() -> void:

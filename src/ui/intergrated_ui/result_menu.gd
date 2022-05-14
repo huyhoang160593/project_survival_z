@@ -7,6 +7,9 @@ export(String, FILE) var nextLevel: String
 var is_paused = false setget set_is_pause
 var missionFinished = null setget set_mission_finished
 
+var winSound: AudioStream = preload('res://assets/sounds/sfx/win_sound.wav')
+var loseSound: AudioStream = preload('res://assets/sounds/sfx/lose_sound.wav')
+
 func _ready() -> void:
 	var error_code = GameEvents.connect('level_finished', self, "on_level_finished_handle")
 	
@@ -25,10 +28,12 @@ func set_is_pause(value: bool) -> void:
 
 func set_mission_finished(value: bool) -> void:
 	if value:
+		GlobalSoundManager.play_sound(winSound)
 		$ResultText.text = "Vòng lặp hoàn tất, hãy chuẩn bị cho những thứ thách tiếp theo"
 		$HBoxContainer/ResetLeverBtn.visible = false
 		$HBoxContainer/NextLoopBtn.visible = true
 	else:
+		GlobalSoundManager.play_sound(loseSound)
 		$ResultText.text = "Hãy thử lại lần nữa nào!"
 		$HBoxContainer/ResetLeverBtn.visible = true
 		$HBoxContainer/NextLoopBtn.visible = false

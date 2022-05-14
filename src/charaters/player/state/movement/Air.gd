@@ -6,6 +6,7 @@ var jumpMovingSpeed: float
 var gravity_value := 0.0
 
 var randomNumberGenerator: RandomNumberGenerator
+var jumpSound: AudioStream = preload('res://assets/sounds/sfx/jump_sound.wav')
 
 func enter(msg := {}) -> void:
 	randomNumberGenerator = RandomNumberGenerator.new()
@@ -14,6 +15,7 @@ func enter(msg := {}) -> void:
 	jumpMovingSpeed = player.speed / 2
 
 	if msg.has("do_jump"):
+		GlobalSoundManager.play_sound(jumpSound, -10.0)
 		player.velocity.y = player.jump_impulse
 
 func physics_update(delta: float) -> void:

@@ -5,6 +5,7 @@ export(PackedScene)onready var bulletScene: PackedScene
 
 var machineGunSound: AudioStream = preload('res://assets/sounds/sfx/machine_gun_shot.wav')
 var pistolGunSound: AudioStream = preload('res://assets/sounds/sfx/pistol_shot.wav')
+var ammoPickupSound: AudioStream = preload('res://assets/sounds/sfx/ammo_pickup.wav')
 
 const GUN_SHOT_ANIMATION := "gun_shot"
 enum ShootingType { SINGLE, BURST }
@@ -50,16 +51,15 @@ func _on_gun_shot_event_handle(raycast: RayCast, currentGunNode: Spatial, gunOwn
 		return
 	if shootingType == ShootingType.BURST:
 		if currentAmmo > 0:
-			GlobalSoundManager.play_sound(machineGunSound)
 			_shoot_bullet(raycast, gunOwner)
 	elif shootingType == ShootingType.SINGLE:
 		if currentAmmo > 0:
-			GlobalSoundManager.play_sound(pistolGunSound)
 			_shoot_bullet(raycast, gunOwner)
 			GameEvents.emit_signal('attack_finished', currentGunNode)
 
 func _shoot_bullet(raycast: RayCast, gunOwner: Spatial) -> void:
 	if not animationPlayer.is_playing():
+		GlobalSoundManager.play_3D_sound(pistolGunSound,$Muzzle)
 		_create_bullet(raycast, gunOwner)
 		_add_heat_value()
 		_decrease_ammo(gunOwner)
@@ -119,10 +119,15 @@ func _on_reload_finished_handle(weaponNode: Spatial) -> void:
 		remainAmmo -= ammoNeed
 	GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)
 
-func _on_add_ammo_handle(weaponNode: Spatial) -> void:
+func _on_add_ammo_handle(weaponNode: Spatial, itemNode: Spatial) -> void:
 	if weaponNode == self:
+		if(remainAmmo == capacity):
+			GameEvents.emit_signal('pick_up_response', itemNode, false)
+			return
 		remainAmmo = int(clamp(remainAmmo + ammoSize * ceil(rand_range(0.0,3.0)),0,capacity))
+		GlobalSoundManager.play_sound(ammoPickupSound)
 		GameEvents.emit_signal('update_ammo_ui', currentAmmo, remainAmmo)
+		GameEvents.emit_signal('pick_up_response', itemNode, true)
 
 func _on_gunner_cheating_handle(weaponNode: Spatial) -> void:
 	if weaponNode != self:

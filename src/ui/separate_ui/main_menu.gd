@@ -36,13 +36,9 @@ func _on_Previous_pressed() -> void:
 func _on_Next_pressed() -> void:
 	currentLevel = clamp(currentLevel + 1 , MIN_LEVEL, MAX_LEVEL)
 	changeLevelButton.text = str(currentLevel)
-	
-
-
 
 func _on_ChangeLevelButton_pressed() -> void:
 	gotoLevel(currentLevel)
-
 
 func _on_SpotLightTimer_timeout() -> void:
 	var randomType = randi() % 3

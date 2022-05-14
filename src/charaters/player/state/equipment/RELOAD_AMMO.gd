@@ -16,6 +16,7 @@ func enter(_msg := {}) -> void:
 	reloadTime = currentWeaponNode.reloadTime
 	animationPlayer.play('GunHide_Show')
 	
+	GlobalSoundManager.play_sound(player.gunPickUpSound,-10.0)
 	yield(animationPlayer,'animation_finished')
 	yield(get_tree().create_timer(reloadTime),'timeout')
 	animationPlayer.play_backwards('GunHide_Show')

@@ -1844,8 +1844,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.9 )
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 24.6, 3, -85.2 )
 move_speed = 0
 
+[node name="ThePusher2" parent="SpecialEnemy" index="1" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 87.3, 33.6, -92.1 )
+
 [node name="EnemiesSpawner" parent="." index="11" instance=ExtResource( 16 )]
-customListEnemies = [ 0, 0, 0, 0, 0 ]
+customListEnemies = [ 0, 0, 0, 0, 1 ]
 
 [node name="ActiveArea" parent="EnemiesSpawner" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 94.2, 3.6, -93.3 )

@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0.4, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -48,6 +48,5 @@ anims/RESET = SubResource( 4 )
 anims/bobbing = SubResource( 3 )
 
 [node name="MeshPosition" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0 )
 
 [connection signal="body_entered" from="." to="." method="_on_Pickup_player_entered"]

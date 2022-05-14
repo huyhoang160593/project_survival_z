@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/healing_sound_effect.wav-568d5edc0808d6c83260fc54314aa03e.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/healing_sound_effect.wav"
+dest_files=[ "res://.import/healing_sound_effect.wav-568d5edc0808d6c83260fc54314aa03e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

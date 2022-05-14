@@ -7,7 +7,7 @@ signal gun_shot_event(rayCast, gunNode, gunOwner)
 signal melee_attack_event
 signal attack_finished(gunNode)
 signal gun_out_ammo(reloadTime)
-signal gun_add_ammo(gunNode)
+signal gun_add_ammo(gunNode, itemNode)
 signal reload_finished(gunNode)
 signal weapon_change_success(gunNode)
 
