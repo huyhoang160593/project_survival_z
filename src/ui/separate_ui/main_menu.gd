@@ -2,14 +2,17 @@ extends Spatial
 
 
 export(String, FILE) var levelZeroPath: String
+export(NodePath) onready var changeLevelButton = get_node(changeLevelButton) as Button
 
 const MIN_LEVEL = 0
 export(int, 1, 10, 1) var MAX_LEVEL
 
 var currentLevel = 0
-onready var changeLevelButton = $UI/Control/VBoxContainer/HBoxContainer/ChangeLevelButton
 onready var animationPlayer = $stall/AnimationPlayer
 onready var spotLightTimer = $stall/SpotLight/SpotLightTimer
+onready var settingPanel = $UI/MainControl/SettingPanel
+
+
 
 func _ready() -> void:
 	randomize()
@@ -50,3 +53,15 @@ func _on_SpotLightTimer_timeout() -> void:
 		2:
 			animationPlayer.play_backwards('BlinkingLight')
 	spotLightTimer.start()
+
+
+func _on_OptionButton_pressed() -> void:
+	settingPanel.visible = !settingPanel.visible
+
+
+func _on_CheckButton_toggled(button_pressed: bool) -> void:
+	if(button_pressed):
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), false)
+	else:
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), true)
+

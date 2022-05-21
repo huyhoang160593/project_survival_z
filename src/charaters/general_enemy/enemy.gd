@@ -17,9 +17,11 @@ onready var body = $Body
 onready var head = $Body/Head
 onready var	rayCast = $Body/RayCast
 onready var attackTimer = $AttackTimer
+onready var bodyDetection = $BodyDetection
 
 # Inherited Scene can't get node at onready so we need to do it in the _ready() function
 export(NodePath) onready var modelAnimationPlayer
+export(NodePath) onready var enemyEffect
 export(NodePath) onready var currentWeapon
 
 func _ready() -> void:
@@ -33,9 +35,16 @@ func _integrate_forces(state: PhysicsDirectBodyState) -> void:
 func on_attacked_handle(targetNode: Spatial, ammount: int) -> void:
 	if targetNode != self:
 		return
+	if(!enemyEffect.is_playing()):
+		enemyEffect.play("Hurt")
 	current_heart = int(clamp(float(current_heart - ammount), 0.0, 100.0))
 	# enemy dead handle
 	if current_heart == 0:
+		bodyDetection.disabled = true
+		move_speed = 0
+		modelAnimationPlayer.play("Idle")
+		enemyEffect.play("Dead")
+		yield(enemyEffect,'animation_finished')
 		queue_free()
 
 	match enemyType:

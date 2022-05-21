@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/moon_knight_personality_switch.wav-04ca9d890ecad3700bdc5273fc3c6347.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/moon_knight_personality_switch.wav"
+dest_files=[ "res://.import/moon_knight_personality_switch.wav-04ca9d890ecad3700bdc5273fc3c6347.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

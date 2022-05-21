@@ -92,6 +92,7 @@ currentHeart = 50
 default_gun_position = Vector3( 0.6, -0.06, -1 )
 ads_gun_position = Vector3( 0, -0.06, -1 )
 camera_sensitivity = 0.15
+speed = 11.0
 jump_impulse = 6.5
 head = NodePath("Head")
 raycast = NodePath("Head/Camera/RayCast")

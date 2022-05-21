@@ -6,27 +6,27 @@
 script = ExtResource( 1 )
 syntax_version = 2
 raw_text = "~ level_0
-???: [speed=8][next=auto]Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...
-???: [speed=8][next=auto]Sử dụng 4 phím cơ bản W,A,S,D để di chuyển và hướng tới cánh cổng để hoàn thành tất thủ tục kiểm tra
-???: [speed=6][next=auto]Không có đường trốn đâu, vây nên hãy cố gắng [shake rate=20 level=10]làm theo chỉ dẫn của chúng tôi.[/shake]
+Tiến sĩ X: [speed=6][next=auto]Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...
+Tiến sĩ X: [speed=6][next=auto]Sử dụng 4 phím cơ bản W,A,S,D để di chuyển và hướng tới cánh cổng để hoàn thành tất thủ tục kiểm tra
+Tiến sĩ X: [speed=5][next=auto]Không có đường trốn đâu, vây nên hãy cố gắng [shake rate=20 level=10]làm theo chỉ dẫn của chúng tôi.[/shake]
 
 ~ level_1
-???: [speed=8][next=auto]Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...
-???: [speed=8][next=auto]Sử dụng phím [wave amp=25 freq=5]Space[/wave] để nhảy qua các chướng ngại vật và hoàn thành bài kiểm tra.
+Tiến sĩ X: [speed=6][next=auto]Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...
+Tiến sĩ X: [speed=6][next=auto]Sử dụng phím [wave amp=25 freq=5]Space[/wave] để nhảy qua các chướng ngại vật và hoàn thành bài kiểm tra.
 
 ~ level_2
-???: [speed=8][next=auto]Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...
-???: [speed=8][next=auto]Oh wao, chúng ta có một vài người bạn nhỏ dễ thương này, nhưng hãy cẩn thận nhé, chúng biết cắn đó
-???: [speed=8][next=auto]Ở đây hình như có [wave amp=25 freq=5]vũ khí[/wave] đấy, thử tìm xem. Nhớ là với súng ta có [wave amp=25 freq=5]chuột trái[/wave] để tấn công, [wave amp=25 freq=5]Chuột phải[/wave]  để ngắm, và phím  [wave amp=25 freq=5]R[/wave] để nạp đạn.
-???: Đừng làm mọi người thất vọng đấy.[shake rate=20 level=10]Và rồi ngươi sẽ thức dậy được thôi[/shake], hãy luôn nghe theo tiếng nhạc của con tim 
+Tiến sĩ X: [speed=6][next=auto]Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...
+Tiến sĩ X: [speed=6][next=auto]Oh wao, chúng ta có một vài người bạn nhỏ dễ thương này, nhưng hãy cẩn thận nhé, chúng biết cắn đó
+Tiến sĩ X: [speed=6][next=auto]Ở đây hình như có [wave amp=25 freq=5]vũ khí[/wave] đấy, thử tìm xem. Nhớ là với súng ta có [wave amp=25 freq=5]chuột trái[/wave] để tấn công, [wave amp=25 freq=5]Chuột phải[/wave] để ngắm, và phím [wave amp=25 freq=5]R[/wave] để nạp đạn. Thay đổi vũ khí bằng các phím số tuỳ ý.
+Tiến sĩ X: Đừng làm mọi người thất vọng đấy.[shake rate=20 level=10]Và rồi ngươi sẽ thức dậy được thôi[/shake], hãy luôn nghe theo tiếng nhạc của con tim 
 
 ~ level_3_enchance
-???: [speed=8][next=auto]Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...
-???: [speed=8][next=auto]Chắc hẳn người cũng đã lờ mờ hiểu chuyện gì đúng không nhỉ? Tất cả chúng đều có lý do cả đấy?
-???: [next=auto][shake rate=20 level=10]Người chắc chắn sẽ phải trả giá cho những gì ngươi làm[/shake]
+Tiến sĩ X: [speed=6][next=auto]Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...
+Tiến sĩ X: [speed=6][next=auto]Chắc hẳn người cũng đã lờ mờ hiểu chuyện gì đúng không nhỉ? Tất cả chúng đều có lý do cả đấy?
+Tiến sĩ X: [next=auto][shake rate=20 level=10]Người chắc chắn sẽ phải trả giá cho những gì ngươi làm[/shake]
 
 ~ level_3_find_key
-???: [speed=8][next=auto]Xin hãy tìm kiếm vật phẩm nhiệm vụ để có thể thoát ra khỏi đây, dùng phím [wave amp=25 freq=5]Esc[/wave] để vào màn hình chờ và theo dõi mục tiêu nhiệm vụ hiện tại và hoàn thành nó."
+Tiến sĩ X: [speed=6][next=auto]Xin hãy tìm kiếm vật phẩm nhiệm vụ để có thể thoát ra khỏi đây, dùng phím [wave amp=25 freq=5]Esc[/wave] để vào màn hình chờ và theo dõi mục tiêu nhiệm vụ hiện tại và hoàn thành nó."
 errors = [  ]
 titles = {
 "level_0": "1",
@@ -42,63 +42,63 @@ lines = {
 "type": "title"
 },
 "1": {
-"character": "???",
+"character": "Tiến sĩ X",
 "character_replacements": [  ],
 "inline_mutations": [  ],
 "next_id": "2",
 "pauses": {
 },
 "replacements": [  ],
-"speeds": [ [ 0, 8.0 ] ],
+"speeds": [ [ 0, 6.0 ] ],
 "text": "Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...",
 "time": "auto",
 "translation_key": "Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...",
 "type": "dialogue"
 },
 "10": {
-"character": "???",
+"character": "Tiến sĩ X",
 "character_replacements": [  ],
 "inline_mutations": [  ],
 "next_id": "11",
 "pauses": {
 },
 "replacements": [  ],
-"speeds": [ [ 0, 8.0 ] ],
+"speeds": [ [ 0, 6.0 ] ],
 "text": "Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...",
 "time": "auto",
 "translation_key": "Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...",
 "type": "dialogue"
 },
 "11": {
-"character": "???",
+"character": "Tiến sĩ X",
 "character_replacements": [  ],
 "inline_mutations": [  ],
 "next_id": "12",
 "pauses": {
 },
 "replacements": [  ],
-"speeds": [ [ 0, 8.0 ] ],
+"speeds": [ [ 0, 6.0 ] ],
 "text": "Oh wao, chúng ta có một vài người bạn nhỏ dễ thương này, nhưng hãy cẩn thận nhé, chúng biết cắn đó",
 "time": "auto",
 "translation_key": "Oh wao, chúng ta có một vài người bạn nhỏ dễ thương này, nhưng hãy cẩn thận nhé, chúng biết cắn đó",
 "type": "dialogue"
 },
 "12": {
-"character": "???",
+"character": "Tiến sĩ X",
 "character_replacements": [  ],
 "inline_mutations": [  ],
 "next_id": "13",
 "pauses": {
 },
 "replacements": [  ],
-"speeds": [ [ 0, 8.0 ] ],
-"text": "Ở đây hình như có [wave amp=25 freq=5]vũ khí[/wave] đấy, thử tìm xem. Nhớ là với súng ta có [wave amp=25 freq=5]chuột trái[/wave] để tấn công, [wave amp=25 freq=5]Chuột phải[/wave]  để ngắm, và phím  [wave amp=25 freq=5]R[/wave] để nạp đạn.",
+"speeds": [ [ 0, 6.0 ] ],
+"text": "Ở đây hình như có [wave amp=25 freq=5]vũ khí[/wave] đấy, thử tìm xem. Nhớ là với súng ta có [wave amp=25 freq=5]chuột trái[/wave] để tấn công, [wave amp=25 freq=5]Chuột phải[/wave] để ngắm, và phím [wave amp=25 freq=5]R[/wave] để nạp đạn. Thay đổi vũ khí bằng các phím số tuỳ ý.",
 "time": "auto",
-"translation_key": "Ở đây hình như có [wave amp=25 freq=5]vũ khí[/wave] đấy, thử tìm xem. Nhớ là với súng ta có [wave amp=25 freq=5]chuột trái[/wave] để tấn công, [wave amp=25 freq=5]Chuột phải[/wave]  để ngắm, và phím  [wave amp=25 freq=5]R[/wave] để nạp đạn.",
+"translation_key": "Ở đây hình như có [wave amp=25 freq=5]vũ khí[/wave] đấy, thử tìm xem. Nhớ là với súng ta có [wave amp=25 freq=5]chuột trái[/wave] để tấn công, [wave amp=25 freq=5]Chuột phải[/wave] để ngắm, và phím [wave amp=25 freq=5]R[/wave] để nạp đạn. Thay đổi vũ khí bằng các phím số tuỳ ý.",
 "type": "dialogue"
 },
 "13": {
-"character": "???",
+"character": "Tiến sĩ X",
 "character_replacements": [  ],
 "inline_mutations": [  ],
 "next_id": "end",
@@ -117,35 +117,35 @@ lines = {
 "type": "title"
 },
 "16": {
-"character": "???",
+"character": "Tiến sĩ X",
 "character_replacements": [  ],
 "inline_mutations": [  ],
 "next_id": "17",
 "pauses": {
 },
 "replacements": [  ],
-"speeds": [ [ 0, 8.0 ] ],
+"speeds": [ [ 0, 6.0 ] ],
 "text": "Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...",
 "time": "auto",
 "translation_key": "Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...",
 "type": "dialogue"
 },
 "17": {
-"character": "???",
+"character": "Tiến sĩ X",
 "character_replacements": [  ],
 "inline_mutations": [  ],
 "next_id": "18",
 "pauses": {
 },
 "replacements": [  ],
-"speeds": [ [ 0, 8.0 ] ],
+"speeds": [ [ 0, 6.0 ] ],
 "text": "Chắc hẳn người cũng đã lờ mờ hiểu chuyện gì đúng không nhỉ? Tất cả chúng đều có lý do cả đấy?",
 "time": "auto",
 "translation_key": "Chắc hẳn người cũng đã lờ mờ hiểu chuyện gì đúng không nhỉ? Tất cả chúng đều có lý do cả đấy?",
 "type": "dialogue"
 },
 "18": {
-"character": "???",
+"character": "Tiến sĩ X",
 "character_replacements": [  ],
 "inline_mutations": [  ],
 "next_id": "end",
@@ -159,14 +159,14 @@ lines = {
 "type": "dialogue"
 },
 "2": {
-"character": "???",
+"character": "Tiến sĩ X",
 "character_replacements": [  ],
 "inline_mutations": [  ],
 "next_id": "3",
 "pauses": {
 },
 "replacements": [  ],
-"speeds": [ [ 0, 8.0 ] ],
+"speeds": [ [ 0, 6.0 ] ],
 "text": "Sử dụng 4 phím cơ bản W,A,S,D để di chuyển và hướng tới cánh cổng để hoàn thành tất thủ tục kiểm tra",
 "time": "auto",
 "translation_key": "Sử dụng 4 phím cơ bản W,A,S,D để di chuyển và hướng tới cánh cổng để hoàn thành tất thủ tục kiểm tra",
@@ -178,28 +178,28 @@ lines = {
 "type": "title"
 },
 "21": {
-"character": "???",
+"character": "Tiến sĩ X",
 "character_replacements": [  ],
 "inline_mutations": [  ],
 "next_id": "",
 "pauses": {
 },
 "replacements": [  ],
-"speeds": [ [ 0, 8.0 ] ],
+"speeds": [ [ 0, 6.0 ] ],
 "text": "Xin hãy tìm kiếm vật phẩm nhiệm vụ để có thể thoát ra khỏi đây, dùng phím [wave amp=25 freq=5]Esc[/wave] để vào màn hình chờ và theo dõi mục tiêu nhiệm vụ hiện tại và hoàn thành nó.",
 "time": "auto",
 "translation_key": "Xin hãy tìm kiếm vật phẩm nhiệm vụ để có thể thoát ra khỏi đây, dùng phím [wave amp=25 freq=5]Esc[/wave] để vào màn hình chờ và theo dõi mục tiêu nhiệm vụ hiện tại và hoàn thành nó.",
 "type": "dialogue"
 },
 "3": {
-"character": "???",
+"character": "Tiến sĩ X",
 "character_replacements": [  ],
 "inline_mutations": [  ],
 "next_id": "end",
 "pauses": {
 },
 "replacements": [  ],
-"speeds": [ [ 0, 6.0 ] ],
+"speeds": [ [ 0, 5.0 ] ],
 "text": "Không có đường trốn đâu, vây nên hãy cố gắng [shake rate=20 level=10]làm theo chỉ dẫn của chúng tôi.[/shake]",
 "time": "auto",
 "translation_key": "Không có đường trốn đâu, vây nên hãy cố gắng [shake rate=20 level=10]làm theo chỉ dẫn của chúng tôi.[/shake]",
@@ -211,28 +211,28 @@ lines = {
 "type": "title"
 },
 "6": {
-"character": "???",
+"character": "Tiến sĩ X",
 "character_replacements": [  ],
 "inline_mutations": [  ],
 "next_id": "7",
 "pauses": {
 },
 "replacements": [  ],
-"speeds": [ [ 0, 8.0 ] ],
+"speeds": [ [ 0, 6.0 ] ],
 "text": "Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...",
 "time": "auto",
 "translation_key": "Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...",
 "type": "dialogue"
 },
 "7": {
-"character": "???",
+"character": "Tiến sĩ X",
 "character_replacements": [  ],
 "inline_mutations": [  ],
 "next_id": "end",
 "pauses": {
 },
 "replacements": [  ],
-"speeds": [ [ 0, 8.0 ] ],
+"speeds": [ [ 0, 6.0 ] ],
 "text": "Sử dụng phím [wave amp=25 freq=5]Space[/wave] để nhảy qua các chướng ngại vật và hoàn thành bài kiểm tra.",
 "time": "auto",
 "translation_key": "Sử dụng phím [wave amp=25 freq=5]Space[/wave] để nhảy qua các chướng ngại vật và hoàn thành bài kiểm tra.",

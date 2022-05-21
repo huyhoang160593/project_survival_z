@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/models/Enemies/Green/Astronaut.material" type="Material" id=1]
 [ext_resource path="res://assets/models/Enemies/Green/Outline.material" type="Material" id=2]
 [ext_resource path="res://assets/models/Enemies/Green/Astronaut_backpack.material" type="Material" id=3]
 
-[sub_resource type="ArrayMesh" id=1]
+[sub_resource type="ArrayMesh" id=10]
+resource_local_to_scene = true
 resource_name = "astronautredGreen_Cube002"
 surfaces/0 = {
 "aabb": AABB( -1.1338, 0.142356, -1.11022, 2.2676, 4.19403, 2.60204 ),
@@ -13,7 +14,6 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194903,
 "index_count": 12720,
-"material": ExtResource( 1 ),
 "primitive": 4,
 "skeleton_aabb": [ AABB( -1.1338, 0.350905, -1.11022, 2.2676, 2.7384, 2.10932 ), AABB( -1.1338, 0.903396, -1.11022, 2.2676, 2.18591, 2.10985 ), AABB( -1.1338, 1.41827, -1.11022, 2.2676, 1.97438, 2.11213 ), AABB( -1.1338, 1.32472, -1.11022, 2.2676, 3.01166, 2.60204 ), AABB( -1.07447, 0.351826, -1.04669, 2.19074, 1.44286, 1.97325 ), AABB( 0.126167, 0.142356, -0.883634, 0.961996, 1.20022, 1.44678 ), AABB( -1.12157, 0.350905, -1.04669, 1.30502, 1.44378, 1.97325 ), AABB( -1.0885, 0.142356, -0.740951, 0.957454, 1.09228, 1.3041 ) ],
 "vertex_count": 2276
@@ -25,7 +25,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194903,
 "index_count": 15600,
-"material": ExtResource( 2 ),
 "primitive": 4,
 "skeleton_aabb": [ AABB( -1.28891, 0.331242, -1.22551, 2.57781, 2.7855, 2.3399 ), AABB( -1.28891, 0.892498, -1.22551, 2.57781, 2.22425, 2.3399 ), AABB( -1.28891, 1.25197, -2.02863, 2.57781, 2.25245, 3.14302 ), AABB( -1.28891, 1.30634, -1.22551, 2.57781, 3.18514, 2.8493 ), AABB( -1.22911, 0.331242, -1.15148, 2.50034, 1.43583, 2.18296 ), AABB( 0.0561592, -0.0127471, -0.955937, 1.18604, 1.34044, 1.60497 ), AABB( -1.27658, 0.334238, -1.15148, 1.39623, 1.43284, 2.18296 ), AABB( -1.24322, -0.0127471, -0.832237, 1.18052, 1.23956, 1.48127 ) ],
 "vertex_count": 2850
@@ -43,8 +42,7 @@ surfaces/2 = {
 "vertex_count": 513
 }
 
-[sub_resource type="Skin" id=2]
-resource_name = "Skin"
+[sub_resource type="Skin" id=11]
 bind_count = 8
 bind/0/name = "Hips"
 bind/0/bone = -1
@@ -206,6 +204,38 @@ tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = PoolRealArray( 0, 1, 0, 0, 0, -8.14603e-08, 0, 0, 1, 1, 1, 1, 0.533333, 1, 0, 0, 0, -8.14603e-08, 0, 0, 1, 1, 1, 1 )
 
+[sub_resource type="Animation" id=5]
+resource_name = "Hurt"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Armature/Skeleton/Astronaut:material/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 0.996078, 0.996078, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Armature/Skeleton/Astronaut:mesh:surface_1/material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
 [node name="astronautredGreen" type="Spatial"]
 
 [node name="Armature" type="Spatial" parent="."]
@@ -254,12 +284,16 @@ bones/7/enabled = true
 bones/7/bound_children = [  ]
 
 [node name="Astronaut" type="MeshInstance" parent="Armature/Skeleton"]
-mesh = SubResource( 1 )
-skin = SubResource( 2 )
-material/0 = null
-material/1 = null
+mesh = SubResource( 10 )
+skin = SubResource( 11 )
+material/0 = ExtResource( 1 )
+material/1 = ExtResource( 2 )
 material/2 = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 3 )
 anims/Run = SubResource( 4 )
+
+[node name="EnemyEffect" type="AnimationPlayer" parent="."]
+anims/Hurt = SubResource( 5 )
+anims/RESET = SubResource( 6 )

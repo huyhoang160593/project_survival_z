@@ -48,8 +48,7 @@ func _on_MainMenuBtn_pressed() -> void:
 func _on_NextLoopBtn_pressed() -> void:
 	if (nextLevel.length() == 0):
 		printerr("NextLevel path not set, check and set in the inspector")
-	get_tree().paused = false
-	SceneChanger.goto_scene(nextLevel)
+	SceneChanger.goto_scene(nextLevel, true)
 
 
 func _on_ResetLeverBtn_pressed() -> void:

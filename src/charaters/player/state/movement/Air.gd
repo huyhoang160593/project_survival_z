@@ -12,7 +12,7 @@ func enter(msg := {}) -> void:
 	randomNumberGenerator = RandomNumberGenerator.new()
 	randomNumberGenerator.randomize()
 	
-	jumpMovingSpeed = player.speed / 2
+	jumpMovingSpeed = player.speed * 0.75
 
 	if msg.has("do_jump"):
 		GlobalSoundManager.play_sound(jumpSound, -10.0)
