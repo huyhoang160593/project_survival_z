@@ -1,6 +1,8 @@
 extends RigidBody
 class_name Enemy
 
+signal enemy_dead
+
 enum Type {PUSHER, HEALER, GUNNER, WARRIOR, BOSS}
 
 export(Type) var enemyType 
@@ -9,7 +11,6 @@ export(int, 1,50,1) var damage
 export(int, 0,15,1) var move_speed
 export(int, 0,5000,5) var MAX_HEART
 export(int, 0, 300) var push_distance
-
 
 var target:Player
 
@@ -49,6 +50,7 @@ func on_attacked_handle(targetNode: Spatial, ammount: int) -> void:
 		if enemyEffect is AnimationPlayer: 
 			enemyEffect.play("Dead")
 			yield(enemyEffect,'animation_finished')
+		emit_signal('enemy_dead')
 		queue_free()
 
 	match enemyType:

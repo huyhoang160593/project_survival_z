@@ -19,7 +19,7 @@ void fragment() {
 
 [resource]
 shader = SubResource( 1 )
-shader_param/direction_and_speed = Vector2( 1, 1 )
+shader_param/direction_and_speed = Vector2( -1, 1 )
 shader_param/scale = Vector2( 1, 1 )
 shader_param/flip = false
 shader_param/albedo = ExtResource( 1 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/ui/separate_ui/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/models/paper.dae" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://assets/models/paper_set.dae" type="PackedScene" id=4]
 [ext_resource path="res://assets/font/new_dynamicfont.tres" type="DynamicFont" id=5]
 [ext_resource path="res://assets/font/DFVNCalignaRegular.otf" type="DynamicFontData" id=6]
-[ext_resource path="res://assets/sounds/soundtracks/A_Man_Without_Love_Loop.ogg" type="AudioStream" id=7]
 [ext_resource path="res://assets/font/DFVN Them Bones Regular.otf" type="DynamicFontData" id=8]
 [ext_resource path="res://assets/models/radio_model.glb" type="PackedScene" id=9]
 
@@ -283,7 +282,6 @@ text = "Âm thanh"
 
 [node name="BackgroundMusic" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.63, -1.98, -1.2 )
-stream = ExtResource( 7 )
 autoplay = true
 
 [connection signal="timeout" from="stall/SpotLight/SpotLightTimer" to="." method="_on_SpotLightTimer_timeout"]

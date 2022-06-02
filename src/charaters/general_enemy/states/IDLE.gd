@@ -30,3 +30,4 @@ func _on_Area_body_entered(body: Node) -> void:
 	if body is Player:
 		enemy.target = body
 		active_state_machine.transition_to(stateDict[ALERT])
+		GlobalSoundManager.play_random_enemy_sound(enemy)

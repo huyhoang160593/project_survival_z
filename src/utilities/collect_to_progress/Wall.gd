@@ -12,6 +12,5 @@ func on_wall_break() -> void:
 	wallAnimaion.play('FadeOut')
 	yield(wallAnimaion,'animation_finished')
 	
-	var coroutine = GlobalSoundManager.play_3D_sound(wallBreakSound, self)
-
+	GlobalSoundManager.play_3D_sound(wallBreakSound, self, 25.0, 50.0)
 	queue_free()

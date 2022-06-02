@@ -28,3 +28,10 @@ func heart_bar_handle() -> void:
 		heartChangeFlag = false
 		return
 	heartBar.value = lerp(heartBar.value, self.current_heart, 0.5)
+
+
+func _on_SightRange_body_entered(body: Node) -> void:
+	if body is Player:
+		var UIControl = $HeartBar/UIControl
+		if(not UIControl.visible):
+			UIControl.visible = true

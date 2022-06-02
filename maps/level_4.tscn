@@ -1,4 +1,4 @@
-[gd_scene load_steps=400 format=2]
+[gd_scene load_steps=405 format=2]
 
 [ext_resource path="res://maps/level_template.tscn" type="PackedScene" id=1]
 [ext_resource path="res://trenchbroom/textures/prototype_quake_1_3_PNG/clip.tres" type="Material" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://src/pickup/ShotgunPickup.tscn" type="PackedScene" id=25]
 [ext_resource path="res://src/charaters/general_enemy/the_boss/The_Boss.tscn" type="PackedScene" id=26]
 [ext_resource path="res://assets/test_sky_texture.jpg" type="Texture" id=27]
+[ext_resource path="res://maps/level_4/ActiveBossArea.gd" type="Script" id=28]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -1316,6 +1317,57 @@ points = PoolVector3Array( 161, 38, -93, 161, 30, -93, 167, 30, -93, 167, 38, -9
 [sub_resource type="ConvexPolygonShape" id=370]
 points = PoolVector3Array( 161, 40, -93, 161, 38, -93, 163, 38, -93, 163, 40, -93, 161, 40, -88, 161, 38, -88, 163, 38, -88, 163, 40, -88 )
 
+[sub_resource type="BoxShape" id=375]
+extents = Vector3( 5.1, 6, 0.001 )
+
+[sub_resource type="Shader" id=373]
+code = "shader_type spatial;
+render_mode specular_schlick_ggx, ambient_light_disabled;
+
+uniform vec4 Color : hint_color;
+uniform float Shine = 0.2;
+uniform float Roughness = 0.2;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// ColorUniform:6
+	vec3 n_out6p0 = Color.rgb;
+	float n_out6p1 = Color.a;
+
+// ScalarUniform:3
+	float n_out3p0 = Shine;
+
+// ScalarUniform:4
+	float n_out4p0 = Roughness;
+
+// Output:0
+	ALBEDO = n_out6p0;
+	ALPHA = n_out6p1;
+	METALLIC = n_out3p0;
+	ROUGHNESS = n_out4p0;
+
+}
+
+void light() {
+// Output:0
+
+}"
+
+[sub_resource type="ShaderMaterial" id=374]
+shader = SubResource( 373 )
+shader_param/Color = Color( 0.0823529, 0.980392, 0.027451, 0 )
+shader_param/Shine = 0.5
+shader_param/Roughness = 0.1
+
+[sub_resource type="BoxShape" id=376]
+extents = Vector3( 4, 6, 1 )
+
 [sub_resource type="PanoramaSky" id=371]
 radiance_size = 1
 panorama = ExtResource( 27 )
@@ -2440,14 +2492,30 @@ currentLevel = "res://maps/level_4.tscn"
 nextLevel = "res://src/ui/separate_ui/last_scene.tscn"
 lastLever = true
 
-[node name="FinishArea" parent="." index="3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -75.3, -21.3, -70.8 )
+[node name="ActiveBossArea" type="Area" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -76.2, -15.9, -68.7 )
+script = ExtResource( 28 )
 
-[node name="CollisionShape" parent="FinishArea" index="0"]
+[node name="CollisionShape" type="CollisionShape" parent="ActiveBossArea" index="0"]
+shape = SubResource( 375 )
+
+[node name="GlassBox" type="CSGBox" parent="ActiveBossArea" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.299995, 1.2, -0.599998 )
+collision_mask = 2
+width = 8.4
+height = 15.0
+depth = 0.002
+material = SubResource( 374 )
+
+[node name="FinishArea" type="Area" parent="ActiveBossArea" index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.900002, -5.4, -2.10001 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="ActiveBossArea/FinishArea" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57, 5.64, 1.47 )
+shape = SubResource( 376 )
 disabled = true
-
-[node name="MachineGunPickup" parent="." index="6"]
-transform = Transform( 1, 0, 1.03316e-07, 0, 1, 0, -1.03316e-07, 0, 1, 15.3, 34.23, -94.23 )
 
 [node name="FirstEncounterGroup" type="Spatial" parent="." index="7"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 43.2, 3.45, -24.33 )
@@ -2623,5 +2691,12 @@ TURN_SPEED = 5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="15"]
 environment = SubResource( 372 )
+
+[node name="MachineGunPickup" parent="." index="16"]
+transform = Transform( 1, 0, 1.03316e-07, 0, 1, 0, -1.03316e-07, 0, 1, 15.3, 34.23, -94.23 )
+
+[connection signal="body_entered" from="ActiveBossArea" to="ActiveBossArea" method="_on_ActiveBossArea_body_entered"]
+[connection signal="body_entered" from="ActiveBossArea/FinishArea" to="." method="_on_FinishArea_body_entered"]
+[connection signal="enemy_dead" from="The_Boss" to="ActiveBossArea" method="_on_The_Boss_enemy_dead"]
 
 [editable path="EnemiesSpawner"]

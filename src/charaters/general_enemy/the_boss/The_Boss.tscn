@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://src/charaters/general_enemy/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/models/Enemies/Red/Outline.material" type="Material" id=2]
@@ -36,7 +36,6 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194903,
 "index_count": 12720,
-"material": ExtResource( 4 ),
 "primitive": 4,
 "skeleton_aabb": [ AABB( -1.1338, 0.350905, -1.11022, 2.2676, 2.7384, 2.10932 ), AABB( -1.1338, 0.903396, -1.11022, 2.2676, 2.18591, 2.10985 ), AABB( -1.1338, 1.41827, -1.11022, 2.2676, 1.97438, 2.11213 ), AABB( -1.1338, 1.32472, -1.11022, 2.2676, 3.01166, 2.60204 ), AABB( -1.07447, 0.351826, -1.04669, 2.19074, 1.44286, 1.97325 ), AABB( 0.126167, 0.142356, -0.883634, 0.961996, 1.20022, 1.44678 ), AABB( -1.12157, 0.350905, -1.04669, 1.30502, 1.44378, 1.97325 ), AABB( -1.0885, 0.142356, -0.740951, 0.957454, 1.09228, 1.3041 ) ],
 "vertex_count": 2276
@@ -48,7 +47,6 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194903,
 "index_count": 15600,
-"material": ExtResource( 2 ),
 "primitive": 4,
 "skeleton_aabb": [ AABB( -1.28891, 0.331242, -1.22551, 2.57781, 2.7855, 2.3399 ), AABB( -1.28891, 0.892498, -1.22551, 2.57781, 2.22425, 2.3399 ), AABB( -1.28891, 1.25197, -2.02863, 2.57781, 2.25245, 3.14302 ), AABB( -1.28891, 1.30634, -1.22551, 2.57781, 3.18514, 2.8493 ), AABB( -1.22911, 0.331242, -1.15148, 2.50034, 1.43583, 2.18296 ), AABB( 0.0561592, -0.0127471, -0.955937, 1.18604, 1.34044, 1.60497 ), AABB( -1.27658, 0.334238, -1.15148, 1.39623, 1.43284, 2.18296 ), AABB( -1.24322, -0.0127471, -0.832237, 1.18052, 1.23956, 1.48127 ) ],
 "vertex_count": 2850
@@ -105,6 +103,64 @@ extents = Vector3( 50, 0, 50 )
 [sub_resource type="SphereShape" id=14]
 resource_local_to_scene = true
 radius = 10.0
+
+[sub_resource type="Animation" id=587]
+resource_name = "Dead"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/astronautred/Armature/Skeleton/Astronaut:material/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/astronautred/Armature/Skeleton/Astronaut:material/1:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=588]
+resource_name = "Hurt"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/astronautred/Armature/Skeleton/Astronaut:material/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0.992157, 1, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0.12549, 0.101961, 0.898039, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/astronautred/Armature/Skeleton/Astronaut:material/1:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0.992157, 1, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0.12549, 0.101961, 0.898039, 1 ), Color( 0, 0, 0, 1 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Idle"
@@ -306,8 +362,7 @@ tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = PoolRealArray( 0, 1, 0, 0, 0, -8.14603e-08, 0, 0, 1, 1, 1, 1, 0.533333, 1, 0, 0, 0, -8.14603e-08, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=5]
-resource_name = "Slam"
+[sub_resource type="Animation" id=586]
 length = 0.22
 step = 0.01
 tracks/0/type = "value"
@@ -426,16 +481,28 @@ damage = 45
 move_speed = 11
 MAX_HEART = 2500
 push_distance = 200
-modelAnimationPlayer = NodePath("AnimationPlayer")
+modelAnimationPlayer = NodePath("AnimationModel")
+enemyEffect = NodePath("EffectAnimation")
 heartBar = NodePath("HeartBar/UIControl/HeartBar")
 
 [node name="HeartBar" type="CanvasLayer" parent="." index="0"]
 
 [node name="UIControl" type="Control" parent="HeartBar" index="0"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="HeartBar" type="ProgressBar" parent="HeartBar/UIControl" index="0"]
+[node name="Label" type="Label" parent="HeartBar/UIControl" index="0"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -47.0
+margin_top = 51.0
+margin_right = 47.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 6 )
+text = "The Slamer"
+
+[node name="HeartBar" type="ProgressBar" parent="HeartBar/UIControl" index="1"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -460.0
@@ -500,8 +567,8 @@ bones/7/bound_children = [  ]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 9.77523e-08 )
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
-material/0 = null
-material/1 = null
+material/0 = ExtResource( 4 )
+material/1 = ExtResource( 2 )
 material/2 = null
 
 [node name="RayCast" parent="Body" index="1"]
@@ -522,14 +589,18 @@ disabled = true
 [node name="AttackTimer" parent="." index="6"]
 wait_time = 5.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
+[node name="EffectAnimation" type="AnimationPlayer" parent="." index="7"]
+anims/Dead = SubResource( 587 )
+anims/Hurt = SubResource( 588 )
+
+[node name="AnimationModel" type="AnimationPlayer" parent="." index="8"]
 root_node = NodePath("../Body/astronautred")
 anims/Idle = SubResource( 3 )
 anims/JumpUp = SubResource( 15 )
 anims/Run = SubResource( 4 )
-anims/Slam = SubResource( 5 )
+anims/Slam = SubResource( 586 )
 
-[node name="Particles" type="Particles" parent="." index="8"]
+[node name="Particles" type="Particles" parent="." index="9"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.8, 0 )
 material_override = SubResource( 7 )
 emitting = false
@@ -541,3 +612,5 @@ explosiveness = 0.87
 visibility_aabb = AABB( -4, -2.4, -4, 8, 4.8, 8 )
 process_material = SubResource( 10 )
 draw_pass_1 = SubResource( 11 )
+
+[connection signal="body_entered" from="SightRange" to="." method="_on_SightRange_body_entered"]
