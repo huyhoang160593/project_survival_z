@@ -29,7 +29,8 @@ func integrate_forces_rigidBody(body_state: PhysicsDirectBodyState) -> void:
 			body_state.linear_velocity = direction_vector
 
 			if (direction_vector.x != 0 and direction_vector.z != 0):
-				enemy.modelAnimationPlayer.play("Run")
+				if !enemy.modelAnimationPlayer.is_playing():
+					enemy.modelAnimationPlayer.play("Run")
 		MINI_STATE.ATTACK:
 			enemy.modelAnimationPlayer.play("Idle")
 			body_state.linear_velocity = Vector3.ZERO
@@ -55,16 +56,19 @@ func _on_AttackTimer_timeout() -> void:
 			enemy.Type.GUNNER:
 				currentState = MINI_STATE.ATTACK
 				GameEvents.emit_signal('gun_shot_event', enemy.rayCast, enemy.currentWeapon, enemy)
-	else:
+	elif currentState != MINI_STATE.FOLLOW:
+		currentState = MINI_STATE.FOLLOW
+	elif enemy.enemyType == enemy.Type.BOSS:
+		var modelAnimationPlayer = enemy.modelAnimationPlayer as AnimationPlayer
+		var player = enemy.target
+		modelAnimationPlayer.play("JumpUp")
+		yield(get_tree().create_timer(3.0),'timeout')
+		enemy.global_transform = player.global_transform
+		yield(get_tree().create_timer(1),'timeout')
+		enemy.target = player
+		modelAnimationPlayer.play("Slam")
 		currentState = MINI_STATE.FOLLOW
 	(enemy.attackTimer as Timer).start()
-
-func _on_AttackRange_body_entered(body: Node) -> void:
-	if body is Player:
-		match(enemy.enemyType):
-			enemy.Type.PUSHER:
-				var direction = enemy.target.global_transform.origin - enemy.global_transform.origin
-				var pushVector = direction.normalized() * enemy.push_distance
-				GameEvents.emit_signal('push_charater', pushVector)
-		GameEvents.emit_signal('heart_decrease', body, enemy.damage)
+	
+	
 

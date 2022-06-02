@@ -20,14 +20,14 @@ func _enter_tree() -> void:
 		weaponInstance = weaponScene.instance()
 	elif WeaponPickup == WeaponEnum.MACHINE_GUN:
 		weaponScene = load('res://src/weapons/projectile/MachineGun.tscn') as PackedScene
-		weaponType = Constants.Weapon.MAIN
+		weaponType = Constants.Weapon.SPECIAL
 		weaponInstance = weaponScene.instance()
 	elif WeaponPickup == WeaponEnum.PISTOL:
 		weaponScene = load('res://src/weapons/projectile/PistolGun.tscn') as PackedScene
 		weaponType = Constants.Weapon.SECOND
 		weaponInstance = weaponScene.instance()
 	elif WeaponPickup == WeaponEnum.KNIFE:
-		weaponScene = load('res://src/weapons/melee/Knife.gd') as PackedScene
+		weaponScene = load('res://src/weapons/melee/Knife.tscn') as PackedScene
 		weaponType = Constants.Weapon.MELEE
 		weaponInstance = weaponScene.instance()
 

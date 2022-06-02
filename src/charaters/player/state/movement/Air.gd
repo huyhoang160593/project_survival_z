@@ -37,6 +37,8 @@ func physics_update(delta: float) -> void:
 
 func exit() -> void:
 	timePass = 0
-	if gravity_value > 0.4:
-		var fall_damage := randomNumberGenerator.randfn(0.3, 0.2) * 100
+	if gravity_value > 0.47:
+		var fall_damage := randomNumberGenerator.randfn(gravity_value - 0.1, 0.1) * 100
+		fall_damage = floor(fall_damage)
+		
 		GameEvents.emit_signal('heart_decrease', player, fall_damage)

@@ -54,7 +54,7 @@ func _ready() -> void:
 	
 	balloon.rect_min_size = margin.rect_size
 	balloon.rect_size = Vector2(0, 0)
-	balloon.rect_global_position.y = balloon.get_viewport_rect().size.y - balloon.rect_size.y - 20
+	balloon.rect_global_position.y = balloon.get_viewport_rect().size.y - balloon.rect_size.y - 90
 	
 	# Ok, we can hide it now. It will come back later if we have any responses
 	responses_menu.visible = false

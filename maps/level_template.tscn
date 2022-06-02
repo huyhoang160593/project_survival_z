@@ -58,7 +58,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="FinishArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.390001, 6.48, 4.77 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57, 5.64, 1.47 )
 shape = SubResource( 301 )
 
 [node name="SkyBox" parent="." instance=ExtResource( 12 )]

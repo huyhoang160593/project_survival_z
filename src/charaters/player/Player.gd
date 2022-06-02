@@ -37,6 +37,7 @@ export(NodePath) onready var animationPlayer = get_node(animationPlayer) as Anim
 export(NodePath) onready var effectPlayer = get_node(effectPlayer) as AnimationPlayer
 export (NodePath) onready var crossHairNode = get_node(crossHairNode) as TextureRect
 
+var knifePickupSound: AudioStream = preload('res://assets/sounds/sfx/knife_pickup.wav')
 var gunPickUpSound: AudioStream = preload('res://assets/sounds/sfx/gun_reload_sound.wav')
 var healingSound: AudioStream = preload('res://assets/sounds/sfx/healing_sound_effect.wav')
 var hurtSound: AudioStream = preload('res://assets/sounds/sfx/hurt_sound.wav')
@@ -121,7 +122,12 @@ func on_pick_up_item_handle(itemNode: Spatial ,itemType: int, playerNode: Spatia
 				currentWeaponNode.visible = false
 		add_weapon(weaponType, weaponInstance)
 		currentWeapon = weaponType
-		GlobalSoundManager.play_sound(gunPickUpSound)
+
+		if weaponType == Constants.Weapon.MELEE:
+			GlobalSoundManager.play_sound(knifePickupSound)
+		else:
+			GlobalSoundManager.play_sound(gunPickUpSound)
+
 		GameEvents.emit_signal('weapon_change_success', weaponInstance)
 		GameEvents.emit_signal('pick_up_response', itemNode, true)
 		

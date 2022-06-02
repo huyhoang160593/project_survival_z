@@ -7,7 +7,7 @@ var stateDict = {
 	ALERT: "ALERT"
 }
 
-# Typed reference to the DummyEnemy node.
+# Typed reference to the Enemy node.
 var enemy: Enemy
 
 # Typed reference to the state machine node.

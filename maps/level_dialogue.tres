@@ -17,7 +17,7 @@ Tiến sĩ X: [speed=6][next=auto]Sử dụng phím [wave amp=25 freq=5]Space[/w
 ~ level_2
 Tiến sĩ X: [speed=6][next=auto]Xin chào, hôm nay là một ngày đẹp để chúng ta làm bài kiểm tra nhỉ đôi tượng #232...
 Tiến sĩ X: [speed=6][next=auto]Oh wao, chúng ta có một vài người bạn nhỏ dễ thương này, nhưng hãy cẩn thận nhé, chúng biết cắn đó
-Tiến sĩ X: [speed=6][next=auto]Ở đây hình như có [wave amp=25 freq=5]vũ khí[/wave] đấy, thử tìm xem. Nhớ là với súng ta có [wave amp=25 freq=5]chuột trái[/wave] để tấn công, [wave amp=25 freq=5]Chuột phải[/wave] để ngắm, và phím [wave amp=25 freq=5]R[/wave] để nạp đạn. Thay đổi vũ khí bằng các phím số tuỳ ý.
+Tiến sĩ X: [speed=6][next=auto]Ở đây hình như có [wave amp=25 freq=5]vũ khí[/wave] đấy, thử tìm xem. Nhớ là với súng ta có [wave amp=25 freq=5]chuột trái[/wave] để tấn công, [wave amp=25 freq=5]Chuột phải[/wave] để ngắm, và phím [wave amp=25 freq=5]R[/wave] để nạp đạn.
 Tiến sĩ X: Đừng làm mọi người thất vọng đấy.[shake rate=20 level=10]Và rồi ngươi sẽ thức dậy được thôi[/shake], hãy luôn nghe theo tiếng nhạc của con tim 
 
 ~ level_3_enchance
@@ -92,9 +92,9 @@ lines = {
 },
 "replacements": [  ],
 "speeds": [ [ 0, 6.0 ] ],
-"text": "Ở đây hình như có [wave amp=25 freq=5]vũ khí[/wave] đấy, thử tìm xem. Nhớ là với súng ta có [wave amp=25 freq=5]chuột trái[/wave] để tấn công, [wave amp=25 freq=5]Chuột phải[/wave] để ngắm, và phím [wave amp=25 freq=5]R[/wave] để nạp đạn. Thay đổi vũ khí bằng các phím số tuỳ ý.",
+"text": "Ở đây hình như có [wave amp=25 freq=5]vũ khí[/wave] đấy, thử tìm xem. Nhớ là với súng ta có [wave amp=25 freq=5]chuột trái[/wave] để tấn công, [wave amp=25 freq=5]Chuột phải[/wave] để ngắm, và phím [wave amp=25 freq=5]R[/wave] để nạp đạn.",
 "time": "auto",
-"translation_key": "Ở đây hình như có [wave amp=25 freq=5]vũ khí[/wave] đấy, thử tìm xem. Nhớ là với súng ta có [wave amp=25 freq=5]chuột trái[/wave] để tấn công, [wave amp=25 freq=5]Chuột phải[/wave] để ngắm, và phím [wave amp=25 freq=5]R[/wave] để nạp đạn. Thay đổi vũ khí bằng các phím số tuỳ ý.",
+"translation_key": "Ở đây hình như có [wave amp=25 freq=5]vũ khí[/wave] đấy, thử tìm xem. Nhớ là với súng ta có [wave amp=25 freq=5]chuột trái[/wave] để tấn công, [wave amp=25 freq=5]Chuột phải[/wave] để ngắm, và phím [wave amp=25 freq=5]R[/wave] để nạp đạn.",
 "type": "dialogue"
 },
 "13": {

@@ -22,7 +22,6 @@ func play_3D_sound(soundStream: AudioStream, parentNode: Spatial) -> void:
 		return
 	ownerParentNode.add_child(streamPlayer)
 	streamPlayer.global_transform = parentNode.global_transform
-	print(streamPlayer.global_transform.origin)
 	
 	streamPlayer.play()
 	yield(streamPlayer,'finished')

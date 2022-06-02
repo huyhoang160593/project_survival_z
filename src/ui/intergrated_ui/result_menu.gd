@@ -3,6 +3,7 @@ extends Control
 export(String, FILE) var mainMenuPath: String
 export(String, FILE) var currentLevel: String
 export(String, FILE) var nextLevel: String
+export var lastLever: bool
 
 var is_paused = false setget set_is_pause
 var missionFinished = null setget set_mission_finished
@@ -41,6 +42,7 @@ func set_mission_finished(value: bool) -> void:
 func _on_MainMenuBtn_pressed() -> void:
 	if (mainMenuPath.length() == 0):
 		printerr("Main Menu path not set, check the node")
+		return
 	get_tree().paused = false
 	SceneChanger.goto_scene(mainMenuPath)
 
@@ -48,11 +50,16 @@ func _on_MainMenuBtn_pressed() -> void:
 func _on_NextLoopBtn_pressed() -> void:
 	if (nextLevel.length() == 0):
 		printerr("NextLevel path not set, check and set in the inspector")
+		return
+	if lastLever:
+		SceneChanger.goto_scene(nextLevel)
+		return
 	SceneChanger.goto_scene(nextLevel, true)
 
 
 func _on_ResetLeverBtn_pressed() -> void:
 	if (currentLevel.length() == 0):
 		printerr("CurrentLevel path not set, check and set in the inspector")
+		return
 	get_tree().paused = false
 	SceneChanger.goto_scene(currentLevel)

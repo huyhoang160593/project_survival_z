@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/models/Weapon/knife/knife_sharp.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://src/weapons/melee/Knife.gd" type="Script" id=2]
@@ -6,7 +6,22 @@
 [ext_resource path="res://src/weapons/melee/meleeATTACK_NEW.tres" type="Animation" id=4]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.96, 0.36, 0.51 )
+extents = Vector3( 0.9, 0.6, 0.9 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Position3D:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
 
 [node name="Knife" type="Spatial"]
 script = ExtResource( 2 )
@@ -15,7 +30,7 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 1.2 )
 
 [node name="KnifeMesh" type="MeshInstance" parent="Position3D"]
-transform = Transform( 20, 0, 0, 0, 19.9999, 0, 0, 0, 20, 0, 0, -1.41 )
+transform = Transform( 12.8558, 0, -15.3209, 0, 19.9999, 0, 15.3209, 0, 12.8558, 1.22873, 0, -0.860365 )
 layers = 2
 mesh = ExtResource( 1 )
 skeleton = NodePath("../..")
@@ -37,11 +52,21 @@ __meta__ = {
 }
 
 [node name="Hitbox" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0 )
+collision_layer = 0
+collision_mask = 6
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="CollisionShape" type="CollisionShape" parent="Hitbox"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8895, 0.343743, -0.1875 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8895, -0.046257, -0.8175 )
 shape = SubResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/ATTACK = ExtResource( 4 )
+anims/RESET = SubResource( 2 )
 anims/RETURN = ExtResource( 3 )

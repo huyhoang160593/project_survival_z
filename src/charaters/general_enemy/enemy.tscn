@@ -8,12 +8,15 @@
 [sub_resource type="PhysicsMaterial" id=5]
 
 [sub_resource type="CapsuleShape" id=4]
+resource_local_to_scene = true
 height = 1.5
 
 [sub_resource type="SphereShape" id=6]
+resource_local_to_scene = true
 radius = 20.0
 
 [sub_resource type="SphereShape" id=7]
+resource_local_to_scene = true
 radius = 3.0
 
 [node name="GeneralEnemy" type="RigidBody"]
@@ -70,5 +73,5 @@ wait_time = 1.25
 
 [connection signal="body_entered" from="SightRange" to="StateMachine/IDLE" method="_on_Area_body_entered"]
 [connection signal="body_exited" from="SightRange" to="StateMachine/ALERT" method="_on_Area_body_exited"]
-[connection signal="body_entered" from="AttackRange" to="StateMachine/ALERT" method="_on_AttackRange_body_entered"]
+[connection signal="body_entered" from="AttackRange" to="." method="_on_AttackRange_body_entered"]
 [connection signal="timeout" from="AttackTimer" to="StateMachine/ALERT" method="_on_AttackTimer_timeout"]

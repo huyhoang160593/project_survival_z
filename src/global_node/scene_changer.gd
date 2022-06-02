@@ -6,13 +6,13 @@ onready var animationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	var root = get_tree().get_root()
-	current_scene = root.get_child(root.get_child_count() - 1) as Spatial
+	current_scene = root.get_child(root.get_child_count() - 1) as Node
 
 func play_transition_animation() -> void:
 	get_tree().paused = true
 	animationPlayer.play('moonknight_blink')
 	yield(animationPlayer,'animation_finished')
-	animationPlayer.play('RESET')
+	animationPlayer.play_backwards('fade_in')
 	get_tree().paused = false
 
 func goto_scene(path: NodePath, withAni = false):
@@ -49,3 +49,5 @@ func _deferred_goto_scene(path: NodePath, withAni: bool):
 		play_transition_animation()
 	else:
 		animationPlayer.play_backwards('fade_in')
+		yield(animationPlayer,'animation_finished')
+		get_tree().paused = false

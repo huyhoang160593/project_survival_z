@@ -23,6 +23,8 @@ func update(_delta: float) -> void:
 		active_state_machine.transition_to(Constants.EquipStateDict[Constants.CHANGE_WEAPON], {weaponIndex = Constants.Weapon.SECOND})
 	elif Input.is_action_just_pressed('melee_weapon'):
 		active_state_machine.transition_to(Constants.EquipStateDict[Constants.CHANGE_WEAPON], {weaponIndex = Constants.Weapon.MELEE})
+	elif Input.is_action_just_pressed('special_weapon'):
+		active_state_machine.transition_to(Constants.EquipStateDict[Constants.CHANGE_WEAPON], {weaponIndex = Constants.Weapon.SPECIAL})
 
 func _check_melee_input_requirement() -> bool:
 	return Input.is_action_just_pressed('attack') \
@@ -34,7 +36,7 @@ func _check_shoot_input_requirement() -> bool:
 		and player.currentWeapon != Constants.Weapon.MELEE
 
 func _check_ads_input_requirement() -> bool:
-	return Input.is_action_just_pressed('aim_down_sign') and player.currentWeapon != Constants.Weapon.MELEE
+	return Input.is_action_just_pressed('aim_down_sign') and player.currentWeapon != Constants.Weapon.MELEE and player.currentWeapon != Constants.Weapon.NONE
 
 func _check_reload_input_requirement() -> bool:
 	return Input.is_action_just_pressed('reload_ammo') and player.currentWeapon != Constants.Weapon.MELEE

@@ -82,7 +82,7 @@ font_data = ExtResource( 8 )
 script = ExtResource( 1 )
 levelZeroPath = "res://maps/level_0.tscn"
 changeLevelButton = NodePath("UI/MainControl/VBoxContainer/HBoxContainer/ChangeLevelButton")
-MAX_LEVEL = 3
+MAX_LEVEL = 4
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.352, -1.828, -0.117 )
